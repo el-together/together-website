@@ -1,0 +1,15 @@
+{
+  "name": "together-website",
+  "version": "1.0.0",
+  "description": "Together Solutions landing page",
+  "private": true,
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "twilio": "^4.20.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^16.0.0"
+  }
+}
