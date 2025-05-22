@@ -1571,14 +1571,24 @@ code {
 
 }
 
+.product-copy {
+    width: 100%;
+    text-align: center;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-top: 1rem;
+}
+
 .product-copy h2 {
     font-size: 1.4rem; /* Smaller for mobile */
     margin-bottom: 0.5rem;
+    max-width: 100%;
 }
 
 .product-copy p {
     font-size: 0.9rem; /* Smaller for mobile */
     color: var(--secondary-color);
+    max-width: 100%;
 }
 
 .product-placeholder {
@@ -1597,7 +1607,7 @@ code {
 /* Showcase carousel */
 .product-showcase {
     position: relative;
-    overflow: hidden; /* Cambiado a hidden para recortar elementos fuera del carrusel */
+    overflow: hidden; /* Recorte solo en versión móvil, modificado en media query para desktop */
     width: 100%;
     touch-action: pan-y pinch-zoom; /* Permitir desplazamiento vertical y zoom */
 }
@@ -1709,9 +1719,9 @@ code {
     
     /* Showcase for larger screens */
     .product-showcase {
-        gap: 2rem;
+        padding: 2rem 1rem;
+        overflow: visible; /* Eliminar recorte lateral en desktop */
         margin: 7rem 0 3rem 0;
-        padding: 2rem 0;
     }
     
     .showcase-track {

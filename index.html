@@ -112,23 +112,23 @@
             <div class="showcase-track">
                 <div class="showcase-slide active">
                     <img src="assets/homeShowcase/screen-project-1.png" alt="Captura de proyectos" class="product-image" />
-                    <div class="product-copy">
-                        <h2>Un proyecto para ti y los tuyos</h2>
-                        <p>Capturas, imágenes, videos, lo que sea.</p>
+                    <div class="product-copy" style="max-width: 90%; width: 400px;">
+                        <h2>A la medida de vuestra realidad</h2>
+                        <p>Sólo tú y los tuyos sabéis qué es lo mejor para gestionar vuestra vida. Es nuestra misión hacer una solución que te permita tenerlo fácilmente.</p>
                     </div>
                 </div>
                 <div class="showcase-slide">
                     <img src="assets/homeShowcase/screen-chat-2.png" alt="Captura de chat" class="product-image" />
-                    <div class="product-copy">
-                        <h2>Comparte fácilmente tu progreso</h2>
-                        <p>Mantén a tu equipo al tanto con actualizaciones claras.</p>
+                    <div class="product-copy" style="max-width: 90%; width: 400px;">
+                        <h2>Comunicación sin ruido</h2>
+                        <p>Todo está donde debe estar. Sin notificaciones innecesarias ni conversaciones perdidas. La comunicación directa y clara que siempre has deseado.</p>
                     </div>
                 </div>
                 <div class="showcase-slide">
                     <img src="assets/homeShowcase/screen-cal-3.png" alt="Captura de calendario" class="product-image" />
-                    <div class="product-copy">
-                        <h2>Organiza tus ideas</h2>
-                        <p>Convierte inspiración en acción rápidamente.</p>
+                    <div class="product-copy" style="max-width: 90%; width: 400px;">
+                        <h2>Todo en su lugar</h2>
+                        <p>Sin dudas sobre dónde encontrar esa información importante. Todos saben exactamente dónde está cada cosa, facilitando la organización diaria.</p>
                     </div>
                 </div>
             </div>
@@ -280,22 +280,32 @@
             const isMobile = window.innerWidth < 768;
             
             if (!isMobile) {
-                // VERSIÓN ESCRITORIO: Mantener comportamiento actual
-                // Si el ancho total del track es menor que el contenedor, centramos el contenido
+                // VERSIÓN ESCRITORIO
                 if (trackWidth <= containerWidth) {
+                    // Si el ancho total del track es menor que el contenedor, centramos el contenido
                     scrollPosition = (containerWidth - trackWidth) / 2;
                 } else {
-                    // Calculamos la posición máxima de desplazamiento (para que la última diapositiva quede alineada al borde derecho)
-                    const maxScroll = -(trackWidth - containerWidth);
-                    
-                    // Calculamos la posición para la diapositiva actual
-                    scrollPosition = -(showcaseCurrent * (slideWidth + gap));
-                    
-                    // Aseguramos que el desplazamiento nunca vaya más allá del límite derecho
-                    scrollPosition = Math.max(maxScroll, scrollPosition);
-                    
-                    // Y que nunca vaya más allá del límite izquierdo
-                    scrollPosition = Math.min(0, scrollPosition);
+                    // Alinear el primer slide a la izquierda cuando está activo
+                    if (showcaseCurrent === 0) {
+                        scrollPosition = 0;
+                    } 
+                    // Alinear el último slide a la derecha cuando está activo
+                    else if (showcaseCurrent === totalSlides - 1) {
+                        scrollPosition = -(trackWidth - containerWidth);
+                    } 
+                    // Para el resto de slides, calcular la posición para centrarlos
+                    else {
+                        // Calculamos cuánto espacio debe haber en cada lado para centrar el slide actual
+                        const slideCenter = (showcaseCurrent * (slideWidth + gap)) + (slideWidth / 2);
+                        const containerCenter = containerWidth / 2;
+                        
+                        // Calculamos la posición para centrar perfectamente el slide actual
+                        scrollPosition = containerCenter - slideCenter;
+                        
+                        // Limitar el desplazamiento para que no exceda los límites
+                        const maxScroll = -(trackWidth - containerWidth);
+                        scrollPosition = Math.max(maxScroll, Math.min(0, scrollPosition));
+                    }
                 }
             } else {
                 // VERSIÓN MÓVIL: Centrar perfectamente todas las diapositivas
