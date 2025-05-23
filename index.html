@@ -192,6 +192,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="js/api-config.js"></script>
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const iconMoon = document.getElementById('icon-moon');
@@ -477,18 +478,10 @@
             formFeedback.classList.add('success');
             
             try {
-                // Enviar petición a nuestra función serverless
-                const response = await fetch('/.netlify/functions/send-sms', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ phoneNumber, osType })
-                });
+                // Usar la función enviarSMS de api-config.js que detecta automáticamente el entorno
+                const result = await enviarSMS(phoneNumber, osType);
                 
-                const result = await response.json();
-                
-                if (response.ok) {
+                if (result.success) {
                     // Si todo va bien, mostrar mensaje de éxito
                     formFeedback.textContent = `SMS para ${osType} enviado correctamente!`;
                     // Start countdown
@@ -497,7 +490,20 @@
                     doneContainer.classList.remove('hidden');
                 } else {
                     // Si hay un error en la respuesta
-                    formFeedback.textContent = `Error: ${result.error || 'No se pudo enviar el SMS'}`;
+                    let errorMsg = result.error || 'No se pudo enviar el SMS';
+                    
+                    // Mostrar detalles adicionales si existen
+                    if (result.details) {
+                        errorMsg += `: ${result.details}`;
+                    }
+                    
+                    // Mostrar información de tipo de error si existe
+                    if (result.errorType) {
+                        console.error(`Tipo de error: ${result.errorType}`);
+                        console.error(`Detalles completos:`, result);
+                    }
+                    
+                    formFeedback.textContent = `Error: ${errorMsg}`;
                     formFeedback.classList.remove('success');
                     formFeedback.classList.add('error');
                     // Re-habilitar los botones
