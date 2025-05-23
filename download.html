@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Descarga - Together App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        .download-hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .download-hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Usando exactamente el mismo estilo de botones que la página principal */
+        .btn-cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--primary-color);
+            font-family: "Domine", serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid var(--primary-color);
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+            box-shadow: none;
+            cursor: pointer;
+        }
+        
+        .btn-cta:hover {
+            background: var(--primary-color);
+            color: var(--background-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-cta:active {
+            transform: translateY(0);
+        }
+        
+        .ios-instructions {
+            background-color: var(--item-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+        
+        .ios-instructions h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .ios-instructions ol {
+            padding-left: 1.5rem;
+        }
+        
+        .ios-instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .pioneer-badge {
+            display: inline-block;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            letter-spacing: 1px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+        
+        .pioneer-badge::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 60px;
+            height: 1px;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        
+        @media (min-width: 768px) {
+            .download-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .download-btn {
+                min-width: 200px;
+            }
+        }
+    </style>
+    <script>
+        (() => {
+            const saved = localStorage.getItem('theme');
+            const theme = saved ? saved : 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img class="logo-svg" src="assets/logo.svg" alt="Together logo" width="240"/>
+                <h1>Together</h1>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <img id="icon-moon" src="assets/icon-moon.svg" alt="Tema oscuro" width="24" height="24" style="display: none;" />
+                <img id="icon-sun" src="assets/icon-sun.svg" alt="Tema claro" width="24" height="24" style="display: block;" />
+            </button>
+        </div>
+    </header>
+    
+    <main>
+        <section class="download-hero">
+            <span class="pioneer-badge">Early Access</span>
+            <h2>¡Gracias por ser parte de nuestros pioneros!</h2>
+            <p>Estamos encantados de que quieras probar Together en su fase inicial. Tu feedback será fundamental para mejorar nuestra aplicación.</p>
+            
+            <div class="download-buttons">
+                <a href="#android-download" class="btn-cta" id="android-btn">Descargar para Android</a>
+                <a href="#ios-download" class="btn-cta" id="ios-btn">Descargar para iOS</a>
+            </div>
+            
+            <div class="ios-instructions" id="ios-download" style="display: none;">
+                <h3>Instrucciones para iOS (TestFlight)</h3>
+                <p>Nuestra app para iOS está actualmente en TestFlight, lo que significa que estás accediendo a una versión de prueba.</p>
+                <ol>
+                    <li>Descarga la aplicación TestFlight desde la App Store si aún no la tienes.</li>
+                    <li>Haz clic en el siguiente enlace desde tu dispositivo iOS para unirte a nuestro programa de pruebas: <a href="https://apple.co/4dgigzl" id="testflight-link">Unirse a TestFlight</a></li>
+                    <li>Sigue las instrucciones en TestFlight para instalar Together.</li>
+                    <li>Una vez instalada, podrás usar la app normalmente y recibirás actualizaciones a través de TestFlight.</li>
+                </ol>
+                <p>Nota: Como beta tester, puedes encontrar algunos problemas o funcionalidades incompletas. ¡Tu feedback es valioso para nosotros!</p>
+            </div>
+            
+            <div id="android-download" style="display: none;">
+                <div class="ios-instructions">
+                    <h3>Descarga para Android</h3>
+                    <p>Para instalar nuestra aplicación en tu dispositivo Android:</p>
+                    <ol>
+                        <li>Haz clic en el siguiente enlace para descargar el APK directamente: <a href="https://bit.ly/3GZYWdB" id="android-link">Descargar APK</a></li>
+                        <li>Es posible que debas permitir la instalación de aplicaciones de fuentes desconocidas en la configuración de tu dispositivo.</li>
+                        <li>Una vez descargado, abre el archivo APK para comenzar la instalación.</li>
+                    </ol>
+                    <p>Pronto estaremos disponibles en Google Play. ¡Gracias por ser parte de nuestros primeros usuarios!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 Together Solutions S.L.</p>
+            <div class="footer-links">
+                <a href="legal.html" class="footer-link">Aviso legal</a>
+                <span class="footer-separator">·</span>
+                <a href="privacy.html" class="footer-link">Política de privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const iconMoon = document.getElementById('icon-moon');
+        const iconSun = document.getElementById('icon-sun');
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            if (newTheme === 'dark') {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'block';
+            } else {
+                iconMoon.style.display = 'block';
+                iconSun.style.display = 'none';
+            }
+        });
+        
+        // Download buttons functionality
+        const androidBtn = document.getElementById('android-btn');
+        const iosBtn = document.getElementById('ios-btn');
+        const iosInstructions = document.getElementById('ios-download');
+        const androidDownload = document.getElementById('android-download');
+        
+        androidBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            iosInstructions.style.display = 'none';
+            androidDownload.style.display = 'block';
+            // Scroll to android section
+            androidDownload.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        iosBtn.addEventListener('click', (e) => {
+            // Redirigir directamente a la App Store para iOS
+            window.location.href = iosDirectLink;
+        });
+        
+        // Initialize theme display
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'dark') {
+            iconMoon.style.display = 'none';
+            iconSun.style.display = 'block';
+        } else {
+            iconMoon.style.display = 'block';
+            iconSun.style.display = 'none';
+        }
+        
+        // Enlaces actualizados con las URLs proporcionadas
+        document.getElementById('testflight-link').href = "https://apple.co/4dgigzl";
+        document.getElementById('android-link').href = "https://bit.ly/3GZYWdB";
+        
+        // Enlace directo de iOS - lo usamos para redirigir si el usuario hace clic en el botón iOS
+        const iosDirectLink = "https://apple.co/3H35bNK";
+    </script>
+</body>
+</html>
