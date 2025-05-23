@@ -6,14 +6,16 @@
 
 // Función que devuelve la URL correcta de la API según el entorno
 function getSmsApiUrl() {
-  // Detectar si estamos en GitHub Pages o en Netlify
-  const isGitHubPages = window.location.hostname.includes('github.io');
+  // Detectar si estamos en un entorno de producción que no es Netlify
+  const hostname = window.location.hostname;
+  const isNetlify = hostname.includes('netlify.app') || hostname.includes('windsurf.build');
   
-  if (isGitHubPages) {
-    // URL de la API en producción (usando el despliegue de Netlify como backend)
+  if (!isNetlify) {
+    // Si estamos en un dominio personalizado o en GitHub Pages, usar la URL completa
+    // de la función en Netlify
     return 'https://together-website.windsurf.build/.netlify/functions/send-sms';
   } else {
-    // URL relativa para pruebas en Netlify (mismo dominio)
+    // Estamos en Netlify, usar la URL relativa
     return '/.netlify/functions/send-sms';
   }
 }
