@@ -99,7 +99,7 @@ exports.handler = async function(event, context) {
     let messageBody;
     
     if (osType === 'Android') {
-      messageBody = `📱 ¡Hola! Gracias por tu interés en Together. Aquí tienes el enlace para descargar la app para Android: https://bit.ly/3GZYWdB \n\nEquipo Together`;
+      messageBody = `📱 ¡Hola! Gracias por tu interés en Together. Aquí tienes el enlace para descargar la app para Android: https://bit.ly/4mVv42P \n\nEquipo Together`;
     } else {
       messageBody = `📱 ¡Hola! Gracias por tu interés en Together. Aquí tienes el enlace para descargar la app para iPhone: https://apple.co/3H35bNK \n\nEquipo Together`;
     }
