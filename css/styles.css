@@ -1203,7 +1203,7 @@ code {
     cursor: pointer;
     margin: 0;
     padding: 0.75rem 0; /* Consistent vertical padding */
-    height: 64px; /* Slightly taller fixed height for collapsed state */
+    min-height: 64px; /* Changed from fixed height to min-height */
     display: flex;
     align-items: center;
     justify-content: center; /* Center content vertically */
