@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Contacto - Together.day</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/support.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+    <script>
+        (() => {
+            const saved = localStorage.getItem('theme');
+            const theme = saved ? saved : 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="../index.html">
+                    <img class="logo-svg" src="../assets/logo.svg" alt="Together logo" width="240"/>
+                    <h1>Together</h1>
+                </a>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <img id="icon-moon" src="../assets/icon-moon.svg" alt="Tema oscuro" width="24" height="24" style="display: none;" />
+                <img id="icon-sun" src="../assets/icon-sun.svg" alt="Tema claro" width="24" height="24" style="display: block;" />
+            </button>
+        </div>
+    </header>
+    
+    <main class="support-main">
+        <div class="support-container">
+            <div class="support-header">
+                <h1>¿Quieres decirle algo a los fundadores?</h1>
+                <p class="support-subtitle">Comparte tu feedback, solicita ayuda, propón colaboraciones o simplemente cuéntanos qué piensas sobre Together.</p>
+            </div>
+
+            <div class="support-content">
+                <form class="support-form" id="supportForm">
+                    <div class="form-group">
+                        <label for="fullName">Nombre completo</label>
+                        <input 
+                            type="text" 
+                            id="fullName" 
+                            name="fullName" 
+                            placeholder="Tu nombre y apellido"
+                            required
+                            autocomplete="name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="tu@email.com"
+                            required
+                            autocomplete="email"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tu mensaje</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            placeholder="Cuéntanos qué tienes en mente..."
+                            rows="6"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Enviar mensaje</span>
+                        <span class="btn-loading" style="display: none;">Enviando...</span>
+                    </button>
+                </form>
+
+                <div class="success-message" id="successMessage" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h3>¡Mensaje enviado!</h3>
+                    <p>Gracias por contactarnos. Te responderemos en las próximas 24 horas.</p>
+                    <button class="new-message-btn" onclick="resetForm()">Enviar otro mensaje</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 Together Solutions S.L.</p>
+            <div class="footer-links">
+                <a href="../legal.html" class="footer-link">Aviso legal</a>
+                <span class="footer-separator">·</span>
+                <a href="../privacy.html" class="footer-link">Política de privacidad</a>
+                <span class="footer-separator">·</span>
+                <a href="../index.html" class="footer-link">Inicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const iconMoon = document.getElementById('icon-moon');
+        const iconSun = document.getElementById('icon-sun');
+
+        function updateThemeIcons() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'block';
+            } else {
+                iconMoon.style.display = 'block';
+                iconSun.style.display = 'none';
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcons();
+        });
+
+        // Initialize theme icons
+        updateThemeIcons();
+
+        // Form handling
+        const supportForm = document.getElementById('supportForm');
+        const successMessage = document.getElementById('successMessage');
+        const WEBHOOK_URL = 'https://togetherapp.app.n8n.cloud/webhook/7687777a-c83d-4a6d-8c8f-4e429ba3094c';
+
+        supportForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = supportForm.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(supportForm);
+            
+            // Format data according to n8n webhook expectations
+            const payload = {
+                body: {
+                    payload: {
+                        data: {
+                            'NAME AND LAST NAME': formData.get('fullName'),
+                            'EMAIL': formData.get('email'),
+                            'Field': formData.get('message')
+                        }
+                    }
+                }
+            };
+            
+            try {
+                // Send data to n8n webhook
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                
+                // Show success message
+                supportForm.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+            } catch (error) {
+                console.error('Error sending message:', error);
+                alert('Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.');
+            } finally {
+                // Reset button state
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Function to log submission for debugging
+        function logSubmission(data) {
+            console.log('Form data sent to webhook:', data);
+        }
+
+        // Reset form function
+        function resetForm() {
+            supportForm.reset();
+            supportForm.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+        // Auto-resize textarea
+        const textarea = document.getElementById('message');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
+
+        // Form validation enhancements
+        const inputs = supportForm.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', () => {
+                clearFieldError(input);
+                validateFormCompletion();
+            });
+        });
+
+        // Initial form validation check
+        validateFormCompletion();
+
+        function validateFormCompletion() {
+            const submitBtn = supportForm.querySelector('.submit-btn');
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Check if all fields are filled and email is valid
+            const isEmailValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            const isFormComplete = fullName && isEmailValid && message;
+            
+            if (isFormComplete) {
+                submitBtn.classList.remove('form-incomplete');
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.classList.add('form-incomplete');
+                submitBtn.disabled = true;
+            }
+        }
+
+        function validateField(e) {
+            const field = e.target;
+            const value = field.value.trim();
+            
+            // Remove existing error styling
+            field.classList.remove('error');
+            
+            // Validate based on field type
+            if (field.type === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    field.classList.add('error');
+                }
+            }
+            
+            if (field.required && !value) {
+                field.classList.add('error');
+            }
+            
+            // Re-validate form completion after field validation
+            validateFormCompletion();
+        }
+
+        function clearFieldError(field) {
+            field.classList.remove('error');
+        }
+    </script>
+</body>
+</html>
