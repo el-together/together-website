@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Chip y la IA - Together.day</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chip.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+    <script>
+        (() => {
+            const saved = localStorage.getItem('theme');
+            const theme = saved ? saved : 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img class="logo-svg" src="assets/logo.svg" alt="Together logo" width="240"/>
+                    <h1>Together</h1>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="features.html" class="nav-link">Funcionalidades disponibles</a></li>
+                    <li><a href="chip.html" class="nav-link active">Chip y la IA</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <img id="icon-moon" src="assets/icon-moon.svg" alt="Tema oscuro" width="24" height="24" style="display: none;" />
+                <img id="icon-sun" src="assets/icon-sun.svg" alt="Tema claro" width="24" height="24" style="display: block;" />
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero section -->
+        <section class="hero">
+            <p class="last-updated">Walter Kobylanski &#183; <time datetime="2025-06-23">23/06/2025</time> &#183; <a href="#" id="copy-link">copiar enlace</a></p>
+            <h2>Chip y la IA</h2>
+            <p class="hero-text">Te contamos cómo hemos integrado la IA en Together, lo que pensamos al respecto y cómo intentamos obtener lo mejor de esta tecnología.</p>
+        </section>
+
+        <!-- Page content -->
+        <section class="page-content">
+            <h3>La honestidad como valor fundamental</h3>
+            <p>Ser honestos es un principio fundamental para nosotros, porque creemos que es la base para merecernos la confianza de nuestros usuarios. Por eso, en cuanto a la IA, lo primero que queremos que sepas es que estamos, como todos los que estamos trabajando con esta tecnología, aprendiendo día a día a sacarle el máximo partido a esta tecnología.</p>
+            <p>Cuando empezamos este proyecto ya teníamos claro que nuestro producto tenía que estar diseñado para interactuar plenamente con ella, principalmente porque la veíamos como un medio para cumplir con nuestro objetivo: facilitarle la vida a nuestro usuarios. Lo que sí es cierto es que lo veíamos en un roadmap futuro sin imaginarnos que en 2025 íbamos a tener lo que tenemos hoy.</p>
+            <p>Empezamos por querer brindar la opción de dar comandos de voz básicos para añadir eventos a querer que puedas hablar con naturalidad y que podamos convertir en acciones la mayoría de cosas que nos puedas pedir (en el ámbito de organizar y gestionar tu día a día).</p>
+            <p>Así que ahora que hemos dejado claro que no nos gusta ser vende-motos podemos pasar a contarte todo lo que hemos hecho al respecto hasta ahora compartiendo algunos de los motivos por los que es así.</p>
+
+            <h3>¿Quién o qué es Chip?</h3>
+
+            <p>Chip es la forma en que llamamos a las interacciones de IA en Together y se corresponde con las siglas <em>Computer Human Interface Protocol</em>. Las siglas las asignamos después de tener el nombre y nos hubiera encantado que fuera al revés.</p>
+
+            <p>Siendo más precisos, <strong>Chip es el conjunto de interfaces y procesos que convierten intenciones de usuarios en acciones y respuestas que les puedan ser útiles mediante la intervención de modelos de IA.</strong></p>
+
+            <p>Together no es una empresa de IA, es una empresa que crea una solución que quiere hacer accesible lo mejor de la IA (que otros crean) para hacer más fácil nuestra vida diaria.</p>
+
+            <h3>¿Qué hace Chip?</h3>
+            <p>Actualmente Chip lee transcripciones de comandos de voz que le envías para que siga todos estos pasos (que pueden cambiar sin previo aviso):</p>
+
+            <ol>
+                <li>Analiza el comando de voz que le envías para entender lo que quieres hacer.</li>
+                <li>Si no puede hacer lo que le pides, te avisa.</li>
+                <li>Analiza cómo te organizas en Together</li>
+                <li>Determina y obtiene información que pueda ser necesario para cumplir tu solicitud</li>
+                <li>Si es una pregunta, te responde lo mejor que el modelo LLM le permita hacerlo.</li>
+                <li>Si puede ejecutar las acciones, hace la mejor propuesta que pueda dar.</li>
+                <li>Lo más importante: las propuestas solo se ejecutan si las aceptas, es decir, <strong>nunca va a hacer nada que no le hayas dado permiso para hacer.</strong></li>
+            </ol>
+
+            <p>Teniendo en cuenta que estamos haciendo lo posible por mantener la promesa de "no tienes que aprender a hablarle" (como con otros asistentes que muchos conocemos) y que puedes hablarle en muchísimos idiomas, ha sido un reto fantástico llegar hasta donde estamos hoy.</p>
+
+            <h3>Las cosas que no hacemos</h3>
+            <p>Ya aclaramos antes que nosotros no "hacemos IA", la integramos en el producto y la implementamos para generar buenas experiencias para los que usamos el producto.</p>
+            <p>También te hemos dicho que Chip no realiza acciones sin tu consentimiento explícito.</p>
+            <p>Chip no hace nada si no lo invocas, es decir, no está analizando nada de lo que haces, solo entra en escena cuando se lo pides y en cada ejecución nos esforzamos porque acceda únicamente a la información que sea necesaria.</p>
+            <p>Lo hacemos así porque si le damos la información exacta que necesita para que pueda cumplir tu solicitud, es más rápido, da mejores resultados y el coste económico es menor. Un ejemplo: en la mayoría de ejecuciones, ni siquiera sabe como te llamas.</p>
+
+            <h3>Nuestro futuro va de la mano del futuro de Chip</h3>
+            <p>En el momento que lees esto, nuestra idea es que la app, sin el uso de la IA, sea gratuita de usar.</p>
+            <p>Soñamos con intensidad y creemos que la forma de que esta solución sea lo mejor posible pasa porque puedas colaborar con el máximo número de personas. Por tanto todo lo que haya ahora mismo, se puede usar "como siempre" creando elementos como mensajes y eventos a mano y nuestro modelo de negocio se basará en la comercialización de las ejecuciones de Chip.</p>
+            <p>Ahora mismo Chip se puede usar sin límites, pero no será siempre así.</p>
+            <p>No podemos prometer nada, falta entender y comprobar muchas cosas, pero nos gustaría poder ofrecer un par de ejecuciones gratuitas cada X tiempo para que puedas aprovecharlo de forma limitada.</p>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 Together Solutions S.L.</p>
+            <div class="footer-links">
+                <a href="legal.html" class="footer-link">Aviso legal</a>
+                <span class="footer-separator">·</span>
+                <a href="privacy.html" class="footer-link">Política de privacidad</a>
+                <span class="footer-separator">·</span>
+                <a href="humans.html" class="footer-link">Quién está detrás</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Copiar la URL actual al portapapeles
+        document.getElementById('copy-link').addEventListener('click', function (e) {
+            e.preventDefault();
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                this.innerText = 'enlace copiado';
+                setTimeout(() => {
+                    this.innerText = 'copiar enlace';
+                }, 2000);
+            });
+        });
+    </script>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const iconMoon = document.getElementById('icon-moon');
+        const iconSun = document.getElementById('icon-sun');
+
+        function updateThemeIcons(theme) {
+            if (theme === 'dark') {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'block';
+            } else {
+                iconMoon.style.display = 'block';
+                iconSun.style.display = 'none';
+            }
+        }
+
+        // Initialize theme icons
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        updateThemeIcons(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcons(newTheme);
+        });
+    </script>
+    <script src="js/nav-toggle.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+/* Mobile timeline continuous dashed line override */
+
+@media (max-width: 640px) {
+  .features-timeline {
+    position: relative;
+  }
+
+  .features-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0; /* aligns with first dot */
+    bottom: 0; /* stretches to last item */
+    left: 9px; /* center of the 18px dot (12px + 3px border) */
+    width: 2px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--accent-color) 0 6px,
+      transparent 6px 12px
+    );
+    z-index: 0;
+  }
+
+  /* remove individual connectors to avoid gaps */
+  .timeline-item .timeline-dot::after {
+    display: none;
+  }
+
+  .timeline-dot {
+    position: relative;
+    z-index: 1; /* keeps dots above the line */
+  }
+}

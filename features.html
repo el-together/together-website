@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Funcionalidades - Together.day</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/features.css">
+    <link rel="stylesheet" href="css/timeline-mobile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+    <script>
+        (() => {
+            const saved = localStorage.getItem('theme');
+            const theme = saved ? saved : 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img class="logo-svg" src="assets/logo.svg" alt="Together logo" width="240"/>
+                    <h1>Together</h1>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="features.html" class="nav-link active">Funcionalidades disponibles</a></li>
+                    <li><a href="chip.html" class="nav-link">Chip y la IA</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <img id="icon-moon" src="assets/icon-moon.svg" alt="Tema oscuro" width="24" height="24" style="display: none;" />
+                <img id="icon-sun" src="assets/icon-sun.svg" alt="Tema claro" width="24" height="24" style="display: block;" />
+            </button>
+        </div>
+    </header>
+    
+    <main>
+        <section class="features-timeline">
+            <h2>Disponible en la próxima release</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-date" data-date="2025-06-30">2025-06-30</span>
+                <div class="timeline-content">
+                    <strong class="timeline-title">Chip te avisa al instante si no puede hacer lo que le pides</strong>
+                    <span class="timeline-desc">Hemos añadido un sistema de detección temprana de cosas que Chip aún no puede hacer. La mayoría de las cosas que hemos detectado son parte del roadmap y muchas de ellas se pueden hacer manualmente.</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-date" data-date="2025-06-27">2025-06-27</span>
+                <div class="timeline-content">
+                    <strong class="timeline-title">Ya puedes enviar mensajes directos con Chip</strong>
+                    <span class="timeline-desc">Hasta ahora sólo podíamos usar los comandos de voz para enviar mensajes a los chats de los proyectos. Creemos que esto lo vais a usar bastante, a nosotros nos gusta muchísimo.</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-date" data-date="2025-06-24">2025-06-24</span>
+                <div class="timeline-content">
+                    <strong class="timeline-title">Ya puedes invitar a usuarios a tus proyectos con Chip</strong>
+                    <span class="timeline-desc">Chip, nuestra forma de llamar las interacciones de IA, ya puede invitar a otros usuarios de Together que conozcas a tus proyectos.</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features-table-section">
+            <h2>Todo lo puedes hacer hoy en la app</h2>
+            <p class="tagline">sin usar a Chip (IA)</p>
+            
+            <table class="features-table">
+                <thead>
+                    <tr>
+                        <th>Funcionalidad</th>
+                        <th>Utilidad</th>
+                        <th>Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="group-header">
+                        <td colspan="3"><strong>Desde la home</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Crear un clip de texto</td>
+                        <td>Apuntar en un momento aquello de lo que no te quieres olvidar</td>
+                        <td>Guarda fragmentos de texto rápidamente para poder usarlos cuando lo necesites de forma similar a lo que harías con post-its en tu escritorio.</td>
+                    </tr>
+                    <tr>
+                        <td>Guardar una foto en tus clips</td>
+                        <td>Recordatorios visuales siempre a la vista</td>
+                        <td>Guarda fotos de cosas que te guste ver con frecuencia o con información a la que puedes acceder más tarde</td>
+                    </tr>
+                    <tr>
+                        <td>Consultar sección Next</td>
+                        <td>Todo tu calendario, de un vistazo</td>
+                        <td>Next muestra los eventos de todos tus calendarios ordenados por proximidad para que sepas qué viene a continuación sin abrumarte con el resto de la semana o del mes.</td>
+                    </tr>
+                    <tr>
+                        <td>Consultar sección Recent</td>
+                        <td>Accesos directos a lo último que has usado</td>
+                        <td>Recent crea atajos automáticos a los archivos y conversaciones que has abierto o modificado recientemente, para que retomes tu trabajo sin perder tiempo buscándolos.</td>
+                    </tr>
+                    <tr>
+                        <td>Acceso a contactos</td>
+                        <td>Invita y colabora con quien necesites</td>
+                        <td>Accede a tu lista de contactos para ver quiénes ya usan la app e invita a cualquier persona de tu agenda; solo si nos lo pides les enviamos un SMS y nunca enviamos notificaciones a terceros.</td>
+                    </tr>
+                    <tr class="group-header">
+                        <td colspan="3"><strong>Mensajería directa</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Spaces > projects > tools </td>
+                        <td>Organiza tus proyectos y herramientas</td>
+                        <td>Organiza tus proyectos y herramientas de forma jerárquica para que puedas acceder a ellas de forma rápida y eficiente</td>
+                    </tr>
+                    <tr>
+                        <td>Compartir espacios de trabajo</td>
+                        <td>Colaboración eficiente en tiempo real</td>
+                        <td>Invita a colaboradores a tus espacios de trabajo para editar documentos simultáneamente. Perfecto para proyectos en equipo y toma de decisiones colectivas.</td>
+                    </tr>
+                    <tr class="group-header">
+                        <td colspan="3"><strong>Espacios</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Crear espacios</td>
+                        <td>Elige áreas de tu vida para gestionar</td>
+                        <td>Los espacios son una forma personal de organizar tus proyectos por ámbitos vitales y poder organizar y encontrar todo más fácilmente.</td>
+                    </tr>
+                    <tr class="group-header">
+                        <td colspan="3"><strong>Proyectos</strong></td>
+                    </tr>                    
+                    <tr>
+                        <td>Crear proyectos</td>
+                        <td>Progresa en tus objetivos, colaborando o individualmente.</td>
+                        <td>Los proyectos sirven para poder organizar y avanzar en tus objetivos. Puedes colaborar invitando a otras personas o avanzar individualmente.</td>
+                    </tr>   
+                    <tr>
+                        <td>Personaliza tus proyectos</td>
+                        <td>Haz que sean fácilmente reconocibles</td>
+                        <td>Hemos reservado el uso del color en la app para los proyectos. Elige una combinación de color, icono y nombre que te ayude a identificar fácilmente tus proyectos.</td>
+                    </tr>   
+                </tbody>
+            </table>
+        </section>
+
+        <section class="upcoming-info container">
+            <h2>Hay mucho más que añadir</h2>
+            <p>Sabemos que todavía faltan muchas funcionalidades arriba, pero estamos documentándolas una a una.</p>
+            <ul>
+                <li>Cada pocos días añadimos nuevas filas con funciones que ya existen en la app.</li>
+                <li>En breve incorporaremos también todo lo que puedes hacer con Chip.</li>
+            </ul>
+            <p>Mientras tanto, explora la app y descubre todo lo que ya está disponible.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 Together Solutions S.L.</p>
+            <div class="footer-links">
+                <a href="legal.html" class="footer-link">Aviso legal</a>
+                <span class="footer-separator">·</span>
+                <a href="privacy.html" class="footer-link">Política de privacidad</a>
+                <span class="footer-separator">·</span>
+                <a href="humans.html" class="footer-link">Quién está detrás</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const iconMoon = document.getElementById('icon-moon');
+        const iconSun = document.getElementById('icon-sun');
+
+        function updateThemeIcons(theme) {
+            if (theme === 'dark') {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'block';
+            } else {
+                iconMoon.style.display = 'block';
+                iconSun.style.display = 'none';
+            }
+        }
+
+        // Initialize theme icons
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        updateThemeIcons(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcons(newTheme);
+        });
+
+        // Timeline date management
+        function updateTimelineDates() {
+            const timelineDates = document.querySelectorAll('.timeline-date');
+
+            function formatTimeAgo(date) {
+                const now = new Date();
+                const diffTime = now - date;
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                const diffWeeks = Math.floor(diffDays / 7);
+                const diffMonths = Math.floor(diffDays / 30);
+
+                // Choose the most "recent" feeling option
+                if (diffDays === -1) {
+                    return 'Mañana';
+                } else if (diffDays < -1) {
+                    return `En ${Math.abs(diffDays)} días`;
+                } else if (diffDays === 0) {
+                    return 'Hoy';
+                } else if (diffDays === 1) {
+                    return 'Ayer';
+                } else if (diffDays <= 6) {
+                    return `Hace ${diffDays} días`;
+                } else if (diffDays <= 13) {
+                    return 'La semana pasada';
+                } else if (diffWeeks <= 3) {
+                    return `Hace ${diffWeeks} semanas`;
+                } else if (diffDays <= 45) {
+                    return 'Este mes';
+                } else if (diffDays <= 75) {
+                    return 'El mes pasado';
+                } else {
+                    return 'Hace ya un tiempo';
+                }
+            }
+
+            // Update each timeline date element
+            timelineDates.forEach((dateElement) => {
+                const date = new Date(dateElement.getAttribute('data-date'));
+                dateElement.textContent = formatTimeAgo(date);
+            });
+        }
+
+        // Update dates on page load
+        updateTimelineDates();
+
+        // Optional: Update dates every hour to keep them current
+        setInterval(updateTimelineDates, 3600000); // 1 hour = 3600000ms
+    </script>
+    <script src="js/nav-toggle.js"></script>
+</body>
+</html>
