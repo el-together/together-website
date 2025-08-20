@@ -25,6 +25,12 @@
                 <img class="logo-svg" src="assets/logo.svg" alt="Together logo" width="240"/>
                 <h1>Together</h1>
             </div>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="features.html" class="nav-link">Funcionalidades disponibles</a></li>
+                    <li><a href="chip.html" class="nav-link">Chip y la IA</a></li>
+                </ul>
+            </nav>
             <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
                 <img id="icon-moon" src="assets/icon-moon.svg" alt="Tema oscuro" width="24" height="24" style="display: none;" />
                 <img id="icon-sun" src="assets/icon-sun.svg" alt="Tema claro" width="24" height="24" style="display: block;" />
@@ -37,7 +43,7 @@
         <section class="hero">
             <h2>Haciendo más fácil nuestro día a día.</h2>
             <p class="hero-text">Juntamos <kbd>herramientas</kbd> + <kbd>IA</kbd> + <kbd>colaboración</kbd> para que hacer cosas sea más sencillo y efectivo.</p>
-            <a href="#" class="btn-cta" id="cta-button">Acceso anticipado a la beta</a>
+            <a href="#" class="btn-cta" id="cta-button">Acceso inmediato a la beta</a>
         </section>
 
         <div class="bento-grid">
@@ -164,7 +170,8 @@
     <div id="phone-overlay" class="phone-overlay">
         <div class="overlay-content">
             <button class="close-overlay" id="close-overlay">&times;</button>
-            <h2>Acceso anticipado</h2>
+            <h2>Descarga la beta</h2>
+            <p>Ya puedes descargar la beta de la app para Android e iOS (usando Testflight, la plataforma de Apple para beta testing).</p>
             <p>Introduce tu número de teléfono y te enviaremos un SMS con el enlace para acceder a la beta.</p>
             
             <form id="phone-form" class="phone-form">
@@ -599,6 +606,7 @@
             });
         });
     </script>
+    <script src="js/nav-toggle.js"></script>
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
 </html>
