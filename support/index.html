@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>Contacto - Together.day</title>
+    <title>Contact - Together.day</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/support.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,9 +27,9 @@
                     <h1>Together</h1>
                 </a>
             </div>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-                <img id="icon-moon" src="../assets/icon-moon.svg" alt="Tema oscuro" width="24" height="24" style="display: none;" />
-                <img id="icon-sun" src="../assets/icon-sun.svg" alt="Tema claro" width="24" height="24" style="display: block;" />
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <img id="icon-moon" src="../assets/icon-moon.svg" alt="Dark theme" width="24" height="24" style="display: none;" />
+                <img id="icon-sun" src="../assets/icon-sun.svg" alt="Light theme" width="24" height="24" style="display: block;" />
             </button>
         </div>
     </header>
@@ -37,58 +37,58 @@
     <main class="support-main">
         <div class="support-container">
             <div class="support-header">
-                <h1>¿Quieres decirle algo a los fundadores?</h1>
-                <p class="support-subtitle">Comparte tu feedback, solicita ayuda, propón colaboraciones o simplemente cuéntanos qué piensas sobre Together.</p>
+                <h1>Want to tell the founders something?</h1>
+                <p class="support-subtitle">Share feedback, ask for help, propose collaborations, or simply let us know what you think about Together.</p>
             </div>
 
             <div class="support-content">
                 <form class="support-form" id="supportForm">
                     <div class="form-group">
-                        <label for="fullName">Nombre completo</label>
+                        <label for="fullName">Full name</label>
                         <input 
                             type="text" 
                             id="fullName" 
                             name="fullName" 
-                            placeholder="Tu nombre y apellido"
+                            placeholder="Your first and last name"
                             required
                             autocomplete="name"
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Correo electrónico</label>
+                        <label for="email">Email address</label>
                         <input 
                             type="email" 
                             id="email" 
                             name="email" 
-                            placeholder="tu@email.com"
+                            placeholder="your@email.com"
                             required
                             autocomplete="email"
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Tu mensaje</label>
+                        <label for="message">Your message</label>
                         <textarea 
                             id="message" 
                             name="message" 
-                            placeholder="Cuéntanos qué tienes en mente..."
+                            placeholder="Tell us what is on your mind..."
                             rows="6"
                             required
                         ></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">
-                        <span class="btn-text">Enviar mensaje</span>
-                        <span class="btn-loading" style="display: none;">Enviando...</span>
+                        <span class="btn-text">Send message</span>
+                        <span class="btn-loading" style="display: none;">Sending...</span>
                     </button>
                 </form>
 
                 <div class="success-message" id="successMessage" style="display: none;">
                     <div class="success-icon">✓</div>
-                    <h3>¡Mensaje enviado!</h3>
-                    <p>Gracias por contactarnos. Te responderemos en las próximas 24 horas.</p>
-                    <button class="new-message-btn" onclick="resetForm()">Enviar otro mensaje</button>
+                    <h3>Message sent!</h3>
+                    <p>Thanks for reaching out. We will reply within the next 24 hours.</p>
+                    <button class="new-message-btn" onclick="resetForm()">Send another message</button>
                 </div>
             </div>
         </div>
@@ -98,11 +98,11 @@
         <div class="footer-content">
             <p class="copyright">&copy; 2025 Together Solutions S.L.</p>
             <div class="footer-links">
-                <a href="../legal.html" class="footer-link">Aviso legal</a>
+                <a href="../legal.html" class="footer-link">Legal notice</a>
                 <span class="footer-separator">·</span>
-                <a href="../privacy.html" class="footer-link">Política de privacidad</a>
+                <a href="../privacy.html" class="footer-link">Privacy policy</a>
                 <span class="footer-separator">·</span>
-                <a href="../humans.html" class="footer-link">Quién está detrás</a>
+                <a href="../humans.html" class="footer-link">Who's behind Together</a>
             </div>
         </div>
     </footer>
@@ -180,7 +180,7 @@
                 });
                 
                 if (!response.ok) {
-                    throw new Error('Error en la respuesta del servidor');
+                    throw new Error('Server response error');
                 }
                 
                 // Show success message
@@ -189,7 +189,7 @@
                 
             } catch (error) {
                 console.error('Error sending message:', error);
-                alert('Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.');
+                alert('We could not send your message. Please try again.');
             } finally {
                 // Reset button state
                 btnText.style.display = 'inline';

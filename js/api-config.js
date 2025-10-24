@@ -1,31 +1,30 @@
 /**
- * Configuración dinámica de API para Together Website
- * Detecta automáticamente si estamos en GitHub Pages o Netlify
- * y proporciona la URL correcta para la API de SMS
+ * Dynamic API configuration for the Together website.
+ * Automatically detects whether we are on GitHub Pages or Netlify
+ * and returns the correct SMS API endpoint.
  */
 
-// Función que devuelve la URL correcta de la API según el entorno
+// Return the proper API URL based on the current environment
 function getSmsApiUrl() {
-  // Detectar si estamos en un entorno de producción que no es Netlify
+  // Detect whether we are in a production environment outside Netlify
   const hostname = window.location.hostname;
   const isNetlify = hostname.includes('netlify.app') || hostname.includes('windsurf.build');
   
   if (!isNetlify) {
-    // Si estamos en un dominio personalizado o en GitHub Pages, usar la URL completa
-    // de la función en Netlify
+    // On a custom domain or GitHub Pages, use the full Netlify function URL
     return 'https://together-website.windsurf.build/.netlify/functions/send-sms';
   } else {
-    // Estamos en Netlify, usar la URL relativa
+    // On Netlify, use the relative path
     return '/.netlify/functions/send-sms';
   }
 }
 
-// Función genérica para enviar SMS (puede ser usada desde cualquier parte de la app)
+// Send an SMS using the configured API (callable from anywhere in the app)
 async function enviarSMS(telefono, tipoOS) {
   try {
     const apiUrl = getSmsApiUrl();
-    console.log(`Enviando solicitud a: ${apiUrl}`);
-    console.log(`Datos: ${JSON.stringify({phoneNumber: telefono, osType: tipoOS})}`);
+    console.log(`Sending request to: ${apiUrl}`);
+    console.log(`Payload: ${JSON.stringify({phoneNumber: telefono, osType: tipoOS})}`);
     
     const response = await fetch(apiUrl, {
       method: 'POST',
@@ -38,30 +37,30 @@ async function enviarSMS(telefono, tipoOS) {
       })
     });
     
-    // Obtenemos el texto de la respuesta primero
+    // Read the raw response text first
     const responseText = await response.text();
     
-    // Intentamos convertirlo a JSON
+    // Attempt to parse it as JSON
     let responseData;
     try {
       responseData = JSON.parse(responseText);
     } catch (e) {
-      console.error('Error al parsear respuesta JSON:', responseText);
-      responseData = { error: 'Error al parsear respuesta', details: responseText };
+      console.error('Failed to parse JSON response:', responseText);
+      responseData = { error: 'JSON parsing error', details: responseText };
     }
     
-    // Si la respuesta no fue exitosa, mostramos más detalles
+    // Surface extra details when the response is not successful
     if (!response.ok) {
-      console.error('Error del servidor:', responseData);
-      // Agregamos el código de estado para mejor diagnóstico
+      console.error('Server error:', responseData);
+      // Attach the status code for easier diagnostics
       responseData.statusCode = response.status;
     }
     
     return responseData;
   } catch (error) {
-    console.error('Error al enviar SMS:', error);
+    console.error('Error sending SMS:', error);
     return {
-      error: 'Error de conexión',
+      error: 'Connection error',
       details: error.message,
       networkError: true
     };

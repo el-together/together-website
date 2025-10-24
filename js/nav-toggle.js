@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btn = document.createElement('button');
   btn.id = 'nav-toggle';
   btn.className = 'nav-toggle';
-  btn.setAttribute('aria-label', 'Abrir menú');
+  btn.setAttribute('aria-label', 'Open menu');
   btn.innerHTML = '<span></span><span></span><span></span>';
   headerContent.appendChild(btn);
 

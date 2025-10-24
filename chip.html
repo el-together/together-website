@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>Chip y la IA - Together.day</title>
+    <title>Chip &amp; AI - Together.day</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/chip.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,13 +29,13 @@
             </div>
             <nav class="main-nav">
                 <ul class="nav-menu">
-                    <li><a href="features.html" class="nav-link">Funcionalidades disponibles</a></li>
-                    <li><a href="chip.html" class="nav-link active">Chip y la IA</a></li>
+                    <li><a href="features.html" class="nav-link">Available features</a></li>
+                    <li><a href="chip.html" class="nav-link active">Chip &amp; AI</a></li>
                 </ul>
             </nav>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-                <img id="icon-moon" src="assets/icon-moon.svg" alt="Tema oscuro" width="24" height="24" style="display: none;" />
-                <img id="icon-sun" src="assets/icon-sun.svg" alt="Tema claro" width="24" height="24" style="display: block;" />
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <img id="icon-moon" src="assets/icon-moon.svg" alt="Dark theme" width="24" height="24" style="display: none;" />
+                <img id="icon-sun" src="assets/icon-sun.svg" alt="Light theme" width="24" height="24" style="display: block;" />
             </button>
         </div>
     </header>
@@ -43,76 +43,77 @@
     <main>
         <!-- Hero section -->
         <section class="hero">
-            <p class="last-updated">Walter Kobylanski &#183; <time datetime="2025-06-23">23/06/2025</time> &#183; <a href="#" id="copy-link">copiar enlace</a></p>
-            <h2>Chip y la IA</h2>
-            <p class="hero-text">Te contamos cómo hemos integrado la IA en Together, lo que pensamos al respecto y cómo intentamos obtener lo mejor de esta tecnología.</p>
+            <p class="last-updated">Walter Kobylanski &#183; <time datetime="2025-06-23">June 23, 2025</time> &#183; <a href="#" id="copy-link">copy link</a></p>
+            <h2>Chip &amp; AI</h2>
+            <p class="hero-text">Here is how we have integrated AI into Together, what we think about it, and how we are trying to get the best from this technology.</p>
         </section>
 
         <!-- Page content -->
         <section class="page-content">
-            <h3>La honestidad como valor fundamental</h3>
-            <p>Ser honestos es un principio fundamental para nosotros, porque creemos que es la base para merecernos la confianza de nuestros usuarios. Por eso, en cuanto a la IA, lo primero que queremos que sepas es que estamos, como todos los que estamos trabajando con esta tecnología, aprendiendo día a día a sacarle el máximo partido.</p>
-            <p>Cuando empezamos este proyecto ya teníamos claro que nuestro producto tenía que estar diseñado para interactuar plenamente con ella, principalmente porque la veíamos como un medio para cumplir con nuestro objetivo: facilitarle la vida a nuestros usuarios.</p>
-            <p>Empezamos ofreciendo comandos de voz básicos para añadir eventos; ahora queremos que puedas hablar con naturalidad y convertir en acciones la mayoría de las cosas que nos pidas (siempre dentro de organizar y gestionar tu día a día).</p>
-            <p>Así que ahora que hemos dejado claro que no nos gusta vender humo podemos pasar a contarte todo lo que hemos hecho al respecto hasta ahora compartiendo algunos de los motivos por los que es así.</p>
+            <h3>Honesty as a core value</h3>
+            <p>Honesty is non‑negotiable for us because it is how we earn your trust. Like everyone working with this technology, we are learning every day how to make the most of AI.</p>
+            <p>From day one we knew the product needed to interact deeply with AI because we saw it as a way to achieve our mission: making life easier for the people who use Together.</p>
+            <p>We started with basic voice commands to add events. Now we want you to speak naturally and have most of what you ask for turn into actions that help you manage your day.</p>
+            <p>With the hype out of the way, here is what we have built so far and why.</p>
 
-            <h3>¿Quién o qué es Chip?</h3>
+            <h3>Who or what is Chip?</h3>
 
-            <p>Chip es la forma en que llamamos a las interacciones de IA en Together y se corresponde con las siglas <em>Computer Human Interface Protocol</em>. Las siglas las asignamos después de tener el nombre y nos hubiera encantado que fuera al revés.</p>
+            <p>Chip is what we call AI interactions inside Together, and it happens to match the acronym <em>Computer Human Interface Protocol</em>. We coined the name first and figured out the acronym later. We wish it had been the other way around.</p>
 
-            <p>Siendo más precisos, <strong>Chip es el conjunto de interfaces y procesos que convierten intenciones de usuarios en acciones y respuestas que les puedan ser útiles mediante la intervención de modelos de IA.</strong></p>
+            <p>More precisely, <strong>Chip is the collection of interfaces and processes that turn user intentions into helpful actions or answers through AI models.</strong></p>
 
-            <p>Together no es una empresa de IA, es una empresa que crea una solución que quiere hacer accesible lo mejor de la IA (que otros crean) para hacer más fácil nuestra vida diaria.</p>
+            <p>Together is not an AI company. We are building a solution that makes the best AI created by others accessible so day-to-day life becomes easier.</p>
 
-            <h3>¿Qué hace Chip?</h3>
-            <p>Actualmente Chip lee transcripciones de comandos de voz que le envías para que siga todos estos pasos (que pueden cambiar sin previo aviso):</p>
+            <h3>What does Chip do?</h3>
+            <p>Chip currently reads the transcripts of the voice commands you send and follows these steps (which may change without notice):</p>
 
             <ol>
-                <li>Analiza el comando de voz que le envías para entender lo que quieres hacer.</li>
-                <li>Si no puede hacer lo que le pides, te avisa.</li>
-                <li>Analiza cómo te organizas en Together</li>
-                <li>Determina y obtiene la información necesaria para cumplir tu solicitud</li>
-                <li>Si es una pregunta, te responde lo mejor que el modelo LLM le permita hacerlo.</li>
-                <li>Si puede ejecutar las acciones, hace la mejor propuesta que pueda dar.</li>
-                <li>Lo más importante: las propuestas solo se ejecutan si las aceptas, es decir, <strong>nunca va a hacer nada que no le hayas dado permiso para hacer.</strong></li>
+                <li>It analyzes the command to understand what you want to do.</li>
+                <li>If it cannot complete the request, it lets you know.</li>
+                <li>It reviews how you are organized in Together.</li>
+                <li>It determines and gathers the information needed to fulfill your request.</li>
+                <li>If you asked a question, it answers as well as the LLM allows.</li>
+                <li>If it can carry out actions, it prepares the best proposal it can offer.</li>
+                <li>Most importantly, the proposal only runs if you accept it; <strong>Chip never does anything you have not explicitly authorized.</strong></li>
             </ol>
 
-            <p>Teniendo en cuenta que estamos haciendo lo posible por mantener la promesa de "no tienes que aprender a hablarle" (como con otros asistentes que muchos conocemos) y que puedes hablarle en muchísimos idiomas, ha sido un reto fantástico llegar hasta donde estamos hoy.</p>
+            <p>We want to keep our promise that you do not have to learn a special way to talk to Chip (unlike other assistants many of us know), and you can speak to it in numerous languages. Reaching this point has been a fantastic challenge.</p>
 
-            <h3>Las cosas que no hacemos</h3>
-            <p>Ya aclaramos antes que nosotros no "hacemos IA", la integramos en el producto y la implementamos para generar buenas experiencias para los que usamos el producto.</p>
-            <p>También te hemos dicho que Chip no realiza acciones sin tu consentimiento explícito.</p>
-            <p>Chip solo actúa cuando lo invocas, es decir, no analiza nada de lo que haces, solo entra en escena cuando se lo pides y en cada ejecución nos esforzamos porque acceda únicamente a la información que sea necesaria.</p>
-            <p>Lo hacemos así porque si le damos la información exacta que necesita para que pueda cumplir tu solicitud, es más rápido, da mejores resultados y el coste económico es menor. Un ejemplo: en la mayoría de ejecuciones, ni siquiera sabe cómo te llamas.</p>
+            <h3>What we do not do</h3>
+            <p>We are not “building AI”; we integrate it into the product so everyone has a great experience.</p>
+            <p>Chip never performs actions without your explicit consent.</p>
+            <p>Chip only acts when you call on it. It does not scan what you do in the background; when you invoke it, each run is limited to the information it needs.</p>
+            <p>That approach keeps things fast, improves results, and lowers costs. For example, in most executions Chip does not even know your name.</p>
 
-            <h3>Nuestro futuro va de la mano del futuro de Chip</h3>
-            <p>En el momento en que lees esto, nuestra idea es que la app, sin el uso de la IA, sea gratuita de usar.</p>
-            <p>Soñamos con intensidad y creemos que la forma de que esta solución sea lo mejor posible pasa porque puedas colaborar con el máximo número de personas. Por tanto todo lo que haya ahora mismo se puede usar "como siempre" creando elementos como mensajes y eventos a mano y nuestro modelo de negocio se basará en la comercialización de las ejecuciones de Chip.</p>
-            <p>Ahora mismo Chip se puede usar sin límites, pero no será siempre así.</p>
-            <p>No podemos prometer nada, falta entender y comprobar muchas cosas, pero nos gustaría poder ofrecer un par de ejecuciones gratuitas cada X tiempo para que puedas aprovecharlo de forma limitada.</p>
+            <h3>Our future goes hand in hand with Chip's future</h3>
+            <p>As of today, our plan is for the app to remain free to use without AI.</p>
+            <p>We dream big, and we believe the best version of this solution comes from letting you collaborate with as many people as possible. You can still do everything “the usual way” by creating messages and events manually, while our business model focuses on monetizing Chip executions.</p>
+            <p>Chip usage is currently unlimited, but that will not stay that way forever.</p>
+            <p>We cannot make promises yet; we still have plenty to learn, but we would love to offer a couple of free executions every so often so you can keep benefitting from Chip in a limited way.</p>
+        </section>
     </main>
 
     <footer>
         <div class="footer-content">
             <p class="copyright">&copy; 2025 Together Solutions S.L.</p>
             <div class="footer-links">
-                <a href="legal.html" class="footer-link">Aviso legal</a>
+                <a href="legal.html" class="footer-link">Legal notice</a>
                 <span class="footer-separator">·</span>
-                <a href="privacy.html" class="footer-link">Política de privacidad</a>
+                <a href="privacy.html" class="footer-link">Privacy policy</a>
                 <span class="footer-separator">·</span>
-                <a href="humans.html" class="footer-link">Quién está detrás</a>
+                <a href="humans.html" class="footer-link">Who's behind Together</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Copiar la URL actual al portapapeles
+        // Copy the current URL to the clipboard
         document.getElementById('copy-link').addEventListener('click', function (e) {
             e.preventDefault();
             navigator.clipboard.writeText(window.location.href).then(() => {
-                this.innerText = 'enlace copiado';
+                this.innerText = 'link copied';
                 setTimeout(() => {
-                    this.innerText = 'copiar enlace';
+                    this.innerText = 'copy link';
                 }, 2000);
             });
         });
