@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>Descarga - Together App</title>
+    <title>Download - Together App</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
             margin-top: 2rem;
         }
         
-        /* Usando exactamente el mismo estilo de botones que la página principal */
+        /* Reuse the exact same button style as the home page */
         .btn-cta {
             display: inline-block;
             margin-top: 1.5rem;
@@ -129,51 +129,31 @@
             </div>
             <nav class="main-nav">
                 <ul class="nav-menu">
-                    <li><a href="features.html" class="nav-link">Funcionalidades disponibles</a></li>
-                    <li><a href="#chip" class="nav-link">Chip y la IA</a></li>
+                    <li><a href="features.html" class="nav-link">Available features</a></li>
+                    <li><a href="chip.html" class="nav-link">Chip &amp; AI</a></li>
                 </ul>
             </nav>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-                <img id="icon-moon" src="assets/icon-moon.svg" alt="Tema oscuro" width="24" height="24" style="display: none;" />
-                <img id="icon-sun" src="assets/icon-sun.svg" alt="Tema claro" width="24" height="24" style="display: block;" />
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <img id="icon-moon" src="assets/icon-moon.svg" alt="Dark theme" width="24" height="24" style="display: none;" />
+                <img id="icon-sun" src="assets/icon-sun.svg" alt="Light theme" width="24" height="24" style="display: block;" />
             </button>
         </div>
     </header>
     
     <main>
         <section class="download-hero">
-            <span class="pioneer-badge">Early Access</span>
-            <h2>¡Te damos la bienvenida al futuro de Together!</h2>
-            <p>Estamos encantados de que quieras probar Together en su fase inicial. Tu feedback será fundamental para mejorar nuestra aplicación.</p>
-            
+            <span class="pioneer-badge">Now available</span>
+            <h2>Welcome to Together!</h2>
+            <p>We are glad you want to organize your day with Together. Download the app from your preferred store and start planning with peace of mind.</p>
+
             <div class="download-buttons">
-                <a href="#android-download" class="btn-cta" id="android-btn">Descargar para Android</a>
-                <a href="#ios-download" class="btn-cta" id="ios-btn">Descargar para iOS</a>
+                <a href="https://play.google.com/store/apps/details?id=day.together.app" class="btn-cta" target="_blank" rel="noopener noreferrer">Download for Android</a>
+                <a href="https://apps.apple.com/es/app/together-daily-to-do-planner/id6460859044" class="btn-cta" target="_blank" rel="noopener noreferrer">Download for iOS</a>
             </div>
-            
-            <div class="ios-instructions" id="ios-download" style="display: none;">
-                <h3>Instrucciones para iOS (TestFlight)</h3>
-                <p>Nuestra app para iOS está actualmente en TestFlight, lo que significa que estás accediendo a una versión de prueba.</p>
-                <ol>
-                    <li>Descarga la aplicación TestFlight desde la App Store si aún no la tienes.</li>
-                    <li>Haz clic en el siguiente enlace desde tu dispositivo iOS para unirte a nuestro programa de pruebas: <a href="https://apple.co/4dgigzl" id="testflight-link">Unirse a TestFlight</a></li>
-                    <li>Sigue las instrucciones en TestFlight para instalar Together.</li>
-                    <li>Una vez instalada, podrás usar la app normalmente y recibirás actualizaciones a través de TestFlight.</li>
-                </ol>
-                <p>Nota: Como beta tester, puedes encontrar algunos problemas o funcionalidades incompletas. ¡Tu feedback es valioso para nosotros!</p>
-            </div>
-            
-            <div id="android-download" style="display: none;">
-                <div class="ios-instructions">
-                    <h3>Descarga para Android</h3>
-                    <p>Para instalar nuestra aplicación en tu dispositivo Android:</p>
-                    <ol>
-                        <li>Haz clic en el siguiente enlace para descargar el APK directamente: <a href="https://bit.ly/4mVv42P" id="android-link">Descargar APK</a></li>
-                        <li>Es posible que debas permitir la instalación de aplicaciones de fuentes desconocidas en la configuración de tu dispositivo.</li>
-                        <li>Una vez descargado, abre el archivo APK para comenzar la instalación.</li>
-                    </ol>
-                    <p>Pronto estaremos disponibles en Google Play. ¡Gracias por ser parte de nuestros primeros usuarios!</p>
-                </div>
+
+            <div class="ios-instructions" style="margin-top: 2rem;">
+                <h3>Available on all your devices</h3>
+                <p>Together is now officially available on both the App Store and Google Play. Download it directly from your device's store and start organizing your day with ease.</p>
             </div>
         </section>
     </main>
@@ -182,11 +162,11 @@
         <div class="footer-content">
             <p class="copyright">&copy; 2025 Together Solutions S.L.</p>
             <div class="footer-links">
-                <a href="legal.html" class="footer-link">Aviso legal</a>
+                <a href="legal.html" class="footer-link">Legal notice</a>
                 <span class="footer-separator">·</span>
-                <a href="privacy.html" class="footer-link">Política de privacidad</a>
+                <a href="privacy.html" class="footer-link">Privacy policy</a>
                 <span class="footer-separator">·</span>
-                <a href="humans.html" class="footer-link">Quién está detrás</a>
+                <a href="humans.html" class="footer-link">Who's behind Together</a>
             </div>
         </div>
     </footer>
@@ -213,25 +193,6 @@
             }
         });
         
-        // Download buttons functionality
-        const androidBtn = document.getElementById('android-btn');
-        const iosBtn = document.getElementById('ios-btn');
-        const iosInstructions = document.getElementById('ios-download');
-        const androidDownload = document.getElementById('android-download');
-        
-        androidBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            iosInstructions.style.display = 'none';
-            androidDownload.style.display = 'block';
-            // Scroll to android section
-            androidDownload.scrollIntoView({ behavior: 'smooth' });
-        });
-        
-        iosBtn.addEventListener('click', (e) => {
-            // Redirigir directamente a la App Store para iOS
-            window.location.href = iosDirectLink;
-        });
-        
         // Initialize theme display
         const savedTheme = localStorage.getItem('theme') || 'dark';
         if (savedTheme === 'dark') {
@@ -241,13 +202,6 @@
             iconMoon.style.display = 'block';
             iconSun.style.display = 'none';
         }
-        
-        // Enlaces actualizados con las URLs proporcionadas
-        document.getElementById('testflight-link').href = "https://apple.co/4dgigzl";
-        document.getElementById('android-link').href = "https://bit.ly/4mVv42P";
-        
-        // Enlace directo de iOS - lo usamos para redirigir si el usuario hace clic en el botón iOS
-        const iosDirectLink = "https://apple.co/3H35bNK";
     </script>
 </body>
 </html>

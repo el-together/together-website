@@ -1,34 +1,34 @@
 const twilio = require('twilio');
 
-// Función auxiliar para validar que las variables de entorno existen
-function validarVariablesEntorno() {
+// Helper to make sure required environment variables exist
+function validateEnvVariables() {
   const variables = [
-    { nombre: 'TWILIO_ACCOUNT_SID', valor: process.env.TWILIO_ACCOUNT_SID },
-    { nombre: 'TWILIO_AUTH_TOKEN', valor: process.env.TWILIO_AUTH_TOKEN },
-    { nombre: 'TWILIO_PHONE_NUMBER', valor: process.env.TWILIO_PHONE_NUMBER }
+    { name: 'TWILIO_ACCOUNT_SID', value: process.env.TWILIO_ACCOUNT_SID },
+    { name: 'TWILIO_AUTH_TOKEN', value: process.env.TWILIO_AUTH_TOKEN },
+    { name: 'TWILIO_PHONE_NUMBER', value: process.env.TWILIO_PHONE_NUMBER }
   ];
   
-  const faltantes = variables.filter(v => !v.valor).map(v => v.nombre);
+  const missing = variables.filter(v => !v.value).map(v => v.name);
   
-  if (faltantes.length > 0) {
+  if (missing.length > 0) {
     return {
-      valido: false,
-      mensaje: `Faltan las siguientes variables de entorno: ${faltantes.join(', ')}`
+      valid: false,
+      message: `Missing environment variables: ${missing.join(', ')}`
     };
   }
   
-  return { valido: true };
+  return { valid: true };
 }
 
 exports.handler = async function(event, context) {
-  // Configurar CORS para permitir tanto Netlify como GitHub Pages
+  // Configure CORS to allow both Netlify and GitHub Pages
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS'
   };
   
-  // Manejar solicitudes OPTIONS para preflight CORS
+  // Handle OPTIONS requests for CORS preflight
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
@@ -36,75 +36,74 @@ exports.handler = async function(event, context) {
       body: ''
     };
   }
-  // Solo permitir solicitudes POST
+  // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
       headers: headers,
-      body: JSON.stringify({ error: 'Método no permitido' })
+      body: JSON.stringify({ error: 'Method not allowed' })
     };
   }
 
   try {
-    // Parsear el cuerpo de la solicitud
+    // Parse the request body
     const data = JSON.parse(event.body);
     const { phoneNumber, osType } = data;
 
-    // Validar que se proporcionaron los datos necesarios
+    // Validate required fields
     if (!phoneNumber || !osType) {
       return {
         statusCode: 400,
         headers: headers,
-        body: JSON.stringify({ error: 'Se requiere número de teléfono y tipo de OS' })
+        body: JSON.stringify({ error: 'Phone number and OS type are required' })
       };
     }
 
-    // Validar que el tipo de OS sea válido (Android o iPhone)
+    // Validate OS type (must be Android or iPhone)
     if (osType !== 'Android' && osType !== 'iPhone') {
       return {
         statusCode: 400,
         headers: headers,
-        body: JSON.stringify({ error: 'Tipo de OS no válido. Debe ser "Android" o "iPhone"' })
+        body: JSON.stringify({ error: 'Invalid OS type. It must be "Android" or "iPhone"' })
       };
     }
 
-    // Validar variables de entorno antes de configurar Twilio
-    const validacion = validarVariablesEntorno();
-    if (!validacion.valido) {
-      console.error('Error de configuración:', validacion.mensaje);
+    // Ensure environment variables are present before configuring Twilio
+    const validation = validateEnvVariables();
+    if (!validation.valid) {
+      console.error('Configuration error:', validation.message);
       return {
         statusCode: 500,
         headers: headers,
         body: JSON.stringify({ 
-          error: 'Error de configuración', 
-          details: validacion.mensaje
+          error: 'Configuration error', 
+          details: validation.message
         })
       };
     }
     
-    // Log para depuración (sin exponer valores completos)
-    console.log('Configuración de Twilio:');
-    console.log('- ACCOUNT_SID:', process.env.TWILIO_ACCOUNT_SID ? `${process.env.TWILIO_ACCOUNT_SID.substring(0, 5)}...` : 'No definido');
-    console.log('- AUTH_TOKEN:', process.env.TWILIO_AUTH_TOKEN ? 'Presente (no mostrado por seguridad)' : 'No definido');
-    console.log('- PHONE_NUMBER:', process.env.TWILIO_PHONE_NUMBER || 'No definido');
+    // Debug logs without exposing full values
+    console.log('Twilio configuration:');
+    console.log('- ACCOUNT_SID:', process.env.TWILIO_ACCOUNT_SID ? `${process.env.TWILIO_ACCOUNT_SID.substring(0, 5)}...` : 'Not set');
+    console.log('- AUTH_TOKEN:', process.env.TWILIO_AUTH_TOKEN ? 'Present (hidden for security)' : 'Not set');
+    console.log('- PHONE_NUMBER:', process.env.TWILIO_PHONE_NUMBER || 'Not set');
     
-    // Configurar el cliente de Twilio con las variables de entorno
+    // Configure the Twilio client with the environment variables
     const client = twilio(
       process.env.TWILIO_ACCOUNT_SID,
       process.env.TWILIO_AUTH_TOKEN
     );
 
-    // Preparar el mensaje según el tipo de OS con formato único para distinguirlo
-    const timestamp = new Date().toISOString().substring(11, 19); // Formato HH:MM:SS
+    // Prepare the message based on OS so we can distinguish deliveries
     let messageBody;
     
     if (osType === 'Android') {
-      messageBody = `📱 ¡Hola! Gracias por tu interés en Together. Aquí tienes el enlace para descargar la app para Android: https://bit.ly/4mVv42P \n\nEquipo Together`;
+      messageBody = `📱 Hi! Thanks for your interest in Together. Download the Android app here: https://bit.ly/4mVv42P\n\n- Together team`;
     } else {
-      messageBody = `📱 ¡Hola! Gracias por tu interés en Together. Aquí tienes el enlace para descargar la app para iPhone: https://apple.co/3H35bNK \n\nEquipo Together`;
+      messageBody = `📱 Hi! Thanks for your interest in Together. Get the iPhone app here: https://apps.apple.com/es/app/together-daily-to-do-planner/id6460859044\n\n- Together team`;
     }
 
-    // Enviar el SMS
+    // Send the SMS
     const message = await client.messages.create({
       body: messageBody,
       from: process.env.TWILIO_PHONE_NUMBER,
@@ -116,39 +115,39 @@ exports.handler = async function(event, context) {
       headers: headers,
       body: JSON.stringify({ 
         success: true, 
-        message: 'SMS enviado correctamente',
+        message: 'SMS sent successfully',
         messageId: message.sid
       })
     };
   } catch (error) {
-    // Mejorar la información de error para depuración
+    // Provide richer error information for debugging
     let errorDetail = error.message;
-    let errorType = 'Desconocido';
+    let errorType = 'Unknown';
     
-    // Identificar tipos comunes de errores
+    // Identify common error types
     if (error.code) {
       errorType = `Twilio Error [${error.code}]`;
       
-      // Errores comunes de Twilio
+      // Map frequent Twilio errors to clearer descriptions
       if (error.code === 20404) {
-        errorDetail = 'Credenciales inválidas o incorrectas de Twilio';
+        errorDetail = 'Invalid Twilio credentials';
       } else if (error.code === 21211) {
-        errorDetail = 'Número de teléfono inválido o en formato incorrecto';
+        errorDetail = 'Invalid or incorrectly formatted phone number';
       } else if (error.code === 21608) {
-        errorDetail = 'El número de teléfono de origen no está verificado o permitido';
+        errorDetail = 'Origin phone number is not verified or allowed';
       } else if (error.code === 21610) {
-        errorDetail = 'Cuenta de Twilio sin saldo suficiente';
+        errorDetail = 'Twilio account does not have enough balance';
       }
     } else if (error.name === 'TypeError' && error.message.includes('fetch')) {
-      errorType = 'Error de red';
+      errorType = 'Network error';
     }
     
-    console.error(`Error al enviar SMS [${errorType}]:`, error);
+    console.error(`Error sending SMS [${errorType}]:`, error);
     return {
       statusCode: 500,
       headers: headers,
       body: JSON.stringify({ 
-        error: 'Error al enviar el SMS',
+        error: 'Error sending SMS',
         errorType: errorType,
         details: errorDetail,
         rawError: error.toString()
