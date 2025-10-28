@@ -11,6 +11,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write        # needed for commit comments
+      issues: write          # needed for PR comments
+      pull-requests: write   # needed for PR review APIs
 
     steps:
       - name: Checkout code
