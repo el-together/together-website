@@ -6,6 +6,10 @@
 [build.environment]
   NODE_VERSION = "18"
 
+[[edge_functions]]
+  path = "/download"
+  function = "download-redirect"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
