@@ -116,6 +116,25 @@
             const theme = saved ? saved : 'dark';
             document.documentElement.setAttribute('data-theme', theme);
         })();
+        
+        // OS-based redirect for mobile devices
+        (() => {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // iOS detection
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = 'https://apps.apple.com/es/app/together-daily-to-do-planner/id6460859044';
+                return;
+            }
+            
+            // Android detection
+            if (/android/i.test(userAgent)) {
+                window.location.href = 'https://play.google.com/store/apps/details?id=day.together.app';
+                return;
+            }
+            
+            // Desktop/unknown - show the page normally
+        })();
     </script>
 </head>
 <body>
