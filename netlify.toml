@@ -7,7 +7,7 @@
   NODE_VERSION = "18"
 
 [[edge_functions]]
-  path = "/download"
+  pattern = "/download*"
   function = "download-redirect"
 
 [[redirects]]
