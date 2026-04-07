@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "W5AHN477YW.day.together.Together",
+        "paths": ["/join/*"]
+      }
+    ]
+  }
+}
