@@ -836,6 +836,16 @@ pre {
     margin-bottom: 3rem;
 }
 
+.legal-section a {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.legal-section a:hover {
+    color: var(--primary-color);
+}
+
 .intro-text {
     font-size: 1.2rem;
     line-height: 1.8;
