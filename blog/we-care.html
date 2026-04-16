@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We care — together.day</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'TT Commons Pro';
+      src: url('../assets/TT Commons Pro Variable.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Base */
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'TT Commons Pro', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid #e8e8e8;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+
+    .header-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav a {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #1a1a1a;
+    }
+
+    .btn-get-app {
+      border: 1px solid #e8e8e8;
+      padding: 6px 18px;
+      border-radius: 14px;
+      color: #1a1a1a !important;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-get-app:hover {
+      background: #1a1a1a;
+      color: #fff !important;
+    }
+
+    /* Article layout */
+    .content-area {
+      background: #faf8f5;
+      padding-bottom: 80px;
+    }
+
+    article {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Title area */
+    .post-title-area {
+      padding: 80px 0 24px;
+    }
+
+    .post-title-area h1 {
+      font-family: 'TT Commons Pro', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #1a1a1a;
+    }
+
+    /* Meta separator */
+    .meta-separator {
+      border: none;
+      border-top: 1px solid #e8e8e8;
+      margin: 0;
+    }
+
+    /* Post meta */
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0 48px;
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    .post-meta-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .post-meta-link:hover {
+      color: #666;
+    }
+
+    /* Content */
+    .post-content p {
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      color: #333;
+    }
+
+    .post-content a {
+      color: #1a1a1a;
+      text-decoration: underline;
+      text-decoration-color: #ccc;
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .post-content a:hover {
+      text-decoration-color: #1a1a1a;
+    }
+
+    .post-content p strong {
+      color: #1a1a1a;
+      font-weight: 700;
+    }
+
+    .post-content p:first-of-type {
+      font-size: 1.1rem;
+    }
+
+    /* Author section */
+    .author {
+      margin-top: 64px;
+      padding-top: 40px;
+    }
+
+    .author-name {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #666;
+      margin-bottom: 2px;
+    }
+
+    .author-role {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 0;
+      border-top: 1px solid #e8e8e8;
+      padding: 48px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-logo img {
+      height: 24px;
+      width: auto;
+      opacity: 0.5;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 64px;
+    }
+
+    .footer-col h4 {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #888;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #1a1a1a;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    .footer-bottom a {
+      color: #bbb;
+      text-decoration: none;
+      margin-right: 16px;
+    }
+
+    .footer-bottom a:hover { color: #888; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 20px;
+      }
+
+      nav {
+        gap: 20px;
+      }
+
+      .post-title-area {
+        padding: 60px 0 20px;
+      }
+
+      article {
+        padding: 0 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .footer-links {
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        font-size: 13px;
+      }
+
+      nav {
+        gap: 16px;
+      }
+
+      .post-meta {
+        font-size: 11px;
+      }
+
+      .post-content h1 {
+        font-size: 1.2rem;
+      }
+
+      .post-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="../index.html" class="header-logo">
+      <img src="../assets/Logo 2.1 negro.svg" alt="together">
+    </a>
+    <nav>
+      <a href="./index.html">Blog</a>
+      <a href="#" class="btn-get-app">Get the app</a>
+    </nav>
+  </header>
+
+  <!-- Article -->
+  <div class="content-area">
+  <article>
+
+    <!-- Title + separator + meta -->
+    <div class="post-title-area">
+      <h1>We care</h1>
+    </div>
+    <hr class="meta-separator">
+    <div class="post-meta">
+      <span><a href="/blog" class="post-meta-link">ISSUE #1</a> · WALTER KOBYLANSKI</span>
+      <span>24 MARCH 2026</span>
+    </div>
+
+    <!-- Content -->
+    <div class="post-content">
+
+      <p><strong>We care. We really do,</strong> because in one way or another we have experienced the same struggles you do, and if we have not, someone we deeply care about has.</p>
+
+      <p>What you are reading here (or anywhere we post) has been written by the small team that has been building a solution for a couple of years.</p>
+
+      <p>No VC funding, no big corporations, just <a href="../team.html">a few individuals</a> who believe they can make things easier for others using technology from a humane perspective.</p>
+
+      <p><strong>No gurus, no overpromises,</strong> just a platform that offers tools and facilitates collaboration when needed.</p>
+
+      <p>Everything we write, we do it using our fingertips, and if AI is used, it is to correct spelling or improve the final result, but we like to take the time.</p>
+
+      <p><strong>The way we see it: there has not been a better time in history to behave like a human.</strong> And that is, once again, because we care.</p>
+
+      <p>We could make the best platform in the world, add the most powerful tools and present it with an outstanding UI, and it will all be worthless if we didn't have the ingredient that can make all this work: your trust.</p>
+
+      <p>There is no right way to use Together, you decide what works for you and what doesn't.</p>
+
+      <p><strong>We have built Together hoping to use it with the people we love,</strong> our families and friends. If you find it hard to believe that we would do anything to preserve your trust, it is maybe easier to believe that we want to do the same with our sons, siblings, parents, partners and friends.</p>
+
+    </div>
+  </article>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="../assets/Logo 2.1 negro.svg" alt="together">
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="../about.html">About</a>
+          <a href="../team.html">Team</a>
+          <a href="./index.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="../contact.html">Contact us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="../privacy.html">Privacy</a>
+      <a href="../legal.html">Terms</a>
+      <span>&copy; 2026 Together</span>
+    </div>
+  </footer>
+
+</body>
+</html>

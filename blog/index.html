@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy — together.day</title>
+  <title>Blog — together.day</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'TT Commons Pro';
-      src: url('./assets/TT Commons Pro Variable.ttf') format('truetype');
+      src: url('../assets/TT Commons Pro Variable.ttf') format('truetype');
       font-weight: 100 900;
       font-style: normal;
       font-display: swap;
@@ -110,41 +110,37 @@
       color: #999;
     }
 
-    .legal-body h2 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin: 40px 0 16px;
+    .post-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 20px 0;
+      border-bottom: 1px solid #e8e8e8;
     }
 
-    .legal-body h2:first-child {
-      margin-top: 0;
+    .post-list-item:first-child {
+      border-top: 1px solid #e8e8e8;
     }
 
-    .legal-body p {
-      font-size: 0.95rem;
-      font-weight: 500;
-      line-height: 1.75;
-      margin-bottom: 16px;
-      color: #333;
-    }
-
-    .legal-body ul {
-      margin: 0 0 16px 20px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      line-height: 1.75;
-      color: #333;
-    }
-
-    .legal-body a {
+    .post-list-item a {
+      font-size: 1.1rem;
+      font-weight: 600;
       color: #1a1a1a;
-      text-decoration: underline;
-      text-decoration-color: #ccc;
-      text-underline-offset: 3px;
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
-    .legal-body a:hover {
-      text-decoration-color: #1a1a1a;
+    .post-list-item a:hover { color: #555; }
+
+    .post-list-item .date {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #999;
+      white-space: nowrap;
+      margin-left: 24px;
     }
 
     footer {
@@ -214,11 +210,11 @@
 <body>
 
   <header>
-    <a href="./index.html" class="header-logo">
-      <img src="./assets/Logo 2.1 negro.svg" alt="together">
+    <a href="../index.html" class="header-logo">
+      <img src="../assets/Logo 2.1 negro.svg" alt="together">
     </a>
     <nav>
-      <a href="./blog/index.html">Blog</a>
+      <a href="./index.html">Blog</a>
       <a href="#" class="btn-get-app">Get the app</a>
     </nav>
   </header>
@@ -227,42 +223,18 @@
   <div class="page">
 
     <div class="page-title-area">
-      <h1>Privacy &amp; Cookies Policy</h1>
+      <h1>Blog</h1>
     </div>
     <hr class="page-separator">
     <div class="page-meta">
-      <span>LAST UPDATED: 20 AUGUST 2025</span>
+      <span>ALL ISSUES</span>
     </div>
 
-    <div class="legal-body">
-
-      <h2>1. Data Controller</h2>
-      <p>TOGETHER SOLUTIONS, S.L.</p>
-      <ul>
-        <li>Tax ID: B-72792633</li>
-        <li>Address: Calle Los Juncos 11, 28223 Pozuelo de Alarcon (Madrid, Spain)</li>
-        <li>Contact: <a href="mailto:help@together.day">help@together.day</a></li>
-        <li>Internal contacts: Walter Kobylanski (CEO) and Isabel Casero (COO)</li>
-      </ul>
-
-      <h2>2. Data Processed, Purposes, and Legal Bases</h2>
-      <p>Traffic logs are collected automatically for service security and maintenance, retained for 12 months under legitimate interest grounds. Contact information submitted via email is retained up to 3 years to respond to inquiries. Browsing data from analytics cookies supports anonymous usage statistics under user consent. Google Calendar data (events, titles, schedules) syncs within the app following OAuth consent, retained until access revocation or account deletion.</p>
-
-      <h2>3. Recipients and Processors</h2>
-      <p>Data handlers include AWS (USA), Mailchimp (USA), Google Workspace (Ireland), Holded (Spain), and others like Twilio and Heroku. These operate under Standard Contractual Clauses. Google Calendar information remains restricted to synchronization purposes and is not shared for advertising.</p>
-
-      <h2>4. Data Subject Rights</h2>
-      <p>Users may request access, correction, erasure, or portability by emailing <a href="mailto:help@together.day">help@together.day</a> with "Data protection" as the subject line. Complaints can be filed with Spain's Data Protection Agency (<a href="https://www.aepd.es">www.aepd.es</a>).</p>
-
-      <h2>5. Security Measures</h2>
-      <p>The company implements access controls, HTTPS/TLS 1.2+ encryption, backups, and periodic reviews aligned with GDPR requirements.</p>
-
-      <h2>6. Cookies Policy</h2>
-      <p>Technical cookies (_cf_bm) ensure operation; analytics cookies (_ga, _gid, _fbp) track performance with 1-2 year durations. Users receive a configurable banner on first visit to accept or reject analytics. Cookie choices are retained 24 months.</p>
-
-      <h2>7. Changes</h2>
-      <p>Policy amendments will be communicated, with renewed consent requested if changes affect users. Compliance covers LSSI-CE, GDPR, LOPDGDD, and DSA regulations.</p>
-
+    <div class="post-list">
+      <div class="post-list-item">
+        <a href="./we-care.html">We care</a>
+        <span class="date">24 March 2026</span>
+      </div>
     </div>
 
   </div>
@@ -271,24 +243,24 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">
-        <img src="./assets/Logo 2.1 negro.svg" alt="together">
+        <img src="../assets/Logo 2.1 negro.svg" alt="together">
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h4>Product</h4>
-          <a href="./about.html">About</a>
-          <a href="./team.html">Team</a>
-          <a href="./blog/index.html">Blog</a>
+          <a href="../about.html">About</a>
+          <a href="../team.html">Team</a>
+          <a href="./index.html">Blog</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <a href="./contact.html">Contact us</a>
+          <a href="../contact.html">Contact us</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <a href="./privacy.html">Privacy</a>
-      <a href="./legal.html">Terms</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../legal.html">Terms</a>
       <span>&copy; 2026 Together</span>
     </div>
   </footer>

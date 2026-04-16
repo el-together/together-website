@@ -1,384 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <title>Together.day</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
-    <script>
-        (() => {
-            const saved = localStorage.getItem('theme');
-            const theme = saved ? saved : 'dark';
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>together.day</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'TT Commons Pro';
+      src: url('./assets/TT Commons Pro Variable.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'TT Commons Pro', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid #e8e8e8;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+
+    .header-logo img { height: 40px; width: auto; }
+
+    nav { display: flex; align-items: center; gap: 32px; }
+
+    nav a {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #1a1a1a; }
+
+    .btn-get-app {
+      border: 1px solid #e8e8e8;
+      padding: 6px 18px;
+      border-radius: 14px;
+      color: #1a1a1a !important;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-get-app:hover {
+      background: #1a1a1a;
+      color: #fff !important;
+    }
+
+    .content-area {
+      background: #faf8f5;
+      padding-bottom: 80px;
+    }
+
+    .hero-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 120px 24px 0;
+      text-align: center;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .hero-section p {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #555;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    footer {
+      margin-top: 0;
+      border-top: 1px solid #e8e8e8;
+      padding: 48px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
+
+    .footer-links { display: flex; gap: 64px; }
+
+    .footer-col h4 {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #888;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: #1a1a1a; }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    .footer-bottom a {
+      color: #bbb;
+      text-decoration: none;
+      margin-right: 16px;
+    }
+
+    .footer-bottom a:hover { color: #888; }
+
+    @media (max-width: 768px) {
+      header { padding: 16px 20px; }
+      nav { gap: 20px; }
+      .hero-section { padding: 80px 20px 0; }
+      .hero-section h1 { font-size: 2.2rem; }
+      .footer-inner { flex-direction: column; gap: 32px; }
+      .footer-links { gap: 40px; flex-wrap: wrap; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo-container">
-                <img class="logo-svg" src="assets/logo.svg" alt="Together logo" width="240"/>
-                <h1>Together</h1>
-            </div>
-            <nav class="main-nav">
-                <ul class="nav-menu">
-                    <li><a href="features.html" class="nav-link">Available features</a></li>
-                    <li><a href="chip.html" class="nav-link">Chip &amp; AI</a></li>
-                </ul>
-            </nav>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <img id="icon-moon" src="assets/icon-moon.svg" alt="Dark theme" width="24" height="24" style="display: none;" />
-                <img id="icon-sun" src="assets/icon-sun.svg" alt="Light theme" width="24" height="24" style="display: block;" />
-            </button>
+
+  <header>
+    <a href="./index.html" class="header-logo">
+      <img src="./assets/Logo 2.1 negro.svg" alt="together">
+    </a>
+    <nav>
+      <a href="./blog/index.html">Blog</a>
+      <a href="#" class="btn-get-app">Get the app</a>
+    </nav>
+  </header>
+
+  <div class="content-area">
+    <div class="hero-section">
+      <h1>together</h1>
+      <p>A platform for the people you care about. Built by humans, for humans.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./assets/Logo 2.1 negro.svg" alt="together">
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="./about.html">About</a>
+          <a href="./team.html">Team</a>
+          <a href="./blog/index.html">Blog</a>
         </div>
-    </header>
-    
-    <main>
-
-        <section class="hero">
-            <h2>Making everyday life feel easier.</h2>
-            <p class="hero-text">We combine <kbd>tools</kbd> + <kbd>AI</kbd> + <kbd>collaboration</kbd> so getting things done feels simpler and more effective.</p>
-            <a href="download.html" class="btn-cta">Get the app</a>
-        </section>
-
-        <div class="bento-grid">
-
-            <article class="bento-item bento-item-large">
-                <div class="bento-header">
-                    <div class="header-content">
-                        <h2>What are we trying to improve?</h2>
-                        <span class="chevron-icon"></span>
-                    </div>
-                </div>
-                <div class="bento-content">
-                    <p>You probably already have your calendar, your task app, another app for taking notes, and of course conversations in your favorite messenger.</p>
-                    <p>When you want to pull off a simple plan, you end up coordinating several people who use tools that do not talk to each other while discussing it in an app built for chatting, not collaborating.</p>
-                    <p>We are building an alternative that helps you get better outcomes when you organize everyday life.</p>
-                </div>
-            </article>
-            
-            <article class="bento-item">
-                <div class="bento-header">
-                    <div class="header-content">
-                        <h2>Don't adapt to the product</h2>
-                        <span class="chevron-icon"></span>
-                    </div>
-                </div>
-                <div class="bento-content">
-                    <p>Until now you had to hunt for products that matched your needs exactly.</p>
-                    <p>We are working to flip that. Whether your days are wildly complex or refreshingly simple, the product should be the one adapting to you.</p>
-                </div>
-            </article> 
-            
-            <article class="bento-item bento-item-tall">
-                <div class="bento-header">
-                    <div class="header-content">
-                        <h2>Collaboration is the human superpower</h2>
-                        <span class="chevron-icon"></span>
-                    </div>
-                </div>
-                <div class="bento-content">
-                    <p>Working together is how we have brought every incredible thing to life.</p>
-                    <p>Business day-to-day tools revolve around collaboration, yet we were missing something similar for our personal lives.</p>
-                </div>
-            </article> 
-            
-            <article class="bento-item bento-item-wide">
-                <div class="bento-header">
-                    <div class="header-content">
-                        <h2>AI at your service</h2>
-                        <span class="chevron-icon"></span>
-                    </div>
-                </div>
-                <div class="bento-content">
-                    <p>AI should serve you, not the other way around. Use it only when you want, and it will look at the data it needs to help you when you ask.</p>
-                    <p>We strive to use the best models available at any moment from providers such as OpenAI, Anthropic, and Perplexity.</p>
-                </div>
-            </article>
-
-            <article class="bento-item">
-                <div class="bento-header">
-                    <div class="header-content">
-                        <h2>Free plan forever</h2>
-                        <span class="chevron-icon"></span>
-                    </div>
-                </div>
-                <div class="bento-content">
-                    <p>Using Together is completely free today, and down the road you will only pay for heavy AI usage, new features, or if you go beyond limits we have not even defined yet.</p>
-                </div>
-            </article>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="./contact.html">Contact us</a>
         </div>
-        <section class="product-showcase">
-            <button class="showcase-btn prev" id="showcasePrev" aria-label="Previous slide">&#10094;</button>
-            <div class="showcase-track">
-                <div class="showcase-slide active">
-                    <img src="assets/homeShowcase/screen-project-1.png" alt="Projects screen" class="product-image" />
-                    <div class="product-copy" style="max-width: 90%; width: 400px;">
-                        <h2>Tailored to your reality</h2>
-                        <p>Only you and your people know what works best to manage your life. Our mission is to give you a solution that makes it easy to live that way.</p>
-                    </div>
-                </div>
-                <div class="showcase-slide">
-                    <img src="assets/homeShowcase/screen-chat-2.png" alt="Chat screen" class="product-image" />
-                    <div class="product-copy" style="max-width: 90%; width: 400px;">
-                        <h2>Communication without noise</h2>
-                        <p>Everything lives where it belongs. No unnecessary notifications or lost threads. Just the direct, clear communication you have always wanted.</p>
-                    </div>
-                </div>
-                <div class="showcase-slide">
-                    <img src="assets/homeShowcase/screen-cal-3.png" alt="Calendar screen" class="product-image" />
-                    <div class="product-copy" style="max-width: 90%; width: 400px;">
-                        <h2>Everything in its place</h2>
-                        <p>No more wondering where the important info lives. Everyone knows exactly where to find each piece, making daily coordination easier.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="showcase-btn next" id="showcaseNext" aria-label="Next slide">&#10095;</button>
-        </section>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="./privacy.html">Privacy</a>
+      <a href="./legal.html">Terms</a>
+      <span>&copy; 2026 Together</span>
+    </div>
+  </footer>
 
-        <section class="principles-card">
-            <div>
-                <h2 class="principles-heading">We created Together to care, not to cling. To bring focus, not distraction. To offer clarity, not anxiety.</h2>
-                <p class="hero-text">We have always dreamed of building something we would use with the people who matter most to us, and every design decision reflects that.</p>
-                <p class="hero-text firma">- The Together founders and team</p>
-            </div>
-        </section>
-
-        <!-- spaces-carousel removed -->
-
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <p class="copyright">&copy; 2025 Together Solutions S.L.</p>
-            <div class="footer-links">
-                <a href="legal.html" class="footer-link">Legal notice</a>
-                <span class="footer-separator">·</span>
-                <a href="privacy.html" class="footer-link">Privacy policy</a>
-                <span class="footer-separator">·</span>
-                <a href="humans.html" class="footer-link">Who's behind Together</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const iconMoon = document.getElementById('icon-moon');
-        const iconSun = document.getElementById('icon-sun');
-        
-        // Check for saved theme preference or use system preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            if (savedTheme === 'dark') {
-                iconMoon.style.display = 'none';
-                iconSun.style.display = 'block';
-            } else {
-                iconMoon.style.display = 'block';
-                iconSun.style.display = 'none';
-            }
-        }
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            if (newTheme === 'dark') {
-                iconMoon.style.display = 'none';
-                iconSun.style.display = 'block';
-            } else {
-                iconMoon.style.display = 'block';
-                iconSun.style.display = 'none';
-            }
-        });
-
-        // -------- Carousel logic --------
-        const track = document.querySelector('#hierarchyCarousel .carousel-track');
-        if (track) {
-            const slides = Array.from(track.children);
-            const prevBtn = document.getElementById('prevSlide');
-            const nextBtn = document.getElementById('nextSlide');
-            let current = 0;
-            function updateCarousel() {
-                track.style.transform = `translateX(-${current * 100}%)`;
-            }
-            prevBtn?.addEventListener('click', () => {
-                current = (current - 1 + slides.length) % slides.length;
-                updateCarousel();
-            });
-            nextBtn?.addEventListener('click', () => {
-                current = (current + 1) % slides.length;
-                updateCarousel();
-            });
-            updateCarousel();
-        }
-
-        // ----- Showcase carousel (infinite) -----
-        const showcaseTrack = document.querySelector('.showcase-track');
-        const showcaseSlides = document.querySelectorAll('.showcase-slide');
-        const prevShowcase = document.getElementById('showcasePrev');
-        const nextShowcase = document.getElementById('showcaseNext');
-        const productShowcase = document.querySelector('.product-showcase');
-        let showcaseCurrent = 0; // Start with the first slide
-        
-        // Variables to handle swipe gestures
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let isDragging = false;
-        let startTranslateX = 0;
-        let currentTranslateX = 0;
-
-        function setShowcaseActive(index) {
-            showcaseSlides.forEach(slide => slide.classList.remove('active'));
-            showcaseSlides[index].classList.add('active');
-        }
-
-        function updateShowcase() {
-            setShowcaseActive(showcaseCurrent);
-            const slideWidth = showcaseSlides[0].offsetWidth; // Get width of first slide
-            const gap = parseInt(window.getComputedStyle(showcaseTrack).columnGap || 16);
-            const containerWidth = productShowcase.offsetWidth;
-            const totalSlides = showcaseSlides.length;
-            const trackWidth = (totalSlides * slideWidth) + (gap * (totalSlides - 1));
-            
-            let scrollPosition;
-            
-            // Detect whether we are on mobile or desktop
-            const isMobile = window.innerWidth < 768;
-            
-            if (!isMobile) {
-                // DESKTOP VERSION
-                if (trackWidth <= containerWidth) {
-                    // If the track width is narrower than the container, center the content
-                    scrollPosition = (containerWidth - trackWidth) / 2;
-                } else {
-                    // Align the first slide to the left when it is active
-                    if (showcaseCurrent === 0) {
-                        scrollPosition = 0;
-                    } 
-                    // Align the last slide to the right when it is active
-                    else if (showcaseCurrent === totalSlides - 1) {
-                        scrollPosition = -(trackWidth - containerWidth);
-                    } 
-                    // For the rest of the slides, calculate the position to center them
-                    else {
-                        // Determine the spacing on each side to center the current slide
-                        const slideCenter = (showcaseCurrent * (slideWidth + gap)) + (slideWidth / 2);
-                        const containerCenter = containerWidth / 2;
-                        
-                        // Calculate the position to perfectly center the current slide
-                        scrollPosition = containerCenter - slideCenter;
-                        
-                        // Clamp the scroll so we never exceed the bounds
-                        const maxScroll = -(trackWidth - containerWidth);
-                        scrollPosition = Math.max(maxScroll, Math.min(0, scrollPosition));
-                    }
-                }
-            } else {
-                // MOBILE VERSION: perfectly center every slide
-                
-                // Account for track padding (0.5rem on each side = 1rem total)
-                const trackPadding = 16; // Equivalent to 1rem (0.5rem * 2)
-                
-                // Get the effective container width (minus the padding)
-                const effectiveContainerWidth = containerWidth - trackPadding;
-                
-                // Calculate the container center (taking the padding into account)
-                const containerCenter = effectiveContainerWidth / 2 + (trackPadding / 2);
-                
-                // Calculate the current slide center (considering the gap)
-                const slideCenter = (showcaseCurrent * (slideWidth + gap)) + (slideWidth / 2);
-                
-                // Compute the offset needed to center the slide
-                scrollPosition = containerCenter - slideCenter;
-                
-                // Extra fine-tuning to compensate for any visual offset
-                // based on this specific DOM structure
-                const fineAdjustment = 8; // Value refined after visual testing
-                scrollPosition -= fineAdjustment;
-            }
-            
-            showcaseTrack.style.transform = `translateX(${scrollPosition}px)`;
-            currentTranslateX = scrollPosition;
-        }
-        
-        // Touch handlers
-        function handleTouchStart(e) {
-            touchStartX = e.touches[0].clientX;
-            isDragging = true;
-            startTranslateX = currentTranslateX;
-            showcaseTrack.style.transition = 'none'; // Disable transition while dragging
-        }
-        
-        function handleTouchMove(e) {
-            if (!isDragging) return;
-            touchEndX = e.touches[0].clientX;
-            const diffX = touchEndX - touchStartX;
-            currentTranslateX = startTranslateX + diffX;
-            showcaseTrack.style.transform = `translateX(${currentTranslateX}px)`;
-            // Allow vertical scrolling while dragging
-        }
-        
-        function handleTouchEnd() {
-            if (!isDragging) return;
-            isDragging = false;
-            showcaseTrack.style.transition = 'transform 0.6s ease';
-            
-            const moveDistance = touchEndX - touchStartX;
-            const threshold = window.innerWidth * 0.15; // 15% of the screen width
-            
-            if (moveDistance < -threshold && showcaseCurrent < showcaseSlides.length - 1) {
-                // Swipe left -> next slide
-                showcaseCurrent++;
-            } else if (moveDistance > threshold && showcaseCurrent > 0) {
-                // Swipe right -> previous slide
-                showcaseCurrent--;
-            }
-            
-            updateShowcase();
-        }
-
-        prevShowcase.addEventListener('click', () => {
-            showcaseCurrent = (showcaseCurrent - 1 + showcaseSlides.length) % showcaseSlides.length;
-            updateShowcase();
-        });
-
-        nextShowcase.addEventListener('click', () => {
-            showcaseCurrent = (showcaseCurrent + 1) % showcaseSlides.length;
-            updateShowcase();
-        });
-        
-        // Add touch support events
-        showcaseTrack.addEventListener('touchstart', handleTouchStart, {passive: true});
-        showcaseTrack.addEventListener('touchmove', handleTouchMove, {passive: true});
-        showcaseTrack.addEventListener('touchend', handleTouchEnd);
-
-        window.addEventListener('resize', updateShowcase);
-        window.addEventListener('load', updateShowcase);
-        updateShowcase();
-        
-        // Bento Grid collapsible items
-        const bentoHeaders = document.querySelectorAll('.bento-header');
-        
-        // Add click handler for each header (making the whole area clickable)
-        bentoHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                // Find the parent bento item
-                const bentoItem = header.closest('.bento-item');
-                
-                // Toggle expanded state
-                bentoItem.classList.toggle('expanded');
-            });
-        });
-    </script>
-    <script src="js/nav-toggle.js"></script>
-    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
 </html>

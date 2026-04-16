@@ -1,158 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <title>Legal Notice - Together</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
-    <script>
-        (() => {
-            const saved = localStorage.getItem('theme');
-            const theme = saved ? saved : 'dark';
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal — together.day</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'TT Commons Pro';
+      src: url('./assets/TT Commons Pro Variable.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'TT Commons Pro', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid #e8e8e8;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+
+    .header-logo img { height: 40px; width: auto; }
+
+    nav { display: flex; align-items: center; gap: 32px; }
+
+    nav a {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #1a1a1a; }
+
+    .btn-get-app {
+      border: 1px solid #e8e8e8;
+      padding: 6px 18px;
+      border-radius: 14px;
+      color: #1a1a1a !important;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-get-app:hover {
+      background: #1a1a1a;
+      color: #fff !important;
+    }
+
+    .content-area {
+      background: #faf8f5;
+      padding-bottom: 80px;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .page-title-area {
+      padding: 80px 0 24px;
+    }
+
+    .page-title-area h1 {
+      font-family: 'TT Commons Pro', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #1a1a1a;
+    }
+
+    .page-separator {
+      border: none;
+      border-top: 1px solid #e8e8e8;
+      margin: 0;
+    }
+
+    .page-meta {
+      padding: 20px 0 48px;
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    .legal-body h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 40px 0 16px;
+    }
+
+    .legal-body h2:first-child {
+      margin-top: 0;
+    }
+
+    .legal-body p {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.75;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .legal-body ul {
+      margin: 0 0 16px 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.75;
+      color: #333;
+    }
+
+    .legal-body a {
+      color: #1a1a1a;
+      text-decoration: underline;
+      text-decoration-color: #ccc;
+      text-underline-offset: 3px;
+    }
+
+    .legal-body a:hover {
+      text-decoration-color: #1a1a1a;
+    }
+
+    footer {
+      margin-top: 0;
+      border-top: 1px solid #e8e8e8;
+      padding: 48px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
+
+    .footer-links { display: flex; gap: 64px; }
+
+    .footer-col h4 {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #888;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: #1a1a1a; }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    .footer-bottom a {
+      color: #bbb;
+      text-decoration: none;
+      margin-right: 16px;
+    }
+
+    .footer-bottom a:hover { color: #888; }
+
+    @media (max-width: 768px) {
+      header { padding: 16px 20px; }
+      nav { gap: 20px; }
+      .page-title-area { padding: 60px 0 20px; }
+      .page { padding: 0 20px; }
+      .footer-inner { flex-direction: column; gap: 32px; }
+      .footer-links { gap: 40px; flex-wrap: wrap; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img class="logo-svg" src="assets/logo.svg" alt="Together logo" width="240"/>
-                    <h1>Together</h1>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <ul class="nav-menu">
-                    <li><a href="features.html" class="nav-link">Available features</a></li>
-                    <li><a href="chip.html" class="nav-link">Chip &amp; AI</a></li>
-                </ul>
-            </nav>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <img id="icon-moon" src="assets/icon-moon.svg" alt="Dark theme" width="24" height="24" style="display: none;" />
-                <img id="icon-sun" src="assets/icon-sun.svg" alt="Light theme" width="24" height="24" style="display: block;" />
-            </button>
+
+  <header>
+    <a href="./index.html" class="header-logo">
+      <img src="./assets/Logo 2.1 negro.svg" alt="together">
+    </a>
+    <nav>
+      <a href="./blog/index.html">Blog</a>
+      <a href="#" class="btn-get-app">Get the app</a>
+    </nav>
+  </header>
+
+  <div class="content-area">
+  <div class="page">
+
+    <div class="page-title-area">
+      <h1>Legal Notice</h1>
+    </div>
+    <hr class="page-separator">
+    <div class="page-meta">
+      <span>LAST UPDATED: 12 MAY 2025</span>
+    </div>
+
+    <div class="legal-body">
+
+      <h2>Website Owner</h2>
+      <p>TOGETHER SOLUTIONS, S.L.</p>
+      <ul>
+        <li>Tax ID (CIF): B-72792633</li>
+        <li>Registered address: Calle Los Juncos 11, 28223 Pozuelo de Alarcon (Madrid, Spain)</li>
+        <li>Contact: <a href="mailto:help@together.day">help@together.day</a></li>
+        <li>Phone: +34 613 023 935</li>
+      </ul>
+
+      <h2>Corporate Registration</h2>
+      <p>Registered in the Commercial Registry of Madrid, Volume 44,322, Page 11, Sheet M-781274, Entry 1.</p>
+
+      <h2>Corporate Purpose</h2>
+      <p>Development of tailored technology solutions and IT consulting services to optimize business processes through innovative software and digital services.</p>
+
+      <h2>1. Terms of Use</h2>
+      <p>Website access is free and establishes a user relationship bound by these terms. Any unlawful use or infringement of third-party rights is prohibited.</p>
+
+      <h2>2. Intellectual and Industrial Property</h2>
+      <p>All content (text, code, designs, logos, trademarks, graphics, etc.) belongs to TOGETHER or its licensors and is legally protected. Reproduction, distribution, or transformation requires express authorization.</p>
+
+      <h2>3. Disclaimer of Liability</h2>
+      <p>Information is offered on an as-is basis. The company makes reasonable efforts to maintain accuracy but doesn't guarantee error-free or uninterrupted service.</p>
+
+      <h2>4. External Links</h2>
+      <p>The company assumes no responsibility for third-party linked sites or their operations.</p>
+
+      <h2>5. Data Protection</h2>
+      <p>Personal data handling follows our <a href="./privacy.html">Privacy Policy</a>.</p>
+
+      <h2>6. Cookies</h2>
+      <p>First-party and third-party analytics cookies are used with consent options available.</p>
+
+      <h2>7. Governing Law and Jurisdiction</h2>
+      <p>Spanish law governs. Disputes fall under Madrid courts' jurisdiction unless applicable law specifies otherwise.</p>
+
+    </div>
+
+  </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./assets/Logo 2.1 negro.svg" alt="together">
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="./about.html">About</a>
+          <a href="./team.html">Team</a>
+          <a href="./blog/index.html">Blog</a>
         </div>
-    </header>
-    
-    <main>
-        <section class="page-content">
-            <div class="container">
-                <h1>LEGAL NOTICE</h1>
-                
-                <article class="legal-section">
-                    <p><strong>Last updated:</strong> May 12, 2025</p>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>Website owner</h2>
-                    <p>TOGETHER SOLUTIONS, S.L. (hereinafter, "TOGETHER")</p>
-                    <ul>
-                        <li>Tax ID (CIF): B-72792633</li>
-                        <li>Registered address: Calle Los Juncos 11, 28223 Pozuelo de Alarcon (Madrid, Spain)</li>
-                        <li>Contact email and single DSA contact point: help@together.day</li>
-                        <li>Phone: +34 613 023 935</li>
-                    </ul>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>Corporate registration</h2>
-                    <p>Registered in the Commercial Registry of Madrid, Volume 44,322, Page 11, Sheet M-781274, Entry 1.</p>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>Corporate purpose</h2>
-                    <p>Development of tailored technology solutions and IT consulting services to optimize business processes through innovative software and digital services.</p>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>1. Terms of use</h2>
-                    <p>Access to this website is free of charge and grants the status of user, who agrees to be bound by these Terms. Any use of the content that is unlawful or infringes third-party rights is prohibited.</p>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>2. Intellectual and industrial property</h2>
-                    <p>All content (text, code, designs, logos, trademarks, graphics, etc.) belongs to TOGETHER or its licensors and is protected under Spanish and European law. Unless expressly authorised, reproduction, public communication, distribution, or transformation is prohibited.</p>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>3. Disclaimer of liability</h2>
-                    <p>The information is provided "as is". TOGETHER does not guarantee error-free content or uninterrupted service, although it will act with due diligence to correct issues. Users browse at their own risk.</p>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>4. External links</h2>
-                    <p>This site may link to third-party pages. TOGETHER does not control those sites and assumes no responsibility for their content or operation.</p>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>5. Data protection</h2>
-                    <p>The processing of personal data is governed by our <a href="privacy.html">Privacy Policy</a>, accessible from the footer.</p>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>6. Cookies</h2>
-                    <p>This site uses first-party and third-party (analytics) cookies. Details about their use and consent options are described in the Cookies Policy.</p>
-                </article>
-                
-                <article class="legal-section">
-                    <h2>7. Governing law and jurisdiction</h2>
-                    <p>Spanish law applies in general. For dispute resolution, the parties submit to the Courts and Tribunals of Madrid (Spain), unless mandatory law states otherwise.</p>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <p class="copyright">&copy; 2025 Together Solutions S.L.</p>
-            <div class="footer-links">
-                <a href="legal.html" class="footer-link">Legal notice</a>
-                <span class="footer-separator">·</span>
-                <a href="privacy.html" class="footer-link">Privacy policy</a>
-                <span class="footer-separator">·</span>
-                <a href="humans.html" class="footer-link">Who's behind Together</a>
-            </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="./contact.html">Contact us</a>
         </div>
-    </footer>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="./privacy.html">Privacy</a>
+      <a href="./legal.html">Terms</a>
+      <span>&copy; 2026 Together</span>
+    </div>
+  </footer>
 
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const iconMoon = document.getElementById('icon-moon');
-        const iconSun = document.getElementById('icon-sun');
-        
-        // Check for saved theme preference or use system preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            if (savedTheme === 'dark') {
-                iconMoon.style.display = 'none';
-                iconSun.style.display = 'block';
-            } else {
-                iconMoon.style.display = 'block';
-                iconSun.style.display = 'none';
-            }
-        }
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            if (newTheme === 'dark') {
-                iconMoon.style.display = 'none';
-                iconSun.style.display = 'block';
-            } else {
-                iconMoon.style.display = 'block';
-                iconSun.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
