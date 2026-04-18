@@ -10,6 +10,23 @@
   pattern = "/download*"
   function = "download-redirect"
 
+[[headers]]
+  for = "/.well-known/apple-app-site-association"
+  [headers.values]
+    Content-Type = "application/json"
+
+[[redirects]]
+  from = "/join/*"
+  to = "https://together-backend-production-us-f615fadb2476.herokuapp.com/join/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/invite/*"
+  to = "https://together-backend-production-us-f615fadb2476.herokuapp.com/invite/:splat"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
