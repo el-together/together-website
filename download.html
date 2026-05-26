@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download — together</title>
+  <meta name="description" content="Download Together for iPhone and Android.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'TT Commons Pro';
+      src: url('./assets/TT Commons Pro Variable.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'TT Commons Pro', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid #e8e8e8;
+      background: #fff;
+    }
+
+    .header-logo img { height: 40px; width: auto; }
+
+    nav { display: flex; align-items: center; gap: 32px; }
+
+    nav a {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #1a1a1a; }
+
+    .content-area {
+      flex: 1;
+      background: #faf8f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+
+    .download-card {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .download-card h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .download-card p.lede {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .store-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    .btn-store {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      border: 1px solid #1a1a1a;
+      padding: 14px 24px;
+      border-radius: 14px;
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-store:hover {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .footnote {
+      margin-top: 32px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: #bbb;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      border-top: 1px solid #e8e8e8;
+      padding: 32px 40px;
+      background: #fff;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    .footer-bottom a {
+      color: #bbb;
+      text-decoration: none;
+      margin-right: 16px;
+    }
+
+    .footer-bottom a:hover { color: #888; }
+
+    @media (max-width: 768px) {
+      header { padding: 16px 20px; }
+      nav { gap: 20px; }
+      .download-card h1 { font-size: 2.2rem; }
+      .content-area { padding: 60px 20px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+  <script>
+    (function () {
+      var ua = navigator.userAgent || navigator.vendor || window.opera || '';
+      if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+        window.location.replace('https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044');
+        return;
+      }
+      if (/android/i.test(ua)) {
+        window.location.replace('https://play.google.com/store/apps/details?id=day.together.app');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="header-logo">
+      <img src="./assets/Logo 2.1 negro.svg" alt="together">
+    </a>
+    <nav>
+      <a href="/blog">Blog</a>
+    </nav>
+  </header>
+
+  <div class="content-area">
+    <div class="download-card">
+      <h1>Download Together</h1>
+      <p class="lede">Available on iPhone and Android. Tap your store below.</p>
+      <div class="store-buttons">
+        <a class="btn-store" href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" rel="noopener">Download on the App Store</a>
+        <a class="btn-store" href="https://play.google.com/store/apps/details?id=day.together.app" rel="noopener">Get it on Google Play</a>
+      </div>
+      <p class="footnote">together.day</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-bottom">
+      <a href="/privacy">Privacy</a>
+      <a href="/legal">Terms</a>
+      <span>&copy; 2026 Together</span>
+    </div>
+  </footer>
+
+</body>
+</html>
