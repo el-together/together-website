@@ -6,15 +6,17 @@
   <title>together.day</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'TT Commons Pro';
-      src: url('./assets/TT Commons Pro Variable.ttf') format('truetype');
+      src: url('./assets/tt-commons-pro-var.woff2') format('woff2');
       font-weight: 100 900;
       font-style: normal;
       font-display: swap;
     }
+
+    html { font-variation-settings: "slnt" 0, "wdth" 100; }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -71,31 +73,1308 @@
       color: #fff !important;
     }
 
-    .content-area {
-      background: #faf8f5;
-      padding-bottom: 80px;
-    }
-
-    .hero-section {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 120px 24px 0;
+    /* Hero — lavender store-style panel (Figma-accurate) */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: #e3e4f0;
+      padding: 120px 24px 140px;
       text-align: center;
     }
 
-    .hero-section h1 {
-      font-size: 3rem;
+    /* Two large blurred #7A7393 ellipses peeking from corners — matches Figma Feature Graphic */
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 900px;
+      height: 900px;
+      background: url('./assets/bg/ellipse-gradient.svg') no-repeat center / contain;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+
+    .hero::before {
+      top: -600px;
+      left: 80px;
+    }
+
+    .hero::after {
+      bottom: -500px;
+      left: 280px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .hero h1,
+    .hero .tagline {
+      color: #374151;
+    }
+
+    /* Floating mockup groups — each rotated 7deg, same direction (matches Figma) */
+    .mockup-group {
+      position: absolute;
+      z-index: 1;
+      transform: rotate(7deg);
+      transform-origin: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif;
+      text-align: left;
+      pointer-events: none;
+    }
+
+    .mockup-group--left {
+      left: -24px;
+      top: 40px;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 8.524px;
+    }
+
+    .mockup-group--right {
+      right: -40px;
+      top: -40px;
+      width: 296px;
+    }
+
+    /* Project card — Figma-exact sub-pixel spec */
+    .proj-card {
+      background: #ecedee;
+      border: 0.637px solid #fff;
+      border-radius: 16.985px;
+      padding: 13.588px 12.833px 13.588px 13.279px;
+      box-shadow: 0 2.123px 21.231px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      overflow: hidden;
+    }
+
+    .proj-card-left {
+      display: flex;
+      align-items: center;
+      gap: 8.391px;
+      min-width: 0;
+    }
+
+    .proj-icon {
+      width: 24.856px;
+      height: 24.856px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .proj-name {
+      font-size: 12.739px;
+      font-weight: 600;
+      color: #374151;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: -0.01em;
+    }
+
+    /* Avatar cluster — first avatar has colored-bubble border, rest have light gray */
+    .proj-avatars {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .proj-avatar {
+      width: 21.525px;
+      height: 21.525px;
+      border-radius: 6.15px;
+      overflow: hidden;
+      margin-right: -3.514px;
+      position: relative;
+      background: #fff;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+
+    .proj-avatar--primary {
+      border: 1.318px solid var(--ring, #bfdbfe);
+    }
+
+    .proj-avatar--secondary {
+      width: 20.207px;
+      height: 20.207px;
+      border-radius: 6.15px;
+      border: 0.659px solid #f4f4f4;
+    }
+
+    .proj-card[data-ring="blue"] .proj-avatar--primary { border-color: #bfdbfe; }
+    .proj-card[data-ring="amber"] .proj-avatar--primary { border-color: #fde68a; }
+    .proj-card[data-ring="orange"] .proj-avatar--primary { border-color: #fed7aa; }
+    .proj-card[data-ring="indigo"] .proj-avatar--primary { border-color: #c7d2fe; }
+
+    .proj-avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    /* Subtle white overlay on each avatar, matches Figma's rgba(255,255,255,0.4) */
+    .proj-avatar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .proj-avatars .plus-chip {
+      width: 21.525px;
+      height: 21.525px;
+      border-radius: 6.15px;
+      background: #fde68a;
+      color: #d97706;
+      font-size: 8.766px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0;
+      flex-shrink: 0;
+    }
+
+    .proj-avatars > *:last-child { margin-right: 0; }
+
+    /* Members sheet — Figma-exact sub-pixel spec */
+    .members-sheet {
+      background: #eeefef;
+      border-radius: 12.887px;
+      padding: 8.891px 11.854px 35.563px;
+      box-shadow: 0 5.369px 28.637px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 8.891px;
+      align-items: center;
+      overflow: hidden;
+      width: 254.867px;
+    }
+
+    .sheet-handle {
+      background: #cacacb;
+      width: 24.109px;
+      height: 2.583px;
+      border-radius: 30.136px;
+      flex-shrink: 0;
+    }
+
+    .sheet-title {
+      font-size: 9.471px;
+      font-weight: 600;
+      color: #374151;
+      margin: 0;
+      letter-spacing: -0.005em;
+      white-space: nowrap;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8.891px;
+      padding-top: 2.153px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .contact-card {
+      background: #fff;
+      border-radius: 7.517px;
+      padding: 5.597px 4.742px;
+      box-shadow: 0 1.185px 2.371px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 231.159px;
+      gap: 5.927px;
+    }
+
+    .contact-card-ficha {
+      display: flex;
+      align-items: center;
+      gap: 5.927px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .contact-avatar {
+      width: 23.709px;
+      height: 23.709px;
+      border-radius: 28%;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #e8e5ef;
+    }
+
+    .contact-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.42);
+      transform-origin: center;
+    }
+
+    .contact-name-block {
+      display: flex;
+      flex-direction: column;
+      gap: 1.778px;
+      min-width: 0;
+    }
+
+    .contact-name {
+      font-size: 9.483px;
+      font-weight: 700;
+      color: #374151;
+      line-height: 1.1;
+      white-space: nowrap;
+      letter-spacing: -0.005em;
+    }
+
+    .contact-sub {
+      font-size: 7.705px;
+      font-weight: 400;
+      color: #9ca3af;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .contact-action {
+      width: 14.225px;
+      height: 14.225px;
+      flex-shrink: 0;
+      display: block;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 1180px) {
+      .mockup-group--left { left: -10px; width: 280px; }
+      .mockup-group--right { right: -20px; width: 280px; }
+    }
+
+    @media (max-width: 960px) {
+      .mockup-group { display: none; }
+    }
+
+    /* ------- Home sections (lavender bg, multiple blocks) ------- */
+    .home-sections {
+      background: #e3e4f0;
+      padding: 0 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Purple gradient orbs for depth, matching hero atmosphere */
+    .home-sections::before,
+    .home-sections::after {
+      content: "";
+      position: absolute;
+      width: 1100px;
+      height: 1100px;
+      background: url('./assets/bg/ellipse-gradient.svg') center/contain no-repeat;
+      opacity: 0.28;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .home-sections::before {
+      top: 200px;
+      left: -450px;
+    }
+
+    .home-sections::after {
+      bottom: -100px;
+      right: -400px;
+    }
+
+    .home-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Benefits bento — 3 tiles with Figma store-card DNA */
+    .benefits {
+      padding: 80px 0 40px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .benefit {
+      background: #fff;
+      border-radius: 24px;
+      padding: 0 0 28px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Visual zone — the ACTUAL app fragment lives here, not an icon */
+    .benefit-visual {
+      position: relative;
+      background: #f5f4f8;
+      padding: 32px 24px;
+      height: 220px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.04);
+    }
+
+    /* Same values, same falloff — only the light direction changes per tile */
+    .benefit-visual--tools {
+      background: linear-gradient(140deg, #ffffff 0%, #f7f6fb 45%, #ebe8f2 100%);
+    }
+    .benefit-visual--members {
+      background: linear-gradient(180deg, #ffffff 0%, #f7f6fb 45%, #ebe8f2 100%);
+    }
+    .benefit-visual--chip {
+      background: linear-gradient(220deg, #ffffff 0%, #f7f6fb 45%, #ebe8f2 100%);
+    }
+
+    .benefit-copy {
+      padding: 24px 28px 0;
+      flex: 1;
+    }
+
+    .benefit h3 {
+      font-family: 'TT Commons Pro', sans-serif;
+      font-size: 1.4rem;
       font-weight: 700;
       line-height: 1.2;
+      letter-spacing: -0.015em;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    .benefit p {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #6b6880;
+      margin: 0;
+    }
+
+    /* ---- Tile 1 visual: tools grid (the "all in one" moment) ---- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 100%;
+      max-width: 240px;
+    }
+
+    .tool-chip {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Icons float on the tile — no chip background */
+    .tool-chip-icon {
+      width: 44px;
+      height: 44px;
+      display: block;
+      background-color: currentColor;
+      -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+              mask-position: center;
+      -webkit-mask-size: contain;
+              mask-size: contain;
+    }
+
+    .tool-chip--cal   { color: #dc2626; }
+    .tool-chip--cal   .tool-chip-icon {
+      -webkit-mask-image: url("./assets/icons/tools/calendar-empty.svg");
+              mask-image: url("./assets/icons/tools/calendar-empty.svg");
+    }
+
+    .tool-chip--todo  { color: #2563eb; }
+    .tool-chip--todo  .tool-chip-icon {
+      -webkit-mask-image: url("./assets/icons/tools/checklist.svg");
+              mask-image: url("./assets/icons/tools/checklist.svg");
+    }
+
+    .tool-chip--exp   { color: #16a34a; }
+    .tool-chip--exp   .tool-chip-icon {
+      -webkit-mask-image: url("./assets/icons/tools/expenses.svg");
+              mask-image: url("./assets/icons/tools/expenses.svg");
+    }
+
+    .tool-chip--notes { color: #b45309; }
+    .tool-chip--notes .tool-chip-icon {
+      -webkit-mask-image: url("./assets/icons/tools/simple_note.svg");
+              mask-image: url("./assets/icons/tools/simple_note.svg");
+    }
+
+    .tool-chip--chat  { color: #4f46e5; }
+    .tool-chip--chat  .tool-chip-icon {
+      -webkit-mask-image: url("./assets/icons/tools/chat_tool.svg");
+              mask-image: url("./assets/icons/tools/chat_tool.svg");
+    }
+
+    .tool-chip--ai    { color: #7c3aed; }
+    .tool-chip--ai    .tool-chip-icon {
+      -webkit-mask-image: url("./assets/icons/tools/assistant.svg");
+              mask-image: url("./assets/icons/tools/assistant.svg");
+    }
+
+    /* ---- Tile 2 visual: stack of independent member cards ---- */
+    .members-snippet {
+      width: 230px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .members-snippet-row {
+      background: #fff;
+      border: 0.637px solid rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 1.5px 8px rgba(40, 35, 70, 0.1);
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .members-snippet-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 28%;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #e8e5ef;
+    }
+
+    .members-snippet-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.42);
+      transform-origin: center;
+    }
+
+    .members-snippet-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .members-snippet-name {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1a1a1a;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .members-snippet-sub {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 10px;
+      color: #98959f;
+      line-height: 1.2;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ---- Tile 3 visual: Chip bubbles (real Chip design) ---- */
+    .chip-chat {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 260px;
+    }
+
+    .chip-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .chip-row--user {
+      justify-content: flex-end;
+    }
+
+    .chip-row--ai {
+      justify-content: flex-start;
+    }
+
+    .chip-time {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 10px;
+      color: #9ca3af;
+      flex-shrink: 0;
+      padding-bottom: 4px;
+    }
+
+    .chip-bubble {
+      max-width: 80%;
+      padding: 8px 12px;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .chip-bubble--user {
+      background: #e3f2e3;
+      color: #2f5b2f;
+      border-radius: 14px 14px 4px 14px;
+    }
+
+    .chip-bubble--ai {
+      background: #ceeaf5;
+      color: #1b4f6e;
+      border-radius: 4px 14px 14px 14px;
+    }
+
+    .chip-bubble--ai + .chip-bubble--ai,
+    .chip-row--ai + .chip-row--ai .chip-bubble--ai {
+      border-top-left-radius: 14px;
+    }
+
+    /* Chip "deep link" element — project → tool shortcut */
+    .chip-deeplink {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37, 99, 235, 0.12);
+      padding: 6px 12px 6px 8px;
+      border-radius: 14px;
+      align-self: flex-start;
+    }
+
+    .chip-deeplink-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      display: block;
+      background-color: currentColor;
+      -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+              mask-position: center;
+      -webkit-mask-size: contain;
+              mask-size: contain;
+      color: #2563eb;
+    }
+
+    .chip-deeplink-icon--project {
+      -webkit-mask-image: url("./assets/icons/our-home.svg");
+              mask-image: url("./assets/icons/our-home.svg");
+    }
+
+    .chip-deeplink-icon--tool {
+      -webkit-mask-image: url("./assets/icons/tools/calendar-empty.svg");
+              mask-image: url("./assets/icons/tools/calendar-empty.svg");
+    }
+
+    .chip-deeplink-chevron {
+      color: rgba(37, 99, 235, 0.55);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .chip-deeplink-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #2563eb;
+      letter-spacing: -0.01em;
+    }
+
+    /* Detail section — project-based with tools */
+    .detail {
+      padding: 60px 0;
+    }
+
+    .detail-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    .detail-copy {
+      padding: 56px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .detail-copy h2 {
+      font-family: 'TT Commons Pro', sans-serif;
+      font-size: clamp(1.75rem, 2.8vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #374151;
+    }
+
+    .detail-copy p {
+      font-size: 1.02rem;
+      font-weight: 500;
+      line-height: 1.65;
+      color: #55506b;
+      margin: 0;
+    }
+
+    .detail-copy p + p {
+      color: #7c7890;
+      font-size: 0.97rem;
+    }
+
+    .detail-visual {
+      position: relative;
+      background: linear-gradient(140deg, #ffffff 0%, #f7f6fb 45%, #ebe8f2 100%);
+      padding: 48px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: 420px;
+    }
+
+    /* ============================================================
+       Project mockup — "Our Home" Figma spec (node 4142:82457)
+       Sub-pixel values scaled ~52% from Figma's 517.3px width → 270px
+       ============================================================ */
+    .project-stack {
+      position: relative;
+      display: inline-flex;
+    }
+
+    .project-stack > .project-mockup {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Secondary project — peeks out from behind the primary card,
+       vertically centered against the front card. */
+    .project-stack > .project-mockup--back {
+      position: absolute;
+      top: 50%;
+      left: 54px;
+      transform: translateY(-50%);
+      z-index: 1;
+      opacity: 0.92;
+    }
+
+    /* Back card meta bar — warm orange to signal a different project */
+    .project-mockup--back .pm-meta {
+      background: #f97316;
+    }
+
+    .project-mockup {
+      --pm-scale: 0.521;  /* 270 / 517.3 */
+      width: calc(517.327px * var(--pm-scale));
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+        linear-gradient(90deg, #dae3f1, #dae3f1);
+      border: calc(1.339px * var(--pm-scale)) solid #fff;
+      border-radius: calc(42.754px * var(--pm-scale));
+      box-shadow: 0 calc(11.394px * var(--pm-scale)) calc(45.576px * var(--pm-scale)) rgba(0, 0, 0, 0.25);
+      padding: calc(16.16px * var(--pm-scale)) calc(29.55px * var(--pm-scale)) 0 calc(26.125px * var(--pm-scale));
+      display: flex;
+      flex-direction: column;
+      gap: calc(15.15px * var(--pm-scale));
+      overflow: hidden;
+    }
+
+    /* Top control row: options / members (left cluster) + plus (right) */
+    .pm-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .pm-top-cluster {
+      display: flex;
+      align-items: center;
+      gap: calc(17.17px * var(--pm-scale));
+    }
+
+    .pm-btn {
+      background: rgba(255, 255, 255, 0.6);
+      border: calc(1.517px * var(--pm-scale)) solid #fff;
+      border-radius: calc(20.2px * var(--pm-scale));
+      box-shadow: 0 calc(4.463px * var(--pm-scale)) calc(25.25px * var(--pm-scale)) rgba(0, 0, 0, 0.1);
+      width: calc(60.601px * var(--pm-scale));
+      height: calc(60.601px * var(--pm-scale));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pm-btn img { display: block; }
+    .pm-btn--options img  { width: calc(28.28px * var(--pm-scale));  height: calc(28.28px * var(--pm-scale)); }
+    .pm-btn--members img  { width: calc(35.35px * var(--pm-scale));  height: calc(35.35px * var(--pm-scale)); }
+    .pm-btn--plus img     { width: calc(30.349px * var(--pm-scale)); height: calc(30.349px * var(--pm-scale)); }
+
+    /* Tool rows */
+    .pm-tools {
+      display: flex;
+      flex-direction: column;
+      gap: calc(15.15px * var(--pm-scale));
+      width: 100%;
+      padding: calc(30.3px * var(--pm-scale)) 0;
+    }
+
+    .pm-tool {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(250, 250, 250, 0.6) 100%);
+      border: calc(1.339px * var(--pm-scale)) solid #fff;
+      border-radius: calc(22.493px * var(--pm-scale));
+      box-shadow: 0 calc(4.463px * var(--pm-scale)) calc(36.938px * var(--pm-scale)) rgba(0, 0, 0, 0.12);
+      height: calc(70.701px * var(--pm-scale));
+      padding: 0 calc(26.125px * var(--pm-scale));
+      display: flex;
+      align-items: center;
+      gap: calc(17.81px * var(--pm-scale));
+    }
+
+    .pm-tool-icon {
+      width: calc(31.702px * var(--pm-scale));
+      height: calc(31.702px * var(--pm-scale));
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .pm-tool-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-weight: 590;
+      font-size: calc(24.243px * var(--pm-scale));
+      line-height: 1;
+      color: #374151;
+      white-space: nowrap;
+    }
+
+    /* Blue project-meta bar at bottom — breaks out to full card width */
+    .pm-meta {
+      background: #2563eb;
+      border-radius: 0 0 calc(21.443px * var(--pm-scale)) calc(21.443px * var(--pm-scale));
+      box-shadow: 0 calc(5.718px * var(--pm-scale)) calc(11.436px * var(--pm-scale)) rgba(0, 0, 0, 0.1);
+      padding: calc(20.2px * var(--pm-scale)) calc(21.443px * var(--pm-scale));
+      display: flex;
+      align-items: center;
+      /* Break out of the card's horizontal padding */
+      width: calc(100% + calc(26.125px * var(--pm-scale)) + calc(29.55px * var(--pm-scale)));
+      margin-left: calc(-26.125px * var(--pm-scale));
+      margin-right: calc(-29.55px * var(--pm-scale));
+    }
+
+    .pm-meta-inner {
+      display: flex;
+      align-items: center;
+      gap: calc(14.296px * var(--pm-scale));
+      height: calc(40.401px * var(--pm-scale));
+    }
+
+    .pm-meta-icon {
+      width: calc(42.887px * var(--pm-scale));
+      height: calc(42.887px * var(--pm-scale));
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .pm-meta-name {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: calc(28.591px * var(--pm-scale));
+      color: #fff;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    /* Pull-quote */
+    .quote-block {
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .quote-block blockquote {
+      font-family: 'Domine', serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.3;
+      color: #374151;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 0 0;
+      position: relative;
+    }
+
+    .quote-block blockquote::before {
+      content: "\201C";
+      font-family: 'Domine', serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 5rem;
+      line-height: 1;
+      color: rgba(74, 58, 112, 0.2);
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .quote-attribution {
+      margin: 28px auto 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #6b6880;
+    }
+
+    .quote-attribution::before,
+    .quote-attribution::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: rgba(74, 58, 112, 0.25);
+    }
+
+    .quote-attribution strong {
+      font-weight: 600;
+      color: #2a2540;
+    }
+
+    /* ============================================================
+       Pricing — one card, two sections (Free + Premium), stacked.
+       Menu-style tier headers: [label pill] ── [price]
+       ============================================================ */
+    .pricing {
+      padding: 20px 0 0;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      padding: 56px 56px 40px;
+      position: relative;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .pricing-headline {
+      font-family: 'TT Commons Pro', sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #374151;
+      margin: 0 0 14px;
+    }
+
+    .pricing-tagline {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.55;
+      color: #6f6a85;
+      margin: 0;
+    }
+
+    /* Two tiers live side-by-side inside the card (Free left, Premium right) */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .tier-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .tier-label {
+      display: inline-block;
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4a3a70;
+      padding: 6px 12px;
+      background: rgba(74, 58, 112, 0.08);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .tier--premium .tier-label {
+      color: #fff;
+      background: #4a3a70;
+    }
+
+    .tier-rule {
+      flex: 1;
+      height: 1px;
+      background: rgba(80, 70, 120, 0.12);
+    }
+
+    .tier-price {
+      font-family: 'TT Commons Pro', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .tier-trial {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4a3a70;
+      padding: 5px 10px;
+      background: rgba(74, 58, 112, 0.1);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .tier-period {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #888;
+      letter-spacing: 0;
+      margin-left: 2px;
+    }
+
+    .tier-intro {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #6f6a85;
+      margin: 0 0 14px;
+    }
+
+    .tier-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tier-features li {
+      font-size: 0.97rem;
+      color: #3a3550;
+      line-height: 1.5;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .tier-features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #4a3a70 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 5L4 7L8 3' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") center/10px 10px no-repeat;
+    }
+
+    /* A feature that takes the full width of the feature grid */
+    .tier-features li.is-wide { grid-column: 1 / -1; }
+
+    .pricing-stores {
+      margin-top: 44px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pricing-footnote {
+      margin-top: 18px;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      color: #98959f;
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 880px) {
+      .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
+      .detail-card { grid-template-columns: 1fr; padding: 28px; gap: 28px; }
+      .detail-copy { padding: 0; gap: 12px; }
+      .detail-visual { min-height: 240px; }
+      .quote-block { padding: 48px 20px; }
+      .benefits { padding: 48px 20px 20px; }
+      .detail { padding: 40px 20px; }
+      .pricing { padding: 20px 20px 0; }
+      .pricing-card { padding: 40px 28px 32px; }
+      .pricing-stores { flex-direction: column; align-items: center; }
+      .tiers-grid { grid-template-columns: 1fr; gap: 32px; }
+      .tier-trial { display: none; }
+    }
+
+    /* ------- OBT Tools Sheet — bottom-right, peeks up from hero edge ------- */
+    .mockup-group--bottom {
+      bottom: -40px;
+      right: -40px;
+      width: 278px;
+    }
+
+    @media (max-width: 1180px) {
+      .mockup-group--bottom { bottom: -60px; right: -60px; }
+    }
+
+    .obt-sheet {
+      width: 278px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+        linear-gradient(90deg, #ece7ce, #ece7ce);
+      border: 0.656px solid #fff;
+      border-radius: 20.947px;
+      box-shadow: 0 2.187px 18.098px rgba(0,0,0,0.18);
+      padding: 7.918px 14.478px 0 12.8px;
+      display: flex;
+      flex-direction: column;
+      gap: 7.423px;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    .obt-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .obt-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 8.412px;
+    }
+
+    .obt-btn {
+      width: 29.691px;
+      height: 29.691px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 0.743px solid #fff;
+      border-radius: 9.897px;
+      box-shadow: 0 2.187px 12.371px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6.827px 12.8px 7.68px;
+    }
+
+    .ic { position: relative; overflow: hidden; flex-shrink: 0; }
+    .ic-17 { width: 17.191px; height: 17.191px; }
+    .ic-15 { width: 15.532px; height: 15.532px; }
+    .ic-14 { width: 14.87px; height: 14.87px; }
+    .ic-21 { width: 21.012px; height: 21.012px; }
+
+    .ic-layer { position: absolute; }
+    .ic-layer > div { position: absolute; inset: 0; }
+    .ic-layer img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-width: none; }
+
+    /* Tools list */
+    .obt-tools {
+      display: flex;
+      flex-direction: column;
+      gap: 7.423px;
+      width: 100%;
+      padding: 14.846px 0;
+    }
+
+    .obt-tool {
+      height: 34.64px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0.387%, rgba(250,250,250,0.6) 100.39%);
+      border: 0.656px solid #fff;
+      border-radius: 11.02px;
+      box-shadow: 0 2.187px 18.098px rgba(0, 0, 0, 0.12);
+      padding: 0 14.478px 0 12.8px;
+      display: flex;
+      align-items: center;
+    }
+
+    .obt-tool-inner {
+      display: flex;
+      align-items: center;
+      gap: 8.726px;
+    }
+
+    .obt-tool-name {
+      font-size: 11.878px;
+      font-weight: 600;
+      color: #374151;
+      white-space: nowrap;
+      letter-spacing: -0.005em;
+    }
+
+    /* Amber meta bar — breaks out to full sheet width */
+    .obt-amber {
+      background: #d97706;
+      padding: 9.897px 10.506px;
+      box-shadow: 0 2.802px 5.603px rgba(0, 0, 0, 0.1);
+      width: calc(100% + 27.278px);
+      margin-left: -12.8px;
+      margin-right: -14.478px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .obt-amber-row {
+      display: flex;
+      align-items: center;
+      gap: 7.004px;
+      height: 19.794px;
+    }
+
+    .obt-amber-label {
+      font-size: 14.008px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      letter-spacing: -0.005em;
+    }
+
+    .hero-logo {
+      display: inline-block;
+      height: 64px;
+      aspect-ratio: 3784 / 1060; /* preserve SVG aspect ratio */
+      margin-bottom: 48px;
+      background-color: #374151;
+      -webkit-mask-image: url("./assets/Logo 2.1 negro.svg");
+              mask-image: url("./assets/Logo 2.1 negro.svg");
+      -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+              mask-position: center;
+      -webkit-mask-size: contain;
+              mask-size: contain;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #252538;
       margin-bottom: 24px;
     }
 
-    .hero-section p {
-      font-size: 1.15rem;
+    .hero .tagline {
+      font-size: 1.1rem;
       font-weight: 500;
-      color: #555;
-      max-width: 480px;
-      margin: 0 auto;
+      color: #5a5a70;
+      max-width: 640px;
+      margin: 0 auto 44px;
+      line-height: 1.6;
+    }
+
+    .hero-platforms {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .hero-platform-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 22px;
+      background: #252538;
+      border: 1px solid #252538;
+      border-radius: 18px;
+      color: #fff;
+      text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(37, 37, 56, 0.18);
+    }
+
+    .hero-platform-btn:hover {
+      background: #1a1a2a;
+      box-shadow: 0 6px 22px rgba(37, 37, 56, 0.3);
+    }
+
+    .hero-platform-btn img {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    .hero-platform-btn-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      text-align: left;
+    }
+
+    .hero-platform-btn-sub {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .hero-platform-btn-main {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      color: #fff;
+      margin-top: 1px;
     }
 
     footer {
@@ -120,7 +1399,7 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       font-size: 13px;
       font-weight: 600;
-      color: #1a1a1a;
+      color: #374151;
       margin-bottom: 16px;
     }
 
@@ -155,8 +1434,16 @@
     @media (max-width: 768px) {
       header { padding: 16px 20px; }
       nav { gap: 20px; }
-      .hero-section { padding: 80px 20px 0; }
-      .hero-section h1 { font-size: 2.2rem; }
+      .hero {
+        padding: 72px 20px 96px;
+        background:
+          radial-gradient(ellipse 80% 60% at 100% 0%, rgba(122, 115, 147, 0.55), transparent 60%),
+          radial-gradient(ellipse 90% 60% at 0% 100%, rgba(122, 115, 147, 0.5), transparent 65%),
+          #e3e4f0;
+      }
+      .hero::before, .hero::after { display: none; }
+      .hero-logo { height: 52px; margin-bottom: 36px; }
+      .hero .tagline { font-size: 1.05rem; margin-bottom: 36px; }
       .footer-inner { flex-direction: column; gap: 32px; }
       .footer-links { gap: 40px; flex-wrap: wrap; }
     }
@@ -164,22 +1451,544 @@
 </head>
 <body>
 
-  <header>
-    <a href="/" class="header-logo">
-      <img src="./assets/Logo 2.1 negro.svg" alt="together">
-    </a>
-    <nav>
-      <a href="/blog">Blog</a>
-      <a href="#" class="btn-get-app">Get the app</a>
-    </nav>
-  </header>
+  <section class="hero">
 
-  <div class="content-area">
-    <div class="hero-section">
-      <h1>together</h1>
-      <p>A platform for the people you care about. Built by humans, for humans.</p>
+    <aside class="mockup-group mockup-group--left" aria-hidden="true">
+
+      <div class="proj-card" data-ring="blue">
+        <div class="proj-card-left">
+          <img class="proj-icon" src="./assets/icons/our-home.svg" alt="">
+          <span class="proj-name">Our Home</span>
+        </div>
+        <div class="proj-avatars">
+          <span class="proj-avatar proj-avatar--primary"><img src="./assets/avatars/m1.png" alt=""></span>
+          <span class="proj-avatar proj-avatar--secondary"><img src="./assets/avatars/m2.jpg" alt=""></span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-ring="amber">
+        <div class="proj-card-left">
+          <img class="proj-icon" src="./assets/icons/outer-banks.svg" alt="">
+          <span class="proj-name">Outer Banks Trip!</span>
+        </div>
+        <div class="proj-avatars">
+          <span class="proj-avatar proj-avatar--primary"><img src="./assets/avatars/m1.png" alt=""></span>
+          <span class="proj-avatar proj-avatar--secondary"><img src="./assets/avatars/m2.jpg" alt=""></span>
+          <span class="proj-avatar proj-avatar--secondary"><img src="./assets/avatars/m3.png" alt=""></span>
+          <span class="plus-chip">+3</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-left">
+          <img class="proj-icon" src="./assets/icons/personal.svg" alt="">
+          <span class="proj-name">Personal</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-ring="orange">
+        <div class="proj-card-left">
+          <img class="proj-icon" src="./assets/icons/summer-trip.svg" alt="">
+          <span class="proj-name">Summer Trip</span>
+        </div>
+        <div class="proj-avatars">
+          <span class="proj-avatar proj-avatar--primary"><img src="./assets/avatars/m3.png" alt=""></span>
+          <span class="proj-avatar proj-avatar--secondary"><img src="./assets/avatars/m2.jpg" alt=""></span>
+          <span class="proj-avatar proj-avatar--secondary"><img src="./assets/avatars/m1.png" alt=""></span>
+          <span class="proj-avatar proj-avatar--secondary"><img src="./assets/avatars/m4.png" alt=""></span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-ring="blue">
+        <div class="proj-card-left">
+          <img class="proj-icon" src="./assets/icons/moms-birthday.svg" alt="">
+          <span class="proj-name">Mom's birthday</span>
+        </div>
+        <div class="proj-avatars">
+          <span class="proj-avatar proj-avatar--primary"><img src="./assets/avatars/m1.png" alt=""></span>
+          <span class="proj-avatar proj-avatar--secondary"><img src="./assets/avatars/m2.jpg" alt=""></span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-ring="indigo">
+        <div class="proj-card-left">
+          <img class="proj-icon" src="./assets/icons/climbing.svg" alt="">
+          <span class="proj-name">Climbing</span>
+        </div>
+        <div class="proj-avatars">
+          <span class="proj-avatar proj-avatar--primary"><img src="./assets/avatars/m5.png" alt=""></span>
+          <span class="proj-avatar proj-avatar--secondary"><img src="./assets/avatars/m2.jpg" alt=""></span>
+          <span class="proj-avatar proj-avatar--secondary"><img src="./assets/avatars/m1.png" alt=""></span>
+        </div>
+      </div>
+
+    </aside>
+
+    <div class="hero-inner">
+      <span class="hero-logo" role="img" aria-label="together"></span>
+      <h1>The shared life app</h1>
+      <p class="tagline">Calendar, to-do's, expenses, notes, chats, email reader &amp; AI assistant — all in one.</p>
+      <div class="hero-platforms">
+        <a href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener" class="hero-platform-btn" aria-label="Download on the App Store">
+          <img src="./assets/icons/platforms/apple-white.svg" alt="">
+          <span class="hero-platform-btn-text">
+            <span class="hero-platform-btn-sub">Download on</span>
+            <span class="hero-platform-btn-main">App Store</span>
+          </span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener" class="hero-platform-btn" aria-label="Get it on Google Play">
+          <img src="./assets/icons/platforms/android-white.svg" alt="">
+          <span class="hero-platform-btn-text">
+            <span class="hero-platform-btn-sub">Get it on</span>
+            <span class="hero-platform-btn-main">Google Play</span>
+          </span>
+        </a>
+      </div>
     </div>
-  </div>
+
+    <aside class="mockup-group mockup-group--right" aria-hidden="true">
+      <div class="members-sheet">
+        <div class="sheet-handle"></div>
+        <h3 class="sheet-title">Members in Outer Banks Trip!</h3>
+        <div class="contact-list">
+
+          <div class="contact-card">
+            <div class="contact-card-ficha">
+              <div class="contact-avatar"><img src="./assets/members/alex.png" alt=""></div>
+              <div class="contact-name-block">
+                <div class="contact-name">Alex Lane</div>
+              </div>
+            </div>
+            <img class="contact-action" src="./assets/icons/kebab.svg" alt="">
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-ficha">
+              <div class="contact-avatar"><img src="./assets/members/jamie.png" alt=""></div>
+              <div class="contact-name-block">
+                <div class="contact-name">Jamie Lane</div>
+                <div class="contact-sub">College friend</div>
+              </div>
+            </div>
+            <img class="contact-action" src="./assets/icons/kebab.svg" alt="">
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-ficha">
+              <div class="contact-avatar"><img src="./assets/members/emma.png" alt=""></div>
+              <div class="contact-name-block">
+                <div class="contact-name">Emma Lane</div>
+                <div class="contact-sub">Sister</div>
+              </div>
+            </div>
+            <img class="contact-action" src="./assets/icons/kebab.svg" alt="">
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-ficha">
+              <div class="contact-avatar"><img src="./assets/members/noa.png" alt=""></div>
+              <div class="contact-name-block">
+                <div class="contact-name">Noa Lane</div>
+              </div>
+            </div>
+            <img class="contact-action" src="./assets/icons/kebab.svg" alt="">
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-ficha">
+              <div class="contact-avatar"><img src="./assets/avatars/m3.png" alt=""></div>
+              <div class="contact-name-block">
+                <div class="contact-name">Chris Fitzgerald</div>
+                <div class="contact-sub">Coworker</div>
+              </div>
+            </div>
+            <img class="contact-action" src="./assets/icons/kebab.svg" alt="">
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-ficha">
+              <div class="contact-avatar"><img src="./assets/members/samantha.png" alt=""></div>
+              <div class="contact-name-block">
+                <div class="contact-name">Samantha Bennett</div>
+              </div>
+            </div>
+            <img class="contact-action" src="./assets/icons/kebab.svg" alt="">
+          </div>
+
+        </div>
+      </div>
+    </aside>
+
+    <aside class="mockup-group mockup-group--bottom" aria-hidden="true">
+    <div class="obt-sheet">
+
+      <!-- Top row: 3 glass buttons + kebab -->
+      <div class="obt-top">
+        <div class="obt-btn-group">
+
+          <!-- Button 1 (hexagon) -->
+          <div class="obt-btn">
+            <div class="ic ic-17">
+              <div class="ic-layer" style="inset:8.33% 12.5%;"><div style="inset:-3.29% -3.65%;"><img src="./assets/icons/obt/v0.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:37.5%;"><div style="inset:-10.96%;"><img src="./assets/icons/obt/v1.svg" alt=""></div></div>
+            </div>
+          </div>
+
+          <!-- Button 2 (clock) -->
+          <div class="obt-btn">
+            <div class="ic ic-17">
+              <div class="ic-layer" style="top:33.33%;bottom:39.58%;left:50%;right:39.58%;"><div style="inset:-10.12% -26.3%;"><img src="./assets/icons/obt/v2.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:8.33%;"><div style="inset:-3.29%;"><img src="./assets/icons/obt/v3.svg" alt=""></div></div>
+            </div>
+          </div>
+
+          <!-- Button 3 (people) -->
+          <div class="obt-btn">
+            <div class="ic ic-17">
+              <div class="ic-layer" style="inset:8.33% 33.33% 58.33%;"><div style="inset:-8.22%;"><img src="./assets/icons/obt/v4.svg" alt=""></div></div>
+              <div class="ic-layer" style="top:16.67%;bottom:62.5%;left:75%;right:12.5%;"><div style="inset:-13.15% -21.92%;"><img src="./assets/icons/obt/v5.svg" alt=""></div></div>
+              <div class="ic-layer" style="top:16.67%;bottom:62.5%;left:12.5%;right:75%;"><div style="inset:-13.15% -21.92%;"><img src="./assets/icons/obt/v6.svg" alt=""></div></div>
+              <div class="ic-layer" style="top:54.17%;bottom:12.5%;left:25%;right:25%;"><div style="inset:-8.22% -5.48%;"><img src="./assets/icons/obt/v7.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:58.33% 4.17% 20.83% 83.33%;"><div style="inset:-13.15% -21.92%;"><img src="./assets/icons/obt/v8.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:58.33% 83.33% 20.83% 4.17%;"><div style="inset:-13.15% -21.92%;"><img src="./assets/icons/obt/v9.svg" alt=""></div></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Kebab button -->
+        <div class="obt-btn">
+          <div class="ic ic-14">
+            <div class="ic-layer" style="inset:18.75%;"><div style="inset:-4.54%;"><img src="./assets/icons/obt/g0.svg" alt=""></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools list -->
+      <div class="obt-tools">
+
+        <div class="obt-tool">
+          <div class="obt-tool-inner">
+            <div class="ic ic-15">
+              <div class="ic-layer" style="top:54.48%;bottom:45.52%;left:27.12%;right:43.75%;"><div style="top:-0.63px;bottom:-0.63px;left:-13.85%;right:-13.85%;"><img src="./assets/icons/obt/v10.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:8.65% 8.33% 7.99% 8.33%;"><div style="inset:-3.64%;"><img src="./assets/icons/obt/v11.svg" alt=""></div></div>
+            </div>
+            <span class="obt-tool-name">Outer Banks chat</span>
+          </div>
+        </div>
+
+        <div class="obt-tool">
+          <div class="obt-tool-inner">
+            <div class="ic ic-15">
+              <div class="ic-layer" style="inset:30.87% 41.67% 35.79% 41.67%;"><div style="inset:-9.1% -18.19%;"><img src="./assets/icons/obt/v12.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:8.37% 12.38% 39.85% 12.38%;"><div style="inset:-5.86% -4.03% 0 -4.03%;"><img src="./assets/icons/obt/v13.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:51.52% 12.38% 8.38% 12.38%;"><div style="inset:-7.56% -4.03%;"><img src="./assets/icons/obt/v14.svg" alt=""></div></div>
+            </div>
+            <span class="obt-tool-name">Trip expenses</span>
+          </div>
+        </div>
+
+        <div class="obt-tool">
+          <div class="obt-tool-inner">
+            <div class="ic ic-15">
+              <div class="ic-layer" style="inset:12.5% 68.75% 70.83% 8.33%;"><div style="inset:-18.19% -13.23%;"><img src="./assets/icons/obt/v15.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:41.67% 68.75% 41.67% 8.33%;"><div style="inset:-18.19% -13.23%;"><img src="./assets/icons/obt/v15.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:70.83% 68.75% 12.5% 8.33%;"><div style="inset:-18.19% -13.23%;"><img src="./assets/icons/obt/v15.svg" alt=""></div></div>
+              <div class="ic-layer" style="top:79.17%;bottom:20.83%;left:50%;right:8.33%;"><div style="top:-0.47px;bottom:-0.47px;left:-7.28%;right:-7.28%;"><img src="./assets/icons/obt/v16.svg" alt=""></div></div>
+              <div class="ic-layer" style="top:50%;bottom:50%;left:50%;right:8.33%;"><div style="top:-0.47px;bottom:-0.47px;left:-7.28%;right:-7.28%;"><img src="./assets/icons/obt/v16.svg" alt=""></div></div>
+              <div class="ic-layer" style="top:20.83%;bottom:79.17%;left:50%;right:8.33%;"><div style="top:-0.47px;bottom:-0.47px;left:-7.28%;right:-7.28%;"><img src="./assets/icons/obt/v16.svg" alt=""></div></div>
+            </div>
+            <span class="obt-tool-name">Recommendations</span>
+          </div>
+        </div>
+
+        <div class="obt-tool">
+          <div class="obt-tool-inner">
+            <div class="ic ic-15">
+              <div class="ic-layer" style="inset:16.67% 8.33% 8.33% 8.33%;"><div style="inset:-4.04% -3.64%;"><img src="./assets/icons/obt/v17.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:10.42% 70.83% 83.33% 29.17%;"><div style="top:-48.52%;bottom:-48.52%;left:-0.47px;right:-0.47px;"><img src="./assets/icons/obt/v18.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:10.42% 29.17% 83.33% 70.83%;"><div style="top:-48.52%;bottom:-48.52%;left:-0.47px;right:-0.47px;"><img src="./assets/icons/obt/v18.svg" alt=""></div></div>
+              <div class="ic-layer" style="inset:37.5% 10.42% 62.5% 10.42%;"><div style="top:-0.47px;bottom:-0.47px;left:-3.83%;right:-3.83%;"><img src="./assets/icons/obt/v19.svg" alt=""></div></div>
+            </div>
+            <span class="obt-tool-name">Planning</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Amber meta bar -->
+      <div class="obt-amber">
+        <div class="obt-amber-row">
+          <div class="ic ic-21">
+            <div class="ic-layer" style="inset:0;"><img src="./assets/icons/obt/g1.svg" alt=""></div>
+          </div>
+          <span class="obt-amber-label">Outer Banks Trip!</span>
+        </div>
+      </div>
+
+    </div>
+    </aside>
+
+  </section>
+
+  <section class="home-sections">
+
+    <!-- BENEFITS: 3 pillars with Solar icons, no app imagery -->
+    <div class="home-container benefits">
+      <div class="benefits-grid">
+
+        <!-- Tile 1 — the actual "all in one" moment: the 6 real app tool icons -->
+        <div class="benefit">
+          <div class="benefit-visual benefit-visual--tools" aria-hidden="true">
+            <div class="tools-grid">
+              <div class="tool-chip tool-chip--cal"><span class="tool-chip-icon"></span></div>
+              <div class="tool-chip tool-chip--todo"><span class="tool-chip-icon"></span></div>
+              <div class="tool-chip tool-chip--exp"><span class="tool-chip-icon"></span></div>
+              <div class="tool-chip tool-chip--notes"><span class="tool-chip-icon"></span></div>
+              <div class="tool-chip tool-chip--chat"><span class="tool-chip-icon"></span></div>
+              <div class="tool-chip tool-chip--ai"><span class="tool-chip-icon"></span></div>
+            </div>
+          </div>
+          <div class="benefit-copy">
+            <h3>All in one</h3>
+            <p>Calendar, to-do's, expenses, notes, chats, email reader &amp; Chip AI — every tool for the life you share, under one roof.</p>
+          </div>
+        </div>
+
+        <!-- Tile 2 — members fragment, reuses the store DNA, reads as a real screen -->
+        <div class="benefit">
+          <div class="benefit-visual benefit-visual--members" aria-hidden="true">
+            <div class="members-snippet">
+              <div class="members-snippet-row">
+                <div class="members-snippet-avatar"><img src="./assets/members/alex.png" alt=""></div>
+                <div class="members-snippet-text">
+                  <div class="members-snippet-name">Alex Rivera</div>
+                  <div class="members-snippet-sub">The love of my life</div>
+                </div>
+              </div>
+              <div class="members-snippet-row">
+                <div class="members-snippet-avatar"><img src="./assets/members/jamie.png" alt=""></div>
+                <div class="members-snippet-text">
+                  <div class="members-snippet-name">Jamie Carter</div>
+                  <div class="members-snippet-sub">Our oldest</div>
+                </div>
+              </div>
+              <div class="members-snippet-row">
+                <div class="members-snippet-avatar"><img src="./assets/members/emma.png" alt=""></div>
+                <div class="members-snippet-text">
+                  <div class="members-snippet-name">Emma Nguyen</div>
+                  <div class="members-snippet-sub">My college best friend</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="benefit-copy">
+            <h3>With the people you share life with</h3>
+            <p>Shared projects for your home, your trips, your people. Everyone in the right place.</p>
+          </div>
+        </div>
+
+        <!-- Tile 3 — Chip AI as a chat moment, not an abstract sparkle icon -->
+        <div class="benefit">
+          <div class="benefit-visual benefit-visual--chip" aria-hidden="true">
+            <div class="chip-chat">
+              <div class="chip-row chip-row--user">
+                <span class="chip-time">11:24</span>
+                <div class="chip-bubble chip-bubble--user">Add a home visit to the calendar for Friday 7pm.</div>
+              </div>
+              <div class="chip-row chip-row--ai">
+                <div class="chip-bubble chip-bubble--ai">I've added that home visit to your Visits Calendar for next Friday at 7pm.</div>
+              </div>
+              <div class="chip-row chip-row--ai">
+                <div class="chip-deeplink">
+                  <span class="chip-deeplink-icon chip-deeplink-icon--project"></span>
+                  <span class="chip-deeplink-chevron">›</span>
+                  <span class="chip-deeplink-icon chip-deeplink-icon--tool"></span>
+                  <span class="chip-deeplink-label">Home Visit</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="benefit-copy">
+            <h3>Chip, your everyday AI assistant</h3>
+            <p>Ask in plain language. Chip plans, schedules, and nudges so nothing slips.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DETAIL: Project-based with tools, shows app -->
+    <div class="home-container detail">
+      <div class="detail-card">
+
+        <div class="detail-copy">
+          <h2>A project for every part of life.</h2>
+          <p>Home, trips, hobbies, side projects — each its own space with its own calendar, to-do's, expenses, notes, chat, email reader, and lists.</p>
+          <p>Stop hopping between seven apps and ten group threads. One project, every tool, everyone on the same page.</p>
+        </div>
+
+        <div class="detail-visual" aria-hidden="true">
+          <div class="project-stack">
+
+            <!-- Back card: a second project peeking out from behind -->
+            <div class="project-mockup project-mockup--back">
+              <div class="pm-top">
+                <div class="pm-top-cluster">
+                  <div class="pm-btn pm-btn--options"><img src="./assets/icons/project-mockup/options.svg" alt=""></div>
+                  <div class="pm-btn pm-btn--members"><img src="./assets/icons/project-mockup/members.svg" alt=""></div>
+                </div>
+                <div class="pm-btn pm-btn--plus"><img src="./assets/icons/project-mockup/plus.svg" alt=""></div>
+              </div>
+              <div class="pm-tools">
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/calendar.svg" alt="">
+                  <span class="pm-tool-label">Trip calendar</span>
+                </div>
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/checklist.svg" alt="">
+                  <span class="pm-tool-label">Packing list</span>
+                </div>
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/chat.svg" alt="">
+                  <span class="pm-tool-label">Group chat</span>
+                </div>
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/expenses.svg" alt="">
+                  <span class="pm-tool-label">Shared costs</span>
+                </div>
+              </div>
+              <div class="pm-meta">
+                <div class="pm-meta-inner">
+                  <img class="pm-meta-icon" src="./assets/icons/project-mockup/our-home.svg" alt="">
+                  <span class="pm-meta-name">Italy 2026</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Primary card: Our Home -->
+            <div class="project-mockup">
+              <!-- Top controls -->
+              <div class="pm-top">
+                <div class="pm-top-cluster">
+                  <div class="pm-btn pm-btn--options"><img src="./assets/icons/project-mockup/options.svg" alt=""></div>
+                  <div class="pm-btn pm-btn--members"><img src="./assets/icons/project-mockup/members.svg" alt=""></div>
+                </div>
+                <div class="pm-btn pm-btn--plus"><img src="./assets/icons/project-mockup/plus.svg" alt=""></div>
+              </div>
+
+              <!-- Tools list -->
+              <div class="pm-tools">
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/calendar.svg" alt="">
+                  <span class="pm-tool-label">Home calendar</span>
+                </div>
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/checklist.svg" alt="">
+                  <span class="pm-tool-label">To-do's</span>
+                </div>
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/chat.svg" alt="">
+                  <span class="pm-tool-label">House chat</span>
+                </div>
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/expenses.svg" alt="">
+                  <span class="pm-tool-label">House expenses</span>
+                </div>
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/info.svg" alt="">
+                  <span class="pm-tool-label">Useful info</span>
+                </div>
+                <div class="pm-tool">
+                  <img class="pm-tool-icon" src="./assets/icons/project-mockup/list.svg" alt="">
+                  <span class="pm-tool-label">Ideas</span>
+                </div>
+              </div>
+
+              <!-- Blue project meta bar -->
+              <div class="pm-meta">
+                <div class="pm-meta-inner">
+                  <img class="pm-meta-icon" src="./assets/icons/project-mockup/our-home.svg" alt="">
+                  <span class="pm-meta-name">Our Home</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PULL QUOTE -->
+    <div class="home-container quote-block">
+      <blockquote>Organize your life the way you live it.</blockquote>
+      <div class="quote-attribution"><strong>The together team</strong></div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="home-container pricing">
+      <div class="pricing-card">
+
+        <div class="pricing-header">
+          <h2 class="pricing-headline">Together Pricing</h2>
+          <p class="pricing-tagline">Everything essential, free. Premium unlocks Chip and new tools as they arrive.</p>
+        </div>
+
+        <div class="tiers-grid">
+          <!-- Free tier (left) -->
+          <div class="tier tier--free">
+            <div class="tier-head">
+              <span class="tier-label">Free</span>
+              <span class="tier-rule"></span>
+            </div>
+            <ul class="tier-features">
+              <li>3 free daily uses of Chip</li>
+              <li>Unlimited projects &amp; members</li>
+              <li>Unlimited use of classic tools</li>
+            </ul>
+          </div>
+
+          <!-- Premium tier (right) -->
+          <div class="tier tier--premium">
+            <div class="tier-head">
+              <span class="tier-label">Together Premium</span>
+              <span class="tier-rule"></span>
+              <span class="tier-trial">Free trial</span>
+              <span class="tier-price">€9.99<span class="tier-period"> / mo</span></span>
+            </div>
+            <p class="tier-intro">Start with a free trial. Everything included in the free account, plus:</p>
+            <ul class="tier-features">
+              <li>Unlimited Chip usage</li>
+              <li>Unlimited projects &amp; tools</li>
+              <li>Early access to new tools (Mail reader now available)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pricing-stores">
+          <a href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener" class="hero-platform-btn" aria-label="Download on the App Store">
+            <img src="./assets/icons/platforms/apple-white.svg" alt="">
+            <span class="hero-platform-btn-text">
+              <span class="hero-platform-btn-sub">Download on</span>
+              <span class="hero-platform-btn-main">App Store</span>
+            </span>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener" class="hero-platform-btn" aria-label="Get it on Google Play">
+            <img src="./assets/icons/platforms/android-white.svg" alt="">
+            <span class="hero-platform-btn-text">
+              <span class="hero-platform-btn-sub">Get it on</span>
+              <span class="hero-platform-btn-main">Google Play</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="pricing-footnote">Upgrade to Premium anytime, from inside the app.</div>
+
+      </div>
+    </div>
+
+  </section>
 
   <footer>
     <div class="footer-inner">
