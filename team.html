@@ -6,15 +6,17 @@
   <title>Team — together.day</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'TT Commons Pro';
-      src: url('./assets/TT Commons Pro Variable.ttf') format('truetype');
+      src: url('./assets/tt-commons-pro-var.woff2') format('woff2');
       font-weight: 100 900;
       font-style: normal;
       font-display: swap;
     }
+
+    html { font-variation-settings: "slnt" 0, "wdth" 100; }
 
     /* Reset */
     *, *::before, *::after {
@@ -42,60 +44,131 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 40px;
-      border-bottom: 1px solid #e8e8e8;
+      padding: 18px 40px;
+      border-bottom: 1px solid #eceef1;
       position: sticky;
       top: 0;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
       z-index: 100;
     }
 
-    .header-logo img {
-      height: 40px;
-      width: auto;
+    .header-logo {
+      display: inline-block;
+      height: 28px;
+      aspect-ratio: 3784 / 1060;
+      background-color: #374151;
+      -webkit-mask-image: url("./assets/Logo 2.1 negro.svg");
+              mask-image: url("./assets/Logo 2.1 negro.svg");
+      -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+      -webkit-mask-position: left center;
+              mask-position: left center;
+      -webkit-mask-size: contain;
+              mask-size: contain;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 24px;
     }
 
     nav a {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       font-size: 14px;
-      color: #666;
+      color: #6b7280;
       text-decoration: none;
       letter-spacing: 0.01em;
       transition: color 0.2s;
     }
 
     nav a:hover {
-      color: #1a1a1a;
+      color: #374151;
     }
 
-    .btn-get-app {
-      border: 1px solid #e8e8e8;
-      padding: 6px 18px;
+    .header-platforms {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .header-platform-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
       border-radius: 14px;
-      color: #1a1a1a !important;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      color: #374151 !important;
+      text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn-get-app:hover {
-      background: #1a1a1a;
+    .header-platform-btn:hover {
+      background: #374151;
+      border-color: #374151;
       color: #fff !important;
+      box-shadow: 0 4px 14px rgba(55, 65, 81, 0.18);
+    }
+
+    .header-platform-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      background-color: currentColor;
+      -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+              mask-position: center;
+      -webkit-mask-size: contain;
+              mask-size: contain;
+    }
+
+    .header-platform-icon--apple {
+      -webkit-mask-image: url("./assets/icons/platforms/apple.svg");
+              mask-image: url("./assets/icons/platforms/apple.svg");
+    }
+
+    .header-platform-icon--android {
+      -webkit-mask-image: url("./assets/icons/platforms/android.svg");
+              mask-image: url("./assets/icons/platforms/android.svg");
+    }
+
+    .header-platform-btn-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      text-align: left;
+    }
+
+    .header-platform-btn-sub {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .header-platform-btn-main {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      margin-top: 1px;
     }
 
     /* Content area */
     .content-area {
-      background: #faf8f5;
+      background: #e8e6f1;
       padding-bottom: 80px;
     }
 
     /* Page content */
     .page {
-      max-width: 680px;
+      max-width: 860px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -133,26 +206,88 @@
 
     /* Team list */
     .team-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
       padding-bottom: 80px;
     }
 
     .team-member {
-      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 20px;
+      row-gap: 2px;
+      background: #fff;
+      padding: 28px;
+      border-radius: 24px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
     }
 
-    .team-member h2 {
-      font-size: 1.2rem;
+    .team-avatar {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      align-self: center;
+      width: 88px;
+      height: 88px;
+      border-radius: 28%;
+      background: #ddd9e8;
+      overflow: hidden;
+      display: block;
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .team-member-info { display: contents; }
+
+    .team-member-info h2 {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: end;
+      font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 4px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: #1a1a1a;
     }
 
-    .team-member .role {
+    .team-member-info .role {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: start;
       font-family: 'Geist Mono', monospace;
       font-weight: 300;
-      font-size: 12px;
-      letter-spacing: 0.06em;
+      font-size: 11px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #999;
+    }
+
+    .team-member-info .bio {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      margin: 16px 0 0;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: #555;
+    }
+
+    @media (max-width: 720px) {
+      .team-list {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-member { gap: 18px; }
+      .team-avatar { width: 64px; height: 64px; }
+      .team-member-info h2 { font-size: 1.1rem; }
+      .team-member-info .bio { font-size: 0.94rem; }
     }
 
     /* Footer */
@@ -222,12 +357,22 @@
     /* Responsive */
     @media (max-width: 768px) {
       header {
-        padding: 16px 20px;
+        padding: 12px 16px;
+      }
+
+      .header-logo {
+        height: 22px;
       }
 
       nav {
-        gap: 20px;
+        gap: 14px;
       }
+
+      .header-platforms { gap: 8px; }
+      .header-platform-btn { padding: 6px 12px; gap: 8px; border-radius: 12px; }
+      .header-platform-btn-sub { display: none; }
+      .header-platform-btn-main { font-size: 12px; }
+      .header-platform-icon { width: 16px; height: 16px; }
 
       .page-title-area {
         padding: 60px 0 20px;
@@ -253,12 +398,25 @@
 
   <!-- Header -->
   <header>
-    <a href="/" class="header-logo">
-      <img src="./assets/Logo 2.1 negro.svg" alt="together">
-    </a>
+    <a href="/" class="header-logo" aria-label="together"></a>
     <nav>
       <a href="/blog">Blog</a>
-      <a href="#" class="btn-get-app">Get the app</a>
+      <div class="header-platforms">
+        <a href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener" class="header-platform-btn" aria-label="Download on the App Store">
+          <span class="header-platform-icon header-platform-icon--apple" aria-hidden="true"></span>
+          <span class="header-platform-btn-text">
+            <span class="header-platform-btn-sub">Download on</span>
+            <span class="header-platform-btn-main">App Store</span>
+          </span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener" class="header-platform-btn" aria-label="Get it on Google Play">
+          <span class="header-platform-icon header-platform-icon--android" aria-hidden="true"></span>
+          <span class="header-platform-btn-text">
+            <span class="header-platform-btn-sub">Get it on</span>
+            <span class="header-platform-btn-main">Google Play</span>
+          </span>
+        </a>
+      </div>
     </nav>
   </header>
 
@@ -275,10 +433,62 @@
     </div>
 
     <div class="team-list">
+
       <div class="team-member">
-        <h2>Walter Kobylanski</h2>
-        <span class="role">CEO</span>
+        <div class="team-avatar">
+          <img src="https://api.dicebear.com/9.x/personas/svg?seed=Walter&amp;backgroundColor=ddd9e8&amp;hair=shortCombover&amp;hairColor=9ca3af&amp;facialHairProbability=0&amp;skinColor=e5a07e&amp;body=rounded&amp;clothingColor=556b2f&amp;eyes=open&amp;mouth=smile" alt="" aria-hidden="true">
+        </div>
+        <div class="team-member-info">
+          <h2>Walter</h2>
+          <span class="role">Co-Founder · The dreamer</span>
+          <p class="bio">Started the project, provides the vision, dreams fearlessly, tries to take care of everyone, ADHD, always looking for alternative ways.</p>
+        </div>
       </div>
+
+      <div class="team-member">
+        <div class="team-avatar">
+          <img src="https://api.dicebear.com/9.x/personas/svg?seed=Isa&amp;backgroundColor=dcd8e7&amp;hair=long&amp;hairColor=cb6820&amp;facialHairProbability=0&amp;skinColor=f8afa6&amp;body=rounded&amp;eyes=happy&amp;mouth=smile" alt="" aria-hidden="true">
+        </div>
+        <div class="team-member-info">
+          <h2>Isa</h2>
+          <span class="role">Co-Founder · The wind</span>
+          <p class="bio">Makes things happen, gently pushes us to do better, cares of every details, keeps every thing in order, avid physical book reader.</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-avatar">
+          <img src="https://api.dicebear.com/9.x/personas/svg?seed=Gonzalo&amp;backgroundColor=e4e0eb&amp;hair=curly&amp;hairColor=362C47&amp;facialHair=beardMustache&amp;facialHairProbability=100&amp;facialHairColor=362C47&amp;skinColor=f8afa6&amp;eyes=open&amp;mouth=smile" alt="" aria-hidden="true">
+        </div>
+        <div class="team-member-info">
+          <h2>Gonzalo</h2>
+          <span class="role">Co-Founder · The earth</span>
+          <p class="bio">Gives us peace whenever he has a free moment, our technological foundation, the experience we needed to believe.</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-avatar">
+          <img src="https://api.dicebear.com/9.x/personas/svg?seed=Marina&amp;backgroundColor=dfdbea&amp;hair=extraLong&amp;hairColor=362C47&amp;facialHairProbability=0&amp;skinColor=e5a07e&amp;eyes=happy&amp;mouth=bigSmile" alt="" aria-hidden="true">
+        </div>
+        <div class="team-member-info">
+          <h2>Marina</h2>
+          <span class="role">The storyteller</span>
+          <p class="bio">Helps us share our message to the world crafting detailed videos, creates with passion aiming for perfection, sweet and kind.</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="team-avatar">
+          <img src="https://api.dicebear.com/9.x/personas/svg?seed=Sergi&amp;backgroundColor=d8d4e3&amp;hair=shortCombover&amp;hairColor=6C4545&amp;facialHair=beardMustache&amp;facialHairProbability=100&amp;facialHairColor=6C4545&amp;skinColor=e5a07e&amp;eyes=open&amp;mouth=smile" alt="" aria-hidden="true">
+        </div>
+        <div class="team-member-info">
+          <h2>Sergi</h2>
+          <span class="role">The artist</span>
+          <p class="bio">Uruguayan, an all-terrain visual artist, digital and physical, loves to learn new skills.</p>
+        </div>
+      </div>
+
     </div>
 
   </div>
