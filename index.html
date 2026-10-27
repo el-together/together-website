@@ -44,7 +44,7 @@
             <span class="switch-track" aria-hidden="true"><span class="switch-knob"></span></span>
             Set it up with your AI
           </button>
-          <p class="eyebrow" data-only="normal">For courses, events, trips, teams and families</p>
+          <p class="eyebrow" data-only="normal" data-v="eyebrow">For courses, events, trips, teams and families</p>
           <p class="eyebrow" data-only="ai" hidden>For people who already use AI</p>
           <h1 class="h1" id="hero-title"><span data-only="normal">All we need is to know what is next.</span><span data-only="ai" hidden>Set up your group with a few prompts.</span></h1>
           <p class="hero-sub" data-only="normal">The rest doesn't have to live in our heads.</p>
@@ -72,9 +72,9 @@
               <span class="squircle" data-v="pcolor" style="background: #7c3aed"><img data-v="picon" src="/assets/projects/masks.svg" alt=""></span>
               <div>
                 <p class="p-title" data-v="pname">Acting Workshop</p>
-                <p class="p-meta"><span data-v="pmembers">16</span> members</p>
+                <p class="p-meta" data-v="pmeta">16 members</p>
               </div>
-              <div class="faces">
+              <div class="faces" data-v="faces">
                 <img src="/assets/members/alex.png" alt="">
                 <img src="/assets/members/emma.png" alt="">
                 <img src="/assets/members/jamie.png" alt="">
@@ -118,6 +118,8 @@
       <div class="made-for">
         <p class="eyebrow" id="made-for-title">Made for</p>
         <div class="chips" role="group" aria-labelledby="made-for-title">
+          <button class="chip chip--you" type="button" data-vertical="you" aria-pressed="false"><span class="dot"></span>For you</button>
+          <span class="chips-divider" aria-hidden="true"></span>
           <button class="chip" type="button" data-vertical="all" aria-pressed="true"><span class="dot" style="background: #7c3aed"></span>All groups</button>
           <button class="chip" type="button" data-vertical="courses" aria-pressed="false"><span class="dot" style="background: #ea580c"></span>Courses</button>
           <button class="chip" type="button" data-vertical="events" aria-pressed="false"><span class="dot" style="background: #0891b2"></span>Events</button>

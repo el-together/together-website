@@ -6,7 +6,18 @@
   var MODE_KEY = 'together-home-mode';
 
   // The seven examples (BRIEF §6). Names and numbers are examples.
+  var DEFAULT_EYEBROW = 'For courses, events, trips, teams and families';
   var DATA = {
+    you: {
+      chip: 'For you', card: null, name: 'Personal', icon: 'notebook-minimalistic', color: '#475569', meta: 'Just you', solo: true,
+      eyebrow: 'For you, and for every group you\u2019re in',
+      next: ['Tomorrow \u00b7 09:30', 'Dentist'],
+      tools: [['calendar', 'My week', '3 things coming up'], ['checklist', "To-do's", '5 open'],
+        ['list', 'Groceries', '8 items'], ['info', 'Notes', 'Ideas for the trip']],
+      prompt: 'Set up my week in Together: the dentist tomorrow at 09:30, a to-do list for the move, and my groceries. Just for me, for now.',
+      result: ['Calendar: the week ahead', "Checklist: to-do's for the move", 'List: groceries',
+        'A personal project. Just you', 'Bring people in whenever you want']
+    },
     all: {
       chip: 'All groups', card: null, name: 'Acting Workshop', icon: 'masks', color: '#7c3aed', members: 16,
       next: ['Thu · 18:00', 'Scene 3 rehearsal'],
@@ -86,7 +97,9 @@
     var d = DATA[key];
     if (!d) return;
     setText('pname', d.name);
-    setText('pmembers', String(d.members));
+    setText('pmeta', d.meta || (d.members + ' members'));
+    setText('eyebrow', d.eyebrow || DEFAULT_EYEBROW);
+    var faces = hook('faces'); if (faces) faces.hidden = !!d.solo;
     setText('nextWhen', d.next[0]);
     setText('nextWhat', d.next[1]);
     setText('prompt', d.prompt);

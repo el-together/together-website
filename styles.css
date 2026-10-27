@@ -397,3 +397,13 @@ footer { padding-inline: var(--gutter); padding-block: 48px; background: var(--t
 .card .link { justify-self: start; }
 .chips { padding: 4px 4px 8px; }
 .stack { display: grid; gap: 18px; }
+
+/* "For you": the one chip that is not a group. Filled, and set apart by a thin line. */
+.chip--you { background: var(--mark); border-color: var(--mark); color: var(--ink); font-weight: 700; }
+.chip--you .dot { background: var(--ink); }
+.chip--you[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #ffffff; }
+.chip--you[aria-pressed="true"] .dot { background: var(--mark); }
+.chips-divider { flex-shrink: 0; width: 1px; align-self: stretch; margin: 6px 6px; background: var(--muted); opacity: 0.5; }
+.hero[data-mode="ai"] .chip--you { background: var(--mark); border-color: var(--mark); color: var(--ink); }
+.hero[data-mode="ai"] .chip--you[aria-pressed="true"] { background: #f4f3fb; border-color: #f4f3fb; color: var(--ink); }
+.hero[data-mode="ai"] .chips-divider { background: #aaa8c4; }
