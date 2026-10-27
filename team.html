@@ -224,6 +224,8 @@
       header {
         padding: 16px 20px;
       }
+      nav { gap: 16px; }
+      nav a:not(.btn-get-app) { display: none; }
 
       nav {
         gap: 20px;
@@ -257,8 +259,11 @@
       <img src="./assets/Logo 2.1 negro.svg" alt="together">
     </a>
     <nav>
-      <a href="/blog">Blog</a>
-      <a href="#" class="btn-get-app">Get the app</a>
+      <a href="/#how">How it works</a>
+      <a href="/#who">Who it's for</a>
+      <a href="/organizers">Organizers</a>
+      <a href="/about">About</a>
+      <a href="/download" class="btn-get-app">Get the app</a>
     </nav>
   </header>
 
@@ -293,13 +298,17 @@
       <div class="footer-links">
         <div class="footer-col">
           <h4>Product</h4>
+          <a href="/#how">How it works</a>
+          <a href="/#who">Who it's for</a>
+          <a href="/organizers">Organizers</a>
+          <a href="/download">Download</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
           <a href="/about">About</a>
           <a href="/team">Team</a>
           <a href="/blog">Blog</a>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a href="/contact">Contact us</a>
+          <a href="/contact">Contact</a>
         </div>
       </div>
     </div>

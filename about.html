@@ -3,240 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — together.day</title>
+  <title>Together — About</title>
+  <meta name="description" content="We bring clarity to groups, and to the people in them. Together is built by a small, independent team, with no VC funding.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Together">
+  <meta property="og:title" content="Together — About">
+  <meta property="og:description" content="We bring clarity to groups, and to the people in them. Together is built by a small, independent team, with no VC funding.">
+  <meta property="og:image" content="/assets/share.png"> <!-- [SHARE IMAGE — to make] -->
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
-  <style>
-    @font-face {
-      font-family: 'TT Commons Pro';
-      src: url('./assets/TT Commons Pro Variable.ttf') format('truetype');
-      font-weight: 100 900;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html {
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      font-family: 'TT Commons Pro', sans-serif;
-      color: #1a1a1a;
-      background: #fff;
-      line-height: 1.7;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 40px;
-      border-bottom: 1px solid #e8e8e8;
-      position: sticky;
-      top: 0;
-      background: #fff;
-      z-index: 100;
-    }
-
-    .header-logo img { height: 40px; width: auto; }
-
-    nav { display: flex; align-items: center; gap: 32px; }
-
-    nav a {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #666;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: color 0.2s;
-    }
-
-    nav a:hover { color: #1a1a1a; }
-
-    .btn-get-app {
-      border: 1px solid #e8e8e8;
-      padding: 6px 18px;
-      border-radius: 14px;
-      color: #1a1a1a !important;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-
-    .btn-get-app:hover {
-      background: #1a1a1a;
-      color: #fff !important;
-    }
-
-    .content-area {
-      background: #faf8f5;
-      padding-bottom: 80px;
-    }
-
-    .page {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .page-title-area {
-      padding: 80px 0 24px;
-    }
-
-    .page-title-area h1 {
-      font-family: 'TT Commons Pro', sans-serif;
-      font-size: 2.4rem;
-      font-weight: 700;
-      line-height: 1.3;
-      color: #1a1a1a;
-    }
-
-    .page-separator {
-      border: none;
-      border-top: 1px solid #e8e8e8;
-      margin: 0;
-    }
-
-    .page-meta {
-      padding: 20px 0 48px;
-      font-family: 'Geist Mono', monospace;
-      font-weight: 300;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #999;
-    }
-
-    .page-body p {
-      font-size: 1.05rem;
-      font-weight: 500;
-      line-height: 1.75;
-      margin-bottom: 28px;
-      color: #333;
-    }
-
-    footer {
-      margin-top: 0;
-      border-top: 1px solid #e8e8e8;
-      padding: 48px 40px;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
-
-    .footer-links { display: flex; gap: 64px; }
-
-    .footer-col h4 {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 16px;
-    }
-
-    .footer-col a {
-      display: block;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      color: #888;
-      text-decoration: none;
-      margin-bottom: 10px;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover { color: #1a1a1a; }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 40px auto 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 12px;
-      color: #bbb;
-    }
-
-    .footer-bottom a {
-      color: #bbb;
-      text-decoration: none;
-      margin-right: 16px;
-    }
-
-    .footer-bottom a:hover { color: #888; }
-
-    @media (max-width: 768px) {
-      header { padding: 16px 20px; }
-      nav { gap: 20px; }
-      .page-title-area { padding: 60px 0 20px; }
-      .page { padding: 0 20px; }
-      .footer-inner { flex-direction: column; gap: 32px; }
-      .footer-links { gap: 40px; flex-wrap: wrap; }
-    }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Domine:wght@400;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-  <header>
-    <a href="/" class="header-logo">
-      <img src="./assets/Logo 2.1 negro.svg" alt="together">
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="/" aria-label="Together, home">
+      <img src="/assets/logo.svg" alt="Together">
     </a>
-    <nav>
-      <a href="/blog">Blog</a>
-      <a href="#" class="btn-get-app">Get the app</a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#how">How it works</a>
+      <a href="/#who">Who it's for</a>
+      <a href="/organizers">Organizers</a>
+      <a href="/about" aria-current="page">About</a>
     </nav>
-  </header>
-
-  <div class="content-area">
-  <div class="page">
-
-    <div class="page-title-area">
-      <h1>About</h1>
-    </div>
-    <hr class="page-separator">
-    <div class="page-meta">
-      <span>TOGETHER SOLUTIONS, S.L.</span>
-    </div>
-
-    <div class="page-body">
-      <p>Together is a platform for the people you care about. Built by a small, independent team with no VC funding and no big corporations behind it.</p>
-      <p>We believe technology should serve humans, not the other way around. No gurus, no overpromises, just tools that facilitate collaboration when needed.</p>
-    </div>
-
+    <a class="btn btn--dark top-cta" href="/download">Get the app</a>
   </div>
-  </div>
+</header>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <img src="./assets/Logo 2.1 negro.svg" alt="together">
+<main>
+  <section class="band band--narrow">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">About · Together Solutions, S.L.</p>
+        <h1 class="h1">We bring <mark class="hl">clarity</mark> to groups, and to the people in them.</h1>
       </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Product</h4>
-          <a href="/about">About</a>
-          <a href="/team">Team</a>
-          <a href="/blog">Blog</a>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a href="/contact">Contact us</a>
+      <div class="prose">
+        <p>Confusion is heavy, for a group and for each person in it. It is a thread nobody can follow anymore. It is the plan, scattered across five places. It is one person holding everything, for everyone. Most of the time the information is there. The clarity isn't.</p>
+        <p>We won't promise to make your life easier. We promise clarity, and we'll work hard to keep that promise.</p>
+        <p>Together is built by a small, independent team, with no VC funding and no big corporations behind it. We believe technology should serve humans, not the other way around. No gurus, no overpromises.</p>
+        <div class="row">
+          <a class="btn btn--ghost" href="https://together.day/blog/we-care" target="_blank" rel="noopener">Read "We care", our first note</a>
+          <a class="link" href="https://together.day/team" target="_blank" rel="noopener">Meet the team</a>
+          <a class="link" href="/blog/clarity">Read "Clarity"</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <a href="/privacy">Privacy</a>
-      <a href="/legal">Terms</a>
-      <span>&copy; 2026 Together</span>
-    </div>
-  </footer>
+  </section>
+</main>
 
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="/assets/logo.svg" alt="Together">
+      <p class="small">© 2026 Together</p>
+      <p class="small">Second proposal for the website (v2, 27 Oct 2026). A prototype: names and numbers are examples.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li class="tag">Product</li>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#who">Who it's for</a></li>
+        <li><a href="/organizers">Organizers</a></li>
+        <li><a href="/download">Download</a></li>
+      </ul>
+      <ul>
+        <li class="tag">Company</li>
+        <li><a href="/about">About</a></li>
+        <li><a href="https://together.day/team" target="_blank" rel="noopener">Team</a></li>
+        <li><a href="/blog/clarity">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <ul>
+        <li class="tag">Legal</li>
+        <li><a href="https://together.day/privacy" target="_blank" rel="noopener">Privacy</a></li>
+        <li><a href="https://together.day/legal" target="_blank" rel="noopener">Terms</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
 </body>
 </html>

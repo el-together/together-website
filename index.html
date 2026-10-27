@@ -3,208 +3,363 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>together.day</title>
+  <title>Together — All we need is to know what is next</title>
+  <meta name="description" content="One place for your group's plan, dates, lists, costs and chat, so everyone knows what is next.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Together">
+  <meta property="og:title" content="Together — All we need is to know what is next">
+  <meta property="og:description" content="One place for your group's plan, dates, lists, costs and chat, so everyone knows what is next.">
+  <meta property="og:image" content="/assets/share.png"> <!-- [SHARE IMAGE — to make] -->
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
-  <style>
-    @font-face {
-      font-family: 'TT Commons Pro';
-      src: url('./assets/TT Commons Pro Variable.ttf') format('truetype');
-      font-weight: 100 900;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html {
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      font-family: 'TT Commons Pro', sans-serif;
-      color: #1a1a1a;
-      background: #fff;
-      line-height: 1.7;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 40px;
-      border-bottom: 1px solid #e8e8e8;
-      position: sticky;
-      top: 0;
-      background: #fff;
-      z-index: 100;
-    }
-
-    .header-logo img { height: 40px; width: auto; }
-
-    nav { display: flex; align-items: center; gap: 32px; }
-
-    nav a {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #666;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: color 0.2s;
-    }
-
-    nav a:hover { color: #1a1a1a; }
-
-    .btn-get-app {
-      border: 1px solid #e8e8e8;
-      padding: 6px 18px;
-      border-radius: 14px;
-      color: #1a1a1a !important;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-
-    .btn-get-app:hover {
-      background: #1a1a1a;
-      color: #fff !important;
-    }
-
-    .content-area {
-      background: #faf8f5;
-      padding-bottom: 80px;
-    }
-
-    .hero-section {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 120px 24px 0;
-      text-align: center;
-    }
-
-    .hero-section h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
-
-    .hero-section p {
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: #555;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    footer {
-      margin-top: 0;
-      border-top: 1px solid #e8e8e8;
-      padding: 48px 40px;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
-
-    .footer-links { display: flex; gap: 64px; }
-
-    .footer-col h4 {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 16px;
-    }
-
-    .footer-col a {
-      display: block;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      color: #888;
-      text-decoration: none;
-      margin-bottom: 10px;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover { color: #1a1a1a; }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 40px auto 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 12px;
-      color: #bbb;
-    }
-
-    .footer-bottom a {
-      color: #bbb;
-      text-decoration: none;
-      margin-right: 16px;
-    }
-
-    .footer-bottom a:hover { color: #888; }
-
-    @media (max-width: 768px) {
-      header { padding: 16px 20px; }
-      nav { gap: 20px; }
-      .hero-section { padding: 80px 20px 0; }
-      .hero-section h1 { font-size: 2.2rem; }
-      .footer-inner { flex-direction: column; gap: 32px; }
-      .footer-links { gap: 40px; flex-wrap: wrap; }
-    }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Domine:wght@400;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
-  <header>
-    <a href="/" class="header-logo">
-      <img src="./assets/Logo 2.1 negro.svg" alt="together">
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="/" aria-label="Together, home">
+      <img src="/assets/logo.svg" alt="Together">
     </a>
-    <nav>
-      <a href="/blog">Blog</a>
-      <a href="#" class="btn-get-app">Get the app</a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#how">How it works</a>
+      <a href="/#who">Who it's for</a>
+      <a href="/organizers">Organizers</a>
+      <a href="/about">About</a>
     </nav>
-  </header>
-
-  <div class="content-area">
-    <div class="hero-section">
-      <h1>together</h1>
-      <p>A platform for the people you care about. Built by humans, for humans.</p>
-    </div>
+    <a class="btn btn--dark top-cta" href="/download">Get the app</a>
   </div>
+</header>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <img src="./assets/Logo 2.1 negro.svg" alt="together">
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Product</h4>
-          <a href="/about">About</a>
-          <a href="/team">Team</a>
-          <a href="/blog">Blog</a>
+<main id="main">
+
+  <!-- 1. Hero. The AI switch changes only this section (home.js). Without JS: normal copy, "all" example. -->
+  <section class="hero" id="hero" data-mode="normal" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <button class="switch" type="button" role="switch" aria-checked="false">
+            <span class="switch-track" aria-hidden="true"><span class="switch-knob"></span></span>
+            Set it up with your AI
+          </button>
+          <p class="eyebrow" data-only="normal">For courses, events, trips, teams and families</p>
+          <p class="eyebrow" data-only="ai" hidden>For people who already use AI</p>
+          <h1 class="h1" id="hero-title"><span data-only="normal">All we need is to know what is next.</span><span data-only="ai" hidden>Set up your group with a few prompts.</span></h1>
+          <p class="hero-sub" data-only="normal">The rest doesn't have to live in our heads.</p>
+          <p class="hero-sub" data-only="ai" hidden>Connect Together to the AI you already use. It builds the calendar, the lists and the chat, and invites everyone. Then everyone knows what is next.</p>
+          <p class="mono">The plan, the dates, the lists, the costs and the chat, in one place.</p>
+          <div class="row" data-only="normal">
+            <a class="store" href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener">
+              <img src="/assets/stores/apple-white.svg" alt=""><span><small>Download on the</small><b>App Store</b></span>
+            </a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener">
+              <img src="/assets/stores/android-white.svg" alt=""><span><small>Get it on</small><b>Google Play</b></span>
+            </a>
+          </div>
+          <div class="row" data-only="ai" hidden>
+            <a class="btn btn--dark" href="#ai">Connect your AI</a>
+            <a class="btn btn--ghost" href="/download">Get the app</a>
+          </div>
+          <p class="small"><a class="link" href="#join">Got an invite?</a></p>
         </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a href="/contact">Contact us</a>
+
+        <!-- Normal visual: one group project. data-v hooks are filled by home.js from the chips. -->
+        <figure class="steps steps--col" data-only="normal">
+          <div class="phone">
+            <div class="p-head">
+              <span class="squircle" data-v="pcolor" style="background: #7c3aed"><img data-v="picon" src="/assets/projects/masks.svg" alt=""></span>
+              <div>
+                <p class="p-title" data-v="pname">Acting Workshop</p>
+                <p class="p-meta"><span data-v="pmembers">16</span> members</p>
+              </div>
+              <div class="faces">
+                <img src="/assets/members/alex.png" alt="">
+                <img src="/assets/members/emma.png" alt="">
+                <img src="/assets/members/jamie.png" alt="">
+              </div>
+            </div>
+            <div class="p-next">
+              <span class="tag">Next · <span data-v="nextWhen">Thu · 18:00</span></span>
+              <b data-v="nextWhat">Scene 3 rehearsal</b>
+            </div>
+            <ul class="p-rows" data-v="tools">
+              <li class="p-row"><img src="/assets/tools/calendar.svg" alt=""><span><b>Rehearsals</b><small>Tue & Thu · 18:00</small></span><i aria-hidden="true">›</i></li>
+              <li class="p-row"><img src="/assets/tools/checklist.svg" alt=""><span><b>Scenes to learn</b><small>4 of 7 ready</small></span><i aria-hidden="true">›</i></li>
+              <li class="p-row"><img src="/assets/tools/list.svg" alt=""><span><b>Who brings what</b><small>3 open</small></span><i aria-hidden="true">›</i></li>
+              <li class="p-row"><img src="/assets/tools/chat.svg" alt=""><span><b>Group chat</b><small>2 new</small></span><i aria-hidden="true">›</i></li>
+            </ul>
+          </div>
+          <figcaption class="mono center">An example group. Names are examples.</figcaption>
+        </figure>
+
+        <!-- AI visual: one prompt and what it built. -->
+        <div data-only="ai" hidden>
+          <div class="prompt">
+            <p class="tag">Example prompt</p>
+            <p class="prompt-text" data-v="prompt">Set up our acting workshop in Together: rehearsals Tuesday and Thursday at 18:00 until 12 October, a list of the 7 scenes, and who brings what. Invite the cast from this list.</p>
+          </div>
+          <div class="flow"><span class="flow-line" aria-hidden="true"></span>Your AI builds it in Together</div>
+          <div class="result">
+            <p class="tag">What it built</p>
+            <ul data-v="result">
+              <li><span class="check" aria-hidden="true"></span>Calendar: every rehearsal until 12 Oct</li>
+              <li><span class="check" aria-hidden="true"></span>Checklist: 7 scenes to learn</li>
+              <li><span class="check" aria-hidden="true"></span>List: who brings what</li>
+              <li><span class="check" aria-hidden="true"></span>Group chat, with your AI in it</li>
+              <li><span class="check" aria-hidden="true"></span>16 people invited by text</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Made for: a chip changes only the example, never the headline. -->
+      <div class="made-for">
+        <p class="eyebrow" id="made-for-title">Made for</p>
+        <div class="chips" role="group" aria-labelledby="made-for-title">
+          <button class="chip" type="button" data-vertical="all" aria-pressed="true"><span class="dot" style="background: #7c3aed"></span>All groups</button>
+          <button class="chip" type="button" data-vertical="courses" aria-pressed="false"><span class="dot" style="background: #ea580c"></span>Courses</button>
+          <button class="chip" type="button" data-vertical="events" aria-pressed="false"><span class="dot" style="background: #0891b2"></span>Events</button>
+          <button class="chip" type="button" data-vertical="weddings" aria-pressed="false"><span class="dot" style="background: #db2777"></span>Weddings</button>
+          <button class="chip" type="button" data-vertical="trips" aria-pressed="false"><span class="dot" style="background: #0284c7"></span>Trips</button>
+          <button class="chip" type="button" data-vertical="teams" aria-pressed="false"><span class="dot" style="background: #16a34a"></span>Teams</button>
+          <button class="chip" type="button" data-vertical="family" aria-pressed="false"><span class="dot" style="background: #d97706"></span>Family</button>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <a href="/privacy">Privacy</a>
-      <a href="/legal">Terms</a>
-      <span>&copy; 2026 Together</span>
-    </div>
-  </footer>
+  </section>
 
+  <!-- 2. Problem -->
+  <section class="band" id="problem" aria-labelledby="problem-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The problem</p>
+        <h2 class="h2" id="problem-title">The information is there. The clarity isn't.</h2>
+        <p class="lead">Every group starts the same way: a chat, a few links, a lot of good will. Then this happens.</p>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <h3>Sunday night, twenty people</h3>
+          <p>Twenty people in the same class. Sunday night the group chat still asks: what was due for tomorrow?</p>
+        </div>
+        <div class="card">
+          <h3>Four or five things in your head</h3>
+          <p>For this week and the next. They stay there, a knot, until you write them down somewhere the group can see.</p>
+        </div>
+        <div class="card">
+          <h3>Held in one head</h3>
+          <p>One person holding the whole plan for everyone. Every question goes to them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. How it works -->
+  <section class="band band--tint" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">How it works</p>
+        <h2 class="h2" id="how-title">One project. Everyone on the same page.</h2>
+      </div>
+      <div class="split">
+        <div class="steps steps--col">
+          <ol class="steps steps--col">
+            <li class="step">
+              <h3>Start a project for your group</h3>
+              <p>It holds the plan for everyone: the dates, the lists, the costs and the chat.</p>
+            </li>
+            <li class="step">
+              <h3>Everyone adds what they know</h3>
+              <p>Write it down once, where the whole group can see it.</p>
+            </li>
+            <li class="step">
+              <h3>Everyone sees what is next</h3>
+              <p>Open the project and the next step is there. Nobody has to ask.</p>
+            </li>
+          </ol>
+          <p class="mono">Calendar · To-do's · Lists · Notes · Expenses · Chat</p>
+        </div>
+        <figure class="demo">
+          <span class="placeholder">[REAL SCREEN RECORDING]</span>
+          <figcaption class="small">A real group, recorded as it is. Nothing staged.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Who it's for. Each card selects its chip in the hero and scrolls there (home.js). -->
+  <section class="band" id="who" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Who it's for</p>
+        <h2 class="h2" id="who-title">Made for groups where everyone knows each other's name.</h2>
+        <p class="lead">Up to a few dozen people. Best from day one, while the group is still choosing how it works.</p>
+      </div>
+      <div class="grid3">
+        <button class="vcard" type="button" data-vertical="courses" aria-pressed="false">
+          <span class="squircle" style="background: #ea580c"><img src="/assets/projects/pallete-2.svg" alt=""></span>
+          <span><b>Courses & workshops</b><small>Example: Pottery Course</small></span>
+        </button>
+        <button class="vcard" type="button" data-vertical="events" aria-pressed="false">
+          <span class="squircle" style="background: #0891b2"><img src="/assets/projects/code-square.svg" alt=""></span>
+          <span><b>Events & hackathons</b><small>Example: Hack Weekend</small></span>
+        </button>
+        <button class="vcard" type="button" data-vertical="weddings" aria-pressed="false">
+          <span class="squircle" style="background: #db2777"><img src="/assets/projects/rings-jewel.svg" alt=""></span>
+          <span><b>Weddings & celebrations</b><small>Example: Sam & Alex's Wedding</small></span>
+        </button>
+        <button class="vcard" type="button" data-vertical="trips" aria-pressed="false">
+          <span class="squircle" style="background: #0284c7"><img src="/assets/projects/plane.svg" alt=""></span>
+          <span><b>Trips</b><small>Example: Lisbon Trip</small></span>
+        </button>
+        <button class="vcard" type="button" data-vertical="teams" aria-pressed="false">
+          <span class="squircle" style="background: #16a34a"><img src="/assets/projects/music-note.svg" alt=""></span>
+          <span><b>Bands, clubs & teams</b><small>Example: Thursday Band</small></span>
+        </button>
+        <button class="vcard" type="button" data-vertical="family" aria-pressed="false">
+          <span class="squircle" style="background: #d97706"><img src="/assets/projects/home-heart.svg" alt=""></span>
+          <span><b>Home & family</b><small>Example: Our Home</small></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Bring everyone in -->
+  <section class="band band--tint" id="join" aria-labelledby="join-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Bring everyone in</p>
+        <h2 class="h2" id="join-title">You start it. Everyone joins from one link.</h2>
+      </div>
+      <div class="steps steps--col">
+        <ol class="steps">
+          <li class="step">
+            <h3>Share one link</h3>
+            <p>Post it in your group chat, send it by text, or put it on screen at the first session.</p>
+          </li>
+          <li class="step">
+            <h3>They join from their phone</h3>
+            <p>They get the app and join your group.</p>
+          </li>
+          <li class="step">
+            <h3>Everyone sees the plan</h3>
+            <p>The dates, the lists and the chat are already there.</p>
+          </li>
+        </ol>
+        <div class="grid2">
+          <div class="card">
+            <h3>Organizing a course or an event?</h3>
+            <a class="link" href="/organizers">See how we help organizers</a>
+          </div>
+          <div class="card">
+            <h3>Got an invite?</h3>
+            <p>Open the link on your phone and get the app. Your group is waiting inside.</p>
+            <a class="link" href="/download">Get the app</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. AI -->
+  <section class="band" id="ai" aria-labelledby="ai-title">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">AI, when you want it</p>
+        <h2 class="h2" id="ai-title">AI that brings clarity, not noise.</h2>
+      </div>
+      <div class="split">
+        <div class="steps steps--col">
+          <div class="card">
+            <h3>Chip, built in</h3>
+            <p>Ask in plain words: "What's left before Saturday?" Chip answers from what the group already knows.</p>
+          </div>
+          <div class="card">
+            <h3>Bring your own AI</h3>
+            <p>Already use Claude or ChatGPT? Connect it and invite it into your group like a person.</p>
+          </div>
+          <p class="lead">Clarity isn't us deciding for you. It's your own information, made easy to see.</p>
+          <p class="mono">Add Together as a connector in your AI app. [CONNECTOR LINK — not set]</p>
+        </div>
+        <figure class="steps steps--col">
+          <ul class="members">
+            <li class="member"><span class="face" style="background: #7c3aed" aria-hidden="true">C</span><span><b>Chip</b><small>Built-in agent</small></span></li>
+            <li class="member"><span class="face" style="background: #0f766e" aria-hidden="true">S</span><span><b>Sars</b><small>Alex's agent · Claude</small></span><span class="badge">agent</span></li>
+            <li class="member"><span class="face" style="background: #1d4ed8" aria-hidden="true">M</span><span><b>Mia</b><small>Emma's agent · ChatGPT</small></span><span class="badge">agent</span></li>
+            <li class="member"><img src="/assets/members/alex.png" alt=""><span><b>Alex</b></span></li>
+            <li class="member"><img src="/assets/members/emma.png" alt=""><span><b>Emma</b></span></li>
+            <li class="member"><img src="/assets/members/jamie.png" alt=""><span><b>Jamie</b></span></li>
+          </ul>
+          <figcaption class="small">Every agent your group uses, in one place.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Promise -->
+  <section class="band band--narrow" id="promise" aria-labelledby="promise-title">
+    <div class="wrap center">
+      <h2 class="h2" id="promise-title">We won't promise to change your life. We promise clarity.</h2>
+      <p class="lead">Progress doesn't have to be stressful. When everyone knows what is next, the rest gets lighter.</p>
+      <ul class="pill-row">
+        <li class="pill">No gurus</li>
+        <li class="pill">No overpromises</li>
+        <li class="pill">Independent, no VC</li>
+        <li class="pill">No right way to use it</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. Final -->
+  <section class="band final" id="get" aria-labelledby="get-title">
+    <div class="wrap center">
+      <h2 class="h2" id="get-title">All we need is to know what is next.</h2>
+      <p class="lead">Free on iPhone and Android.</p>
+      <div class="row row--center">
+        <a class="store" href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener">
+          <img src="/assets/stores/apple-white.svg" alt=""><span><small>Download on the</small><b>App Store</b></span>
+        </a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener">
+          <img src="/assets/stores/android-white.svg" alt=""><span><small>Get it on</small><b>Google Play</b></span>
+        </a>
+      </div>
+      <p class="small"><a class="link" href="/download">Got an invite?</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="/assets/logo.svg" alt="Together">
+      <p class="small">© 2026 Together</p>
+      <p class="small">Second proposal for the website (v2, 27 Oct 2026). A prototype: names and numbers are examples.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li class="tag">Product</li>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#who">Who it's for</a></li>
+        <li><a href="/organizers">Organizers</a></li>
+        <li><a href="/download">Download</a></li>
+      </ul>
+      <ul>
+        <li class="tag">Company</li>
+        <li><a href="/about">About</a></li>
+        <li><a href="https://together.day/team" target="_blank" rel="noopener">Team</a></li>
+        <li><a href="/blog/clarity">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <ul>
+        <li class="tag">Legal</li>
+        <li><a href="https://together.day/privacy" target="_blank" rel="noopener">Privacy</a></li>
+        <li><a href="https://together.day/legal" target="_blank" rel="noopener">Terms</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script src="/home.js" defer></script>
 </body>
 </html>
