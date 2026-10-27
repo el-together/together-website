@@ -13,11 +13,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Domine:wght@400;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-
 <header class="top">
   <div class="top-in">
     <a class="logo" href="/" aria-label="Together, home">
@@ -34,302 +33,170 @@
 </header>
 
 <main id="main">
-
-  <!-- 1. Hero. The AI switch changes only this section (home.js). Without JS: normal copy, "all" example. -->
-  <section class="hero" id="hero" data-mode="normal" aria-labelledby="hero-title">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <button class="switch" type="button" role="switch" aria-checked="false">
-            <span class="switch-track" aria-hidden="true"><span class="switch-knob"></span></span>
-            Set it up with your AI
-          </button>
-          <p class="eyebrow" data-only="normal" data-v="eyebrow">For courses, events, trips, teams and families</p>
-          <p class="eyebrow" data-only="ai" hidden>For people who already use AI</p>
-          <h1 class="h1" id="hero-title"><span data-only="normal">All we need is to know what is next.</span><span data-only="ai" hidden>Set up your group with a few prompts.</span></h1>
-          <p class="hero-sub" data-only="normal">The rest doesn't have to live in our heads.</p>
-          <p class="hero-sub" data-only="ai" hidden>Connect Together to the AI you already use. It builds the calendar, the lists and the chat, and invites everyone. Then everyone knows what is next.</p>
-          <p class="mono">The plan, the dates, the lists, the costs and the chat, in one place.</p>
-          <div class="row" data-only="normal">
-            <a class="store" href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener">
-              <img src="/assets/stores/apple-white.svg" alt=""><span><small>Download on the</small><b>App Store</b></span>
-            </a>
-            <a class="store" href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener">
-              <img src="/assets/stores/android-white.svg" alt=""><span><small>Get it on</small><b>Google Play</b></span>
-            </a>
-          </div>
-          <div class="row" data-only="ai" hidden>
-            <a class="btn btn--dark" href="#ai">Connect your AI</a>
-            <a class="btn btn--ghost" href="/download">Get the app</a>
-          </div>
-          <p class="small"><a class="link" href="#join">Got an invite?</a></p>
+  <!-- HERO · the island -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="cloud" aria-hidden="true">
+    <span class="q x far" style="left:78.6%;top:91.0%;--rot:-13.1deg;--amp:80px;--dur:11.2s;--delay:-2.6s;--blink:9.8s">where's the link</span>
+    <span class="w" style="left:34.5%;top:30.4%;--rot:8.9deg;--amp:85px;--dur:6.3s;--delay:-4.0s;--blink:7.0s">what</span>
+    <span class="m" style="left:45.3%;top:59.9%;--rot:-5.1deg;--amp:51px;--dur:13.8s;--delay:-11.9s;--blink:9.7s">!</span>
+    <span class="w far" style="left:84.3%;top:51.5%;--rot:12.2deg;--amp:61px;--dur:6.7s;--delay:-2.3s;--blink:10.5s">all</span>
+    <span class="q" style="left:35.2%;top:88.0%;--rot:4.7deg;--amp:60px;--dur:13.3s;--delay:-7.8s;--blink:10.9s">anyone has the pic?</span>
+    <span class="w" style="left:10.7%;top:18.6%;--rot:-4.6deg;--amp:75px;--dur:12.3s;--delay:-6.7s;--blink:5.7s">we need</span>
+    <span class="q x" style="left:82.1%;top:58.6%;--rot:12.9deg;--amp:49px;--dur:8.7s;--delay:-8.6s;--blink:10.1s">was it today?</span>
+    <span class="q x" style="left:5.4%;top:56.3%;--rot:0.3deg;--amp:71px;--dur:13.9s;--delay:-5.9s;--blink:8.5s">which doc</span>
+    <span class="q x" style="left:45.6%;top:73.4%;--rot:3.0deg;--amp:87px;--dur:13.8s;--delay:-9.2s;--blink:6.5s">18:00 or 18:30?</span>
+    <span class="q far" style="left:32.8%;top:1.0%;--rot:-3.5deg;--amp:60px;--dur:9.6s;--delay:-11.9s;--blink:5.8s">what was due</span>
+    <span class="w far" style="left:81.3%;top:4.6%;--rot:3.2deg;--amp:50px;--dur:12.3s;--delay:-11.4s;--blink:10.2s">need</span>
+    <span class="q" style="left:17.3%;top:41.8%;--rot:5.5deg;--amp:88px;--dur:9.2s;--delay:-6.3s;--blink:9.3s">anyone has the pic?</span>
+    <span class="w" style="left:29.0%;top:75.4%;--rot:-4.9deg;--amp:71px;--dur:7.0s;--delay:-9.4s;--blink:9.5s">all</span>
+    <span class="m" style="left:64.9%;top:53.3%;--rot:-9.3deg;--amp:39px;--dur:11.9s;--delay:-2.5s;--blink:6.5s">??</span>
+    <span class="w" style="left:19.3%;top:81.9%;--rot:-5.4deg;--amp:55px;--dur:13.4s;--delay:-3.2s;--blink:10.6s">what is</span>
+    <span class="q x" style="left:3.1%;top:56.6%;--rot:11.1deg;--amp:57px;--dur:10.3s;--delay:-5.2s;--blink:9.2s">thursday or friday??</span>
+    <span class="m" style="left:37.7%;top:75.2%;--rot:-3.2deg;--amp:49px;--dur:7.9s;--delay:-3.9s;--blink:6.8s">??</span>
+    <span class="w far" style="left:10.6%;top:19.9%;--rot:13.1deg;--amp:85px;--dur:13.1s;--delay:-5.4s;--blink:8.9s">we need</span>
+    <span class="q" style="left:17.1%;top:3.1%;--rot:-0.5deg;--amp:62px;--dur:12.5s;--delay:-10.0s;--blink:10.9s">what was due</span>
+    <span class="q x" style="left:35.7%;top:69.7%;--rot:-5.6deg;--amp:55px;--dur:10.6s;--delay:-4.8s;--blink:9.7s">which doc</span>
+    <span class="q" style="left:22.5%;top:13.1%;--rot:3.7deg;--amp:64px;--dur:12.8s;--delay:-8.0s;--blink:9.2s">who has the lamps</span>
+    <span class="q" style="left:35.1%;top:49.9%;--rot:12.4deg;--amp:84px;--dur:10.2s;--delay:-10.3s;--blink:6.9s">who has the lamps</span>
+    <span class="w" style="left:37.4%;top:19.6%;--rot:10.8deg;--amp:76px;--dur:6.4s;--delay:-6.8s;--blink:10.8s">next</span>
+    <span class="w" style="left:4.5%;top:87.8%;--rot:5.2deg;--amp:65px;--dur:8.2s;--delay:-1.3s;--blink:8.3s">to know</span>
+    <span class="m" style="left:23.3%;top:45.2%;--rot:14.0deg;--amp:42px;--dur:12.1s;--delay:-3.7s;--blink:9.8s">??</span>
+    <span class="q x" style="left:21.2%;top:79.3%;--rot:1.3deg;--amp:33px;--dur:6.2s;--delay:-9.6s;--blink:7.6s">where's the link</span>
+    <span class="q" style="left:71.3%;top:61.4%;--rot:-13.9deg;--amp:67px;--dur:7.9s;--delay:-11.9s;--blink:7.8s">scene 2 or 3?</span>
+    <span class="w" style="left:5.3%;top:52.4%;--rot:11.5deg;--amp:65px;--dur:11.0s;--delay:-2.4s;--blink:6.3s">know</span>
+    <span class="w far" style="left:64.3%;top:77.2%;--rot:-12.9deg;--amp:76px;--dur:9.6s;--delay:-4.8s;--blink:9.9s">next?</span>
+    <span class="w" style="left:74.0%;top:87.9%;--rot:0.5deg;--amp:64px;--dur:9.4s;--delay:-6.7s;--blink:9.7s">is</span>
+    <span class="w" style="left:5.2%;top:80.1%;--rot:-5.4deg;--amp:49px;--dur:7.0s;--delay:-4.6s;--blink:6.4s">next?</span>
+    <span class="q" style="left:32.0%;top:84.6%;--rot:7.7deg;--amp:58px;--dur:10.8s;--delay:-9.8s;--blink:7.5s">did we decide?</span>
+    </div>
+    <div class="gut in wrap">
+      <h1 class="h1" id="hero-title">All we need is to know <span class="hl">what is next.</span></h1>
+      <p class="sub">The rest doesn't have to live in our heads.</p>
+      <div class="row" style="justify-content:center">
+          <a class="store" href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener"><img src="/assets/stores/apple-white.svg" alt=""><span><small>Download on the</small><b>App Store</b></span></a>
+          <a class="store" href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener"><img src="/assets/stores/android-white.svg" alt=""><span><small>Get it on</small><b>Google Play</b></span></a>
         </div>
-
-        <!-- Normal visual: one group project. data-v hooks are filled by home.js from the chips. -->
-        <figure class="steps steps--col" data-only="normal">
-          <div class="phone">
-            <div class="p-head">
-              <span class="squircle" data-v="pcolor" style="background: #7c3aed"><img data-v="picon" src="/assets/projects/masks.svg" alt=""></span>
-              <div>
-                <p class="p-title" data-v="pname">Acting Workshop</p>
-                <p class="p-meta" data-v="pmeta">16 members</p>
-              </div>
-              <div class="faces" data-v="faces">
-                <img src="/assets/members/alex.png" alt="">
-                <img src="/assets/members/emma.png" alt="">
-                <img src="/assets/members/jamie.png" alt="">
-              </div>
-            </div>
-            <div class="p-next">
-              <span class="tag">Next · <span data-v="nextWhen">Thu · 18:00</span></span>
-              <b data-v="nextWhat">Scene 3 rehearsal</b>
-            </div>
-            <ul class="p-rows" data-v="tools">
-              <li class="p-row"><img src="/assets/tools/calendar.svg" alt=""><span><b>Rehearsals</b><small>Tue & Thu · 18:00</small></span><i aria-hidden="true">›</i></li>
-              <li class="p-row"><img src="/assets/tools/checklist.svg" alt=""><span><b>Scenes to learn</b><small>4 of 7 ready</small></span><i aria-hidden="true">›</i></li>
-              <li class="p-row"><img src="/assets/tools/list.svg" alt=""><span><b>Who brings what</b><small>3 open</small></span><i aria-hidden="true">›</i></li>
-              <li class="p-row"><img src="/assets/tools/chat.svg" alt=""><span><b>Group chat</b><small>2 new</small></span><i aria-hidden="true">›</i></li>
-            </ul>
-          </div>
-          <figcaption class="mono center">An example group. Names are examples.</figcaption>
-        </figure>
-
-        <!-- AI visual: one prompt and what it built. -->
-        <div data-only="ai" hidden>
-          <div class="prompt">
-            <p class="tag">Example prompt</p>
-            <p class="prompt-text" data-v="prompt">Set up our acting workshop in Together: rehearsals Tuesday and Thursday at 18:00 until 12 October, a list of the 7 scenes, and who brings what. Invite the cast from this list.</p>
-          </div>
-          <div class="flow"><span class="flow-line" aria-hidden="true"></span>Your AI builds it in Together</div>
-          <div class="result">
-            <p class="tag">What it built</p>
-            <ul data-v="result">
-              <li><span class="check" aria-hidden="true"></span>Calendar: every rehearsal until 12 Oct</li>
-              <li><span class="check" aria-hidden="true"></span>Checklist: 7 scenes to learn</li>
-              <li><span class="check" aria-hidden="true"></span>List: who brings what</li>
-              <li><span class="check" aria-hidden="true"></span>Group chat, with your AI in it</li>
-              <li><span class="check" aria-hidden="true"></span>16 people invited by text</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Made for: a chip changes only the example, never the headline. -->
-      <div class="made-for">
-        <p class="eyebrow" id="made-for-title">Made for</p>
-        <div class="chips" role="group" aria-labelledby="made-for-title">
-          <button class="chip chip--you" type="button" data-vertical="you" aria-pressed="false"><span class="dot"></span>For you</button>
-          <span class="chips-divider" aria-hidden="true"></span>
-          <button class="chip" type="button" data-vertical="all" aria-pressed="true"><span class="dot" style="background: #7c3aed"></span>All groups</button>
-          <button class="chip" type="button" data-vertical="courses" aria-pressed="false"><span class="dot" style="background: #ea580c"></span>Courses</button>
-          <button class="chip" type="button" data-vertical="events" aria-pressed="false"><span class="dot" style="background: #0891b2"></span>Events</button>
-          <button class="chip" type="button" data-vertical="weddings" aria-pressed="false"><span class="dot" style="background: #db2777"></span>Weddings</button>
-          <button class="chip" type="button" data-vertical="trips" aria-pressed="false"><span class="dot" style="background: #0284c7"></span>Trips</button>
-          <button class="chip" type="button" data-vertical="teams" aria-pressed="false"><span class="dot" style="background: #16a34a"></span>Teams</button>
-          <button class="chip" type="button" data-vertical="family" aria-pressed="false"><span class="dot" style="background: #d97706"></span>Family</button>
-        </div>
-      </div>
+      <p class="invite">Got an invite? <a href="#join">Join your group</a></p>
     </div>
   </section>
 
-  <!-- 2. Problem -->
-  <section class="band" id="problem" aria-labelledby="problem-title">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">The problem</p>
-        <h2 class="h2" id="problem-title">The information is there. The clarity isn't.</h2>
-        <p class="lead">Every group starts the same way: a chat, a few links, a lot of good will. Then this happens.</p>
-      </div>
-      <div class="grid3">
-        <div class="card">
-          <h3>Sunday night, twenty people</h3>
-          <p>Twenty people in the same class. Sunday night the group chat still asks: what was due for tomorrow?</p>
-        </div>
-        <div class="card">
-          <h3>Four or five things in your head</h3>
-          <p>For this week and the next. They stay there, a knot, until you write them down somewhere the group can see.</p>
-        </div>
-        <div class="card">
-          <h3>Held in one head</h3>
-          <p>One person holding the whole plan for everyone. Every question goes to them.</p>
-        </div>
-      </div>
+  <!-- PROBLEM -->
+  <section class="band gut" aria-labelledby="problem-title"><div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The problem</p>
+      <h2 class="h2" id="problem-title">The information is there. The clarity <span class="hl">isn't.</span></h2>
+      <p class="lead">Every group starts the same way: a chat, a few links, a lot of good will. Then this happens.</p>
     </div>
-  </section>
-
-  <!-- 3. How it works -->
-  <section class="band band--tint" id="how" aria-labelledby="how-title">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">How it works</p>
-        <h2 class="h2" id="how-title">One project. Everyone on the same page.</h2>
-      </div>
-      <div class="split">
-        <div class="steps steps--col">
-          <ol class="steps steps--col">
-            <li class="step">
-              <h3>Start a project for your group</h3>
-              <p>It holds the plan for everyone: the dates, the lists, the costs and the chat.</p>
-            </li>
-            <li class="step">
-              <h3>Everyone adds what they know</h3>
-              <p>Write it down once, where the whole group can see it.</p>
-            </li>
-            <li class="step">
-              <h3>Everyone sees what is next</h3>
-              <p>Open the project and the next step is there. Nobody has to ask.</p>
-            </li>
-          </ol>
-          <p class="mono">Calendar · To-do's · Lists · Notes · Expenses · Chat</p>
-        </div>
-        <figure class="demo">
-          <span class="placeholder">[REAL SCREEN RECORDING]</span>
-          <figcaption class="small">A real group, recorded as it is. Nothing staged.</figcaption>
-        </figure>
-      </div>
+    <div class="grid3">
+      <article class="sheet tilt-l"><p class="note">Sunday night, twenty people</p><h3>Everyone in the class got the same lesson.</h3><p>On Sunday night the group chat still asks: what was due for tomorrow?</p></article>
+      <article class="sheet"><p class="note">Four or five things in your head</p><h3>For this week and the next.</h3><p>They stay there, a knot, until you write them down somewhere the group can see.</p></article>
+      <article class="sheet tilt-r"><p class="note">Held in one head</p><h3>One person carries the plan for everyone.</h3><p>Every question goes to them. Nobody else can see what is next.</p></article>
     </div>
-  </section>
+  </div></section>
 
-  <!-- 4. Who it's for. Each card selects its chip in the hero and scrolls there (home.js). -->
-  <section class="band" id="who" aria-labelledby="who-title">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">Who it's for</p>
-        <h2 class="h2" id="who-title">Made for groups where everyone knows each other's name.</h2>
-        <p class="lead">Up to a few dozen people. Best from day one, while the group is still choosing how it works.</p>
-      </div>
-      <div class="grid3">
-        <button class="vcard" type="button" data-vertical="courses" aria-pressed="false">
-          <span class="squircle" style="background: #ea580c"><img src="/assets/projects/pallete-2.svg" alt=""></span>
-          <span><b>Courses & workshops</b><small>Example: Pottery Course</small></span>
-        </button>
-        <button class="vcard" type="button" data-vertical="events" aria-pressed="false">
-          <span class="squircle" style="background: #0891b2"><img src="/assets/projects/code-square.svg" alt=""></span>
-          <span><b>Events & hackathons</b><small>Example: Hack Weekend</small></span>
-        </button>
-        <button class="vcard" type="button" data-vertical="weddings" aria-pressed="false">
-          <span class="squircle" style="background: #db2777"><img src="/assets/projects/rings-jewel.svg" alt=""></span>
-          <span><b>Weddings & celebrations</b><small>Example: Sam & Alex's Wedding</small></span>
-        </button>
-        <button class="vcard" type="button" data-vertical="trips" aria-pressed="false">
-          <span class="squircle" style="background: #0284c7"><img src="/assets/projects/plane.svg" alt=""></span>
-          <span><b>Trips</b><small>Example: Lisbon Trip</small></span>
-        </button>
-        <button class="vcard" type="button" data-vertical="teams" aria-pressed="false">
-          <span class="squircle" style="background: #16a34a"><img src="/assets/projects/music-note.svg" alt=""></span>
-          <span><b>Bands, clubs & teams</b><small>Example: Thursday Band</small></span>
-        </button>
-        <button class="vcard" type="button" data-vertical="family" aria-pressed="false">
-          <span class="squircle" style="background: #d97706"><img src="/assets/projects/home-heart.svg" alt=""></span>
-          <span><b>Home & family</b><small>Example: Our Home</small></span>
-        </button>
-      </div>
+  <!-- HOW -->
+  <section class="band band--tint gut" id="how" aria-labelledby="how-title"><div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2" id="how-title">One project. Everyone on the <span class="hl">same page.</span></h2>
     </div>
-  </section>
-
-  <!-- 5. Bring everyone in -->
-  <section class="band band--tint" id="join" aria-labelledby="join-title">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">Bring everyone in</p>
-        <h2 class="h2" id="join-title">You start it. Everyone joins from one link.</h2>
-      </div>
-      <div class="steps steps--col">
-        <ol class="steps">
-          <li class="step">
-            <h3>Share one link</h3>
-            <p>Post it in your group chat, send it by text, or put it on screen at the first session.</p>
-          </li>
-          <li class="step">
-            <h3>They join from their phone</h3>
-            <p>They get the app and join your group.</p>
-          </li>
-          <li class="step">
-            <h3>Everyone sees the plan</h3>
-            <p>The dates, the lists and the chat are already there.</p>
-          </li>
+    <div class="split">
+      <div class="sheet sheet--lined">
+        <ol class="lines">
+          <li><div><b>Start a project for your group</b><span>It holds the plan for everyone: the dates, the lists, the costs and the chat.</span></div></li>
+          <li><div><b>Everyone adds what they know</b><span>Write it down once, where the whole group can see it.</span></div></li>
+          <li><div><b>Everyone sees what is next</b><span>Open the project and the next step is there. Nobody has to ask.</span></div></li>
         </ol>
-        <div class="grid2">
-          <div class="card">
-            <h3>Organizing a course or an event?</h3>
-            <a class="link" href="/organizers">See how we help organizers</a>
-          </div>
-          <div class="card">
-            <h3>Got an invite?</h3>
-            <p>Open the link on your phone and get the app. Your group is waiting inside.</p>
-            <a class="link" href="/download">Get the app</a>
-          </div>
+        <p class="tools">Calendar · To-do's · Lists · Notes · Expenses · Chat</p>
+      </div>
+      <figure class="demo"><span class="tag">[REAL SCREEN RECORDING]</span><figcaption><small>A real group, recorded as it is. Nothing staged.</small></figcaption></figure>
+    </div>
+  </div></section>
+
+  <!-- WHO · "Made for" lives here now -->
+  <section class="band gut" id="who" aria-labelledby="who-title"><div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Made for</p>
+      <h2 class="h2" id="who-title">Groups where everyone knows each other's name. <span class="hl">And you.</span></h2>
+      <p class="lead">Up to a few dozen people. Best from day one, while the group is still choosing how it works. And your own plans, in the same place.</p>
+    </div>
+    <div class="who-cards">
+      <article class="who who--you"><b>For you</b><p class="ex">your week, your to-do's, your notes</p></article>
+      <article class="who" style="--c:#e08a4a"><b>Courses &amp; workshops</b><p class="ex">Pottery Course</p></article>
+      <article class="who" style="--c:#4f9a7a"><b>Events &amp; hackathons</b><p class="ex">Hack Weekend</p></article>
+      <article class="who" style="--c:#d9748a"><b>Weddings &amp; celebrations</b><p class="ex">Sam &amp; Alex's Wedding</p></article>
+      <article class="who" style="--c:#5b8fc2"><b>Trips</b><p class="ex">Lisbon Trip</p></article>
+      <article class="who" style="--c:#7fa35a"><b>Bands, clubs &amp; teams</b><p class="ex">Thursday Band</p></article>
+      <article class="who" style="--c:#d3a23a"><b>Home &amp; family</b><p class="ex">Our Home</p></article>
+      <article class="who" style="--c:#8a6d3b"><b>Any group that is forming</b><p class="ex">still choosing its tools</p></article>
+    </div>
+  </div></section>
+
+  <!-- JOIN -->
+  <section class="band band--tint gut" id="join" aria-labelledby="join-title"><div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Bring everyone in</p>
+      <h2 class="h2" id="join-title">You start it. Everyone joins from <span class="hl">one link.</span></h2>
+    </div>
+    <div class="split" style="align-items:start">
+      <div class="sheet sheet--lined">
+        <ol class="lines">
+          <li><div><b>Share one link</b><span>Post it in your group chat, send it by text, or put it on screen at the first session.</span></div></li>
+          <li><div><b>They join from their phone</b><span>They get the app and join your group.</span></div></li>
+          <li><div><b>Everyone sees the plan</b><span>The dates, the lists and the chat are already there.</span></div></li>
+        </ol>
+      </div>
+      <div style="display:grid;gap:18px">
+        <article class="sheet sheet--ink"><h3>Organizing a course or an event?</h3><p>You bring the group. We make it easy for everyone to know what is next, without you repeating it. A free 30-minute setup call, if you want it.</p><a class="btn btn--light" href="/organizers">See how we help organizers</a></article>
+        <article class="sheet"><h3>Got an invite?</h3><p>Open the link on your phone and get the app. Your group is waiting inside.</p><a class="btn btn--ghost" href="#get">Get the app</a></article>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- AI -->
+  <section class="band gut" id="ai" aria-labelledby="ai-title"><div class="wrap">
+    <div class="head">
+      <p class="eyebrow">AI, when you want it</p>
+      <h2 class="h2" id="ai-title">AI that brings clarity, <span class="hl">not noise.</span></h2>
+    </div>
+    <div class="split">
+      <div style="display:grid;gap:18px">
+        <article class="sheet"><p class="note">Built in</p><h3>Chip</h3><p>Ask in plain words: "What's left before Saturday?" Chip answers from what the group already knows.</p></article>
+        <article class="sheet"><p class="note">Bring your own</p><h3>Your AI joins like a person</h3><p>Already use Claude or ChatGPT? Connect it and invite it into your group. <span class="small">Add Together as a connector in your AI app. [CONNECTOR LINK — not set]</span></p></article>
+        <p class="lead">Clarity isn't us deciding for you. It's your own information, made easy to see.</p>
+      </div>
+      <div>
+        <ul class="members" aria-label="The group's members, people and agents">
+          <li class="member"><span class="face" style="background:#7c3aed">C</span><div><b>Chip</b><small>Built-in agent</small></div><span class="badge">agent</span></li>
+          <li class="member"><span class="face" style="background:#c8552c">S</span><div><b>Sars</b><small>Alex's agent · Claude</small></div><span class="badge">agent</span></li>
+          <li class="member"><span class="face" style="background:#2f7d5a">M</span><div><b>Mia</b><small>Emma's agent · ChatGPT</small></div><span class="badge">agent</span></li>
+          <li class="member"><img src="/assets/members/alex.png" alt=""><div><b>Alex</b><small>Organizer</small></div></li>
+          <li class="member"><img src="/assets/members/emma.png" alt=""><div><b>Emma</b></div></li>
+          <li class="member"><img src="/assets/members/jamie.png" alt=""><div><b>Jamie</b></div></li>
+        </ul>
+        <p class="caption">every agent your group uses, in one place</p>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- PROMISE -->
+  <section class="band band--tint gut" aria-labelledby="promise-title"><div class="wrap center">
+    <p class="eyebrow" id="promise-title">Our promise</p>
+    <p class="quote">We won't promise to change your life. We promise clarity.</p>
+    <p class="lead" style="text-align:center">Progress doesn't have to be stressful. When everyone knows what is next, the rest gets lighter.</p>
+    <div class="pills"><span class="pill">No gurus</span><span class="pill">No overpromises</span><span class="pill">Independent, no VC</span><span class="pill">No right way to use it</span></div>
+  </div></section>
+
+  <!-- FINAL -->
+  <section class="band final gut" id="get" aria-labelledby="final-title"><div class="wrap center">
+    <h2 class="h2" id="final-title">All we need is to know <span class="hl">what is next.</span></h2>
+    <p class="lead">Free on iPhone and Android.</p>
+    <div class="row" style="justify-content:center">
+          <a class="store store--light" href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener"><img src="/assets/stores/apple.svg" alt=""><span><small>Download on the</small><b>App Store</b></span></a>
+          <a class="store store--light" href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener"><img src="/assets/stores/android.svg" alt=""><span><small>Get it on</small><b>Google Play</b></span></a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. AI -->
-  <section class="band" id="ai" aria-labelledby="ai-title">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">AI, when you want it</p>
-        <h2 class="h2" id="ai-title">AI that brings clarity, not noise.</h2>
-      </div>
-      <div class="split">
-        <div class="steps steps--col">
-          <div class="card">
-            <h3>Chip, built in</h3>
-            <p>Ask in plain words: "What's left before Saturday?" Chip answers from what the group already knows.</p>
-          </div>
-          <div class="card">
-            <h3>Bring your own AI</h3>
-            <p>Already use Claude or ChatGPT? Connect it and invite it into your group like a person.</p>
-          </div>
-          <p class="lead">Clarity isn't us deciding for you. It's your own information, made easy to see.</p>
-          <p class="mono">Add Together as a connector in your AI app. [CONNECTOR LINK — not set]</p>
-        </div>
-        <figure class="steps steps--col">
-          <ul class="members">
-            <li class="member"><span class="face" style="background: #7c3aed" aria-hidden="true">C</span><span><b>Chip</b><small>Built-in agent</small></span></li>
-            <li class="member"><span class="face" style="background: #0f766e" aria-hidden="true">S</span><span><b>Sars</b><small>Alex's agent · Claude</small></span><span class="badge">agent</span></li>
-            <li class="member"><span class="face" style="background: #1d4ed8" aria-hidden="true">M</span><span><b>Mia</b><small>Emma's agent · ChatGPT</small></span><span class="badge">agent</span></li>
-            <li class="member"><img src="/assets/members/alex.png" alt=""><span><b>Alex</b></span></li>
-            <li class="member"><img src="/assets/members/emma.png" alt=""><span><b>Emma</b></span></li>
-            <li class="member"><img src="/assets/members/jamie.png" alt=""><span><b>Jamie</b></span></li>
-          </ul>
-          <figcaption class="small">Every agent your group uses, in one place.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Promise -->
-  <section class="band band--narrow" id="promise" aria-labelledby="promise-title">
-    <div class="wrap center">
-      <h2 class="h2" id="promise-title">We won't promise to change your life. We promise clarity.</h2>
-      <p class="lead">Progress doesn't have to be stressful. When everyone knows what is next, the rest gets lighter.</p>
-      <ul class="pill-row">
-        <li class="pill">No gurus</li>
-        <li class="pill">No overpromises</li>
-        <li class="pill">Independent, no VC</li>
-        <li class="pill">No right way to use it</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 8. Final -->
-  <section class="band final" id="get" aria-labelledby="get-title">
-    <div class="wrap center">
-      <h2 class="h2" id="get-title">All we need is to know what is next.</h2>
-      <p class="lead">Free on iPhone and Android.</p>
-      <div class="row row--center">
-        <a class="store" href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener">
-          <img src="/assets/stores/apple-white.svg" alt=""><span><small>Download on the</small><b>App Store</b></span>
-        </a>
-        <a class="store" href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener">
-          <img src="/assets/stores/android-white.svg" alt=""><span><small>Get it on</small><b>Google Play</b></span>
-        </a>
-      </div>
-      <p class="small"><a class="link" href="/download">Got an invite?</a></p>
-    </div>
-  </section>
-
+    <p class="invite">Got an invite? <a href="#join">Join your group</a></p>
+  </div></section>
 </main>
 
 <footer>
@@ -337,7 +204,6 @@
     <div class="foot-brand">
       <img src="/assets/logo.svg" alt="Together">
       <p class="small">© 2026 Together</p>
-      <p class="small">Second proposal for the website (v2, 27 Oct 2026). A prototype: names and numbers are examples.</p>
     </div>
     <nav aria-label="Footer">
       <ul>
@@ -350,18 +216,17 @@
       <ul>
         <li class="tag">Company</li>
         <li><a href="/about">About</a></li>
-        <li><a href="https://together.day/team" target="_blank" rel="noopener">Team</a></li>
-        <li><a href="/blog/clarity">Blog</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/blog">Blog</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
       <ul>
         <li class="tag">Legal</li>
-        <li><a href="https://together.day/privacy" target="_blank" rel="noopener">Privacy</a></li>
-        <li><a href="https://together.day/legal" target="_blank" rel="noopener">Terms</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/legal">Terms</a></li>
       </ul>
     </nav>
   </div>
 </footer>
-<script src="/home.js" defer></script>
 </body>
 </html>
