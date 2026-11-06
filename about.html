@@ -6,7 +6,7 @@
   <title>About — together.day</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'TT Commons Pro';
@@ -33,119 +33,33 @@
       line-height: 1.7;
     }
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 40px;
-      border-bottom: 1px solid #eceef1;
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: saturate(180%) blur(12px);
-      -webkit-backdrop-filter: saturate(180%) blur(12px);
-      z-index: 100;
-    }
+    
 
-    .header-logo {
-      display: inline-block;
-      height: 28px;
-      aspect-ratio: 3784 / 1060;
-      background-color: #374151;
-      -webkit-mask-image: url("./assets/Logo 2.1 negro.svg");
-              mask-image: url("./assets/Logo 2.1 negro.svg");
-      -webkit-mask-repeat: no-repeat;
-              mask-repeat: no-repeat;
-      -webkit-mask-position: left center;
-              mask-position: left center;
-      -webkit-mask-size: contain;
-              mask-size: contain;
-    }
+    
 
-    nav { display: flex; align-items: center; gap: 24px; }
+    
 
-    nav a {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #6b7280;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: color 0.2s;
-    }
+    
 
-    nav a:hover { color: #374151; }
+    
 
-    .header-platforms {
-      display: flex;
-      align-items: stretch;
-      gap: 10px;
-    }
+    
 
-    .header-platform-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 16px;
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      color: #374151 !important;
-      text-decoration: none;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
+    
 
-    .header-platform-btn:hover {
-      background: #374151;
-      border-color: #374151;
-      color: #fff !important;
-      box-shadow: 0 4px 14px rgba(55, 65, 81, 0.18);
-    }
+    
 
-    .header-platform-icon {
-      width: 18px;
-      height: 18px;
-      display: block;
-      background-color: currentColor;
-      -webkit-mask-repeat: no-repeat;
-              mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-              mask-position: center;
-      -webkit-mask-size: contain;
-              mask-size: contain;
-    }
+    
 
-    .header-platform-icon--apple {
-      -webkit-mask-image: url("./assets/icons/platforms/apple.svg");
-              mask-image: url("./assets/icons/platforms/apple.svg");
-    }
+    
 
-    .header-platform-icon--android {
-      -webkit-mask-image: url("./assets/icons/platforms/android.svg");
-              mask-image: url("./assets/icons/platforms/android.svg");
-    }
+    
 
-    .header-platform-btn-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-      text-align: left;
-    }
+    
 
-    .header-platform-btn-sub {
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      opacity: 0.7;
-    }
+    
 
-    .header-platform-btn-main {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: -0.005em;
-      margin-top: 1px;
-    }
+    
 
     .content-area {
       background: #e8e6f1;
@@ -194,100 +108,60 @@
       color: #333;
     }
 
-    footer {
-      margin-top: 0;
-      border-top: 1px solid #e8e8e8;
-      padding: 48px 40px;
-    }
+    
 
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
+    
 
-    .footer-logo img { height: 24px; width: auto; opacity: 0.5; }
+    
 
-    .footer-links { display: flex; gap: 64px; }
+    
 
-    .footer-col h4 {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 16px;
-    }
+    
 
-    .footer-col a {
-      display: block;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      color: #888;
-      text-decoration: none;
-      margin-bottom: 10px;
-      transition: color 0.2s;
-    }
+    
 
-    .footer-col a:hover { color: #1a1a1a; }
+    
 
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 40px auto 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      font-size: 12px;
-      color: #bbb;
-    }
+    
 
-    .footer-bottom a {
-      color: #bbb;
-      text-decoration: none;
-      margin-right: 16px;
-    }
+    
 
-    .footer-bottom a:hover { color: #888; }
+    
 
     @media (max-width: 768px) {
-      header { padding: 12px 16px; }
-      .header-logo { height: 22px; }
-      nav { gap: 14px; }
-      .header-platforms { gap: 8px; }
-      .header-platform-btn { padding: 6px 12px; gap: 8px; border-radius: 12px; }
-      .header-platform-btn-sub { display: none; }
-      .header-platform-btn-main { font-size: 12px; }
-      .header-platform-icon { width: 16px; height: 16px; }
+      
+      
+      
+      
+      
+      
+      
+      
       .page-title-area { padding: 60px 0 20px; }
       .page { padding: 0 20px; }
-      .footer-inner { flex-direction: column; gap: 32px; }
-      .footer-links { gap: 40px; flex-wrap: wrap; }
+      
+      
     }
   </style>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/site.js" defer></script>
+  <link rel="stylesheet" href="/css/page.css">
 </head>
 <body>
 
   <header>
-    <a href="/" class="header-logo" aria-label="together"></a>
-    <nav>
-      <a href="/blog">Blog</a>
-      <div class="header-platforms">
-        <a href="https://apps.apple.com/us/app/together-daily-to-do-planner/id6460859044" target="_blank" rel="noopener" class="header-platform-btn" aria-label="Download on the App Store">
-          <span class="header-platform-icon header-platform-icon--apple" aria-hidden="true"></span>
-          <span class="header-platform-btn-text">
-            <span class="header-platform-btn-sub">Download on</span>
-            <span class="header-platform-btn-main">App Store</span>
-          </span>
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=day.together.app" target="_blank" rel="noopener" class="header-platform-btn" aria-label="Get it on Google Play">
-          <span class="header-platform-icon header-platform-icon--android" aria-hidden="true"></span>
-          <span class="header-platform-btn-text">
-            <span class="header-platform-btn-sub">Get it on</span>
-            <span class="header-platform-btn-main">Google Play</span>
-          </span>
-        </a>
-      </div>
-    </nav>
-  </header>
+  <div class="wrap nav">
+    <a href="/" aria-label="Together"><img src="/assets/Logo%202.1%20negro.svg" alt="Together"></a>
+    <ul>
+      <li><a href="/#how">How it works</a></li>
+      <li><a href="/#who">Who it's for</a></li>
+      <li><a href="/#organizers">We'll help you set up</a></li>
+      <li><a href="/#ai" class="ai-link">Works with your AI</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a class="btn" href="/download">Get the app</a>
+  </div>
+</header>
 
   <div class="content-area">
   <div class="page">
@@ -301,37 +175,25 @@
     </div>
 
     <div class="page-body">
-      <p>Together is a platform for the people you care about. Built by a small, independent team with no VC funding and no big corporations behind it.</p>
-      <p>We believe technology should serve humans, not the other way around. No gurus, no overpromises, just tools that facilitate collaboration when needed.</p>
+      <p>Together is one app for everything you plan with other people. The dates, the lists, the costs and the chat live in one project everyone can see, so the plan doesn't have to live in one person's head.</p>
+      <p>We make it for whoever gets the plan going: a course, a trip, a wedding, a family. When everyone knows what's next, nobody has to keep asking.</p>
+      <p>Together is built by a small, independent team. No VC funding, no big corporations behind it. No gurus, no overpromises: just a clear place for the plans you share.</p>
     </div>
 
   </div>
   </div>
 
   <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <img src="./assets/Logo 2.1 negro.svg" alt="together">
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Product</h4>
-          <a href="/about">About</a>
-          <a href="/team">Team</a>
-          <a href="/blog">Blog</a>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a href="/contact">Contact us</a>
-        </div>
-      </div>
+  <div class="wrap">
+    <div class="brand">
+      <img src="/assets/Logo%202.1%20negro.svg" alt="Together">
+      <p class="note">© 2026 Together</p>
     </div>
-    <div class="footer-bottom">
-      <a href="/privacy">Privacy</a>
-      <a href="/legal">Terms</a>
-      <span>&copy; 2026 Together</span>
-    </div>
-  </footer>
+    <div><h4>Product</h4><ul><li><a href="/#how">How it works</a></li><li><a href="/#who">Who it's for</a></li><li><a href="/#organizers">We'll help you set up</a></li><li><a href="/download">Download</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/team">Team</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="/privacy">Privacy</a></li><li><a href="/legal">Terms</a></li></ul></div>
+  </div>
+</footer>
 
 </body>
 </html>
