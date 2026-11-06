@@ -1,0 +1,9 @@
+/* Interior pages: the home's type system (TT Commons Pro, white panel on lavender). Loaded after each page's own styles. */
+.content-area{padding-top:28px;padding-bottom:80px}
+.page{background:#fff;border-radius:28px;padding:clamp(26px,5vw,56px)}
+.page-separator{display:none}
+.page-title-area{padding:0;margin:0 0 10px}
+.page-title-area h1,.download-card h1{font-size:clamp(34px,5vw,56px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:0}
+.footnote,.page-meta,.post-card-date,.team-member-info .role,.post-meta{font-family:"TT Commons Pro",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.page-body p,.legal-body p,.bio,.post-card-summary,.page-subtitle,.lede{font-size:17px;line-height:1.6;color:#3a3550}
+.page a{color:#1a1a1a}
